@@ -1,0 +1,518 @@
+---
+title: "Public Health in a World Where We Can Predict Anything"
+subtitle: "Valid inference + reproducible pipelines for prediction-driven science"
+author: "Stephen Salerno"
+institute: "Talking Public Health, WashU School of Public Health"
+date: 2026-04-01
+format:
+  revealjs:
+    theme: [default, styles.scss]
+    logo: /images/theme/logo.png
+    slide-number: true
+    hash: true
+    navigation-mode: linear
+    transition: fade
+    background-transition: fade
+    incremental: true
+    center: true
+    width: 1280
+    height: 720
+    preview-links: true
+    chalkboard: true     # live annotation during the talk
+    plugins: [search, zoom, chalkboard]
+    code-fold: true
+    code-line-numbers: true
+#    mermaid: true
+title-slide-attributes:
+  data-background-image: "/images/theme/bg1.png"
+  data-background-size: "auto 100% !important"
+  data-background-position: "right !important"
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{=html}
+<style>
+/* Minimal placeholder; we’ll do real theming later */
+.reveal .slides { font-size: 30px; }
+.small { font-size: 0.75em; opacity: 0.9; }
+.muted { opacity: 0.75; }
+.kicker { letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.65em; opacity: 0.8; }
+.callout { border-left: 6px solid #999; padding-left: 0.8rem; margin: 1rem 0; }
+</style>
+```
+
+##
+
+::: {.kicker}
+Talking Public Health — WashU SPH
+:::
+
+## Public health in a world where we can predict anything
+
+::: {.muted}
+**Thesis:** Predictions are becoming *inputs* to public health science and practice.
+If we treat them like ordinary measurements, we get confident answers to the wrong questions.
+:::
+
+::: notes
+Open with a concrete example you’ll return to (BMI → adiposity; verbal autopsy → cause of death).
+Then: “This talk is about how we do *valid* science when predictions replace measurements.”
+:::
+
+---
+
+## The 30-second map (where we’re going)
+
+::: {.fragment}
+**Part I.** Predictions are everywhere in public health (and they matter).
+:::
+
+::: {.fragment}
+**Part II.** What breaks when we analyze predicted data “as if it were observed.”
+:::
+
+::: {.fragment}
+**Part III.** Two practical responses:
+
+* **`ipd`**: inference on predicted data (valid uncertainty for downstream models)
+* **`scorcher`**: reproducible, practitioner-facing ML pipelines in R
+:::
+
+::: {.fragment}
+**Close.** How this aligns with WashU SPH’s *4x4 Plan* and where I’m going next.
+:::
+
+---
+
+## A framing: predictions as a new kind of exposure
+
+::: {.callout}
+In the AI age, we are all “exposed” to predictions:
+risk scores, triage scores, predicted causes of death, predicted phenotypes, predicted labels…
+:::
+
+::: {.fragment}
+Public health decisions increasingly depend on:
+
+* **Who gets measured** vs **who gets predicted**
+* **How predictions shift denominators** (who counts)
+* **How prediction errors propagate** into conclusions and policy
+:::
+
+::: notes
+Channel Tyler/Jeff advice: this is the pitch—broad, epi-adjacent, not a survey talk.
+Tease other work as “happy to talk about it in Q&A.”
+:::
+
+---
+
+## Example 1: BMI is a prediction (and it’s crude)
+
+**BMI** is often used as a stand-in for **adiposity**.
+
+::: {.fragment}
+But BMI is (at best) a noisy proxy:
+
+* varies by sex, age, race/ethnicity, muscle mass, fat distribution
+* systematically biased for some groups
+:::
+
+::: {.fragment}
+If I fit a health-outcome model using BMI “as adiposity,” I’m doing downstream inference on a prediction.
+:::
+
+::: notes
+Make it visceral: “BMI is a prediction you can compute in 10 seconds. It’s useful—but it’s not adiposity.”
+Set up the general template: true outcome Y exists for some; predicted outcome Ŷ used for many.
+:::
+
+---
+
+## Example 2: Verbal autopsy → now LLMs for causes of death
+
+Verbal autopsies convert interviews into **probable causes of death**.
+
+::: {.fragment}
+Modern ML/LLM systems can:
+
+* summarize narratives
+* map to ICD-like categories
+* produce calibrated probabilities (sometimes)
+:::
+
+::: {.fragment}
+But downstream users often want:
+
+* cause-specific mortality fractions
+* risk-factor associations
+* time trends and comparisons across regions
+:::
+
+::: {.fragment}
+Those are *inference problems*, not just prediction problems.
+:::
+
+---
+
+## Example 3: Genetics / TWAS as “prediction pipelines”
+
+TWAS and related methods often:
+
+* learn expression prediction models in one dataset
+* impute expression in another dataset
+* associate imputed expression with outcomes
+
+::: {.fragment}
+That workflow is powerful… and it is also:
+
+* **measurement error**
+* **two-phase sampling**
+* **missing labels**
+* **inference after prediction**
+all wearing different clothes.
+
+:::
+
+---
+
+## The recurring pattern
+
+<!---
+```{mermaid}
+flowchart LR
+  A[Small labeled set<br/>true Y observed] ->|train model| M[Prediction model f]
+  B[Large unlabeled set<br/>Y unobserved] ->|predict| P[Predicted outcomes Ŷ=f(X)]
+  A -> D[Downstream analysis]
+  P -> D
+  D -> E[Scientific claim / decision]
+```
+
+--->
+
+::: {.fragment}
+The convenience is real.
+So is the risk: **naive inference treats Ŷ like Y**.
+:::
+
+---
+
+## What breaks if we analyze predicted outcomes naively?
+
+### Two failure modes (and they compound)
+
+::: {.fragment}
+
+1. **Bias / attenuation / confounding distortion**
+   Downstream coefficients can shift because Ŷ ≠ Y.
+ :::
+
+::: {.fragment}
+2) **Variance understatement**
+Standard errors ignore prediction uncertainty and calibration error.
+:::
+
+::: {.fragment}
+Result: confident intervals around the wrong target.
+:::
+
+::: notes
+Keep this high-level here. The technical detail will come with one clean toy equation + one picture.
+:::
+
+---
+
+## A single-slide “math you can say out loud”
+
+Suppose your target is a parameter (\theta) defined by a moment condition:
+[
+\mathbb{E}\big[\psi(Y, X; \theta)\big] = 0.
+]
+
+::: {.fragment}
+Naive plug-in replaces (Y) with (\hat Y):
+[
+\mathbb{E}\big[\psi(\hat Y, X; \theta)\big] = 0
+]
+which generally targets **a different parameter**.
+:::
+
+::: {.fragment}
+Even if bias were small, the naive variance treats (\hat Y) as fixed—so it’s too optimistic.
+:::
+
+---
+
+## So what do we do?
+
+::: {.kicker}
+Two complementary contributions
+:::
+
+### 1) **Valid inference on predicted data** (methods + `ipd`)
+
+Make the downstream model honest about:
+
+* bias from prediction error
+* uncertainty from using Ŷ
+
+### 2) **Reproducible prediction pipelines** (practitioner-facing tooling + `scorcher`)
+
+Make it easy to:
+
+* train, evaluate, document, and deploy prediction models
+* hand off predictions + metadata needed for valid inference
+
+---
+
+## `ipd`: inference on predicted data (the idea)
+
+**Goal:** valid confidence intervals / p-values for downstream models when outcomes are partially predicted.
+
+::: {.fragment}
+**Setup (typical):**
+
+* Labeled set: ((X_\ell, Y_\ell))
+* Unlabeled set: ((X_u)) and predictions (\hat Y_u = f(X_u))
+
+::: {.fragment}
+**Key move:** use the labeled set to estimate and correct the systematic gap between (Y) and (\hat Y), then propagate uncertainty appropriately.
+:::
+
+::: notes
+Keep it conceptual; then show one concrete downstream model example (logistic or linear).
+:::
+
+---
+
+## `ipd`: one concrete downstream target
+
+Example: logistic regression for a binary public-health outcome
+[
+\Pr(Y=1\mid X)=\text{logit}^{-1}(X^\top\beta).
+]
+
+::: {.fragment}
+What people often do:
+
+* fit the model using (\hat Y) as if it were (Y)
+* report standard SEs and p-values
+
+::: {.fragment}
+What `ipd` enables:
+
+* bias-corrected estimating equations (using labeled data)
+* robust uncertainty that accounts for prediction + calibration
+:::
+
+---
+
+## A demo slide (interactive later)
+
+::: {.callout}
+**Live idea:** show how the naive CI shrinks as you add unlabeled predicted outcomes—
+even when the prediction model is imperfect.
+:::
+
+```{r}
+# (Placeholder) We’ll plug in a small simulation / Shiny-like widget later.
+# - generate Y from logistic model
+# - build imperfect predictor Ŷ
+# - compare naive vs ipd intervals as n_u grows
+```
+
+::: notes
+This is where you “win the room”: one picture, one punchline.
+:::
+
+---
+
+## `ipd` in practice: one function, multiple methods
+
+::: {.fragment}
+Design goal: **practitioner-accessible** but methodologically correct.
+
+* consistent interface for different IPD estimators
+* predictable outputs (estimates, SEs, CIs, diagnostics)
+* minimal friction to “do the right thing”
+
+::: {.small}
+Resources: paper and package docs.
+PubMed: [https://pubmed.ncbi.nlm.nih.gov/39898809/](https://pubmed.ncbi.nlm.nih.gov/39898809/)
+CRAN manual: [https://cran.r-project.org/web/packages/ipd/ipd.pdf](https://cran.r-project.org/web/packages/ipd/ipd.pdf)
+Package site: [https://ipd-tools.github.io/ipd/](https://ipd-tools.github.io/ipd/)
+:::
+
+---
+
+## `scorcher`: reproducible prediction pipelines in R
+
+::: {.kicker}
+Why it matters for public health
+:::
+
+Prediction is not just a model—it’s a workflow:
+
+* data provenance + splits
+* preprocessing + augmentation
+* training + evaluation
+* calibration + monitoring
+* exportable artifacts (weights, processors, metadata)
+
+::: {.fragment}
+`scorcher` is about making that workflow:
+
+* **reproducible**
+* **modular**
+* **auditable**
+* **friendly to practitioners who live in R**
+:::
+
+::: {.small}
+Repo (modular branch): [https://github.com/jtleek/scorcher/tree/modular](https://github.com/jtleek/scorcher/tree/modular)
+:::
+
+---
+
+## Why pair `scorcher` + `ipd`?
+
+```{mermaid}
+flowchart LR
+  S[scorcher:<br/>train + validate predictor] --> O[Predictions + diagnostics<br/>(calibration, error summaries)]
+  O --> I[ipd:<br/>downstream inference w/ predicted outcomes]
+  I --> D[Decision-ready outputs:<br/>estimates, uncertainty, sensitivity]
+```
+
+::: {.fragment}
+This is a full “prediction → inference” story that public health teams can actually run.
+:::
+
+---
+
+## Back to the examples: what changes with these tools?
+
+### BMI / adiposity
+
+* treat BMI as a predictor; validate against a labeled subset with direct adiposity measures
+* downstream associations get **bias/uncertainty accounting**
+
+### Verbal autopsy / LLM COD
+
+* use predictions + calibration diagnostics
+* estimate CSMFs / associations with honest uncertainty
+
+### TWAS / predicted phenotypes
+
+* acknowledge two-phase structure
+* propagate imputation uncertainty into inference
+
+---
+
+## Aligning with WashU SPH’s 4x4 Plan
+
+From WashU SPH framing: **4 new directions** and **4 strategies**. 
+
+### 4 new directions (as articulated in SPH materials) 
+
+1. New ways of thinking
+2. New ways of doing the work
+3. Better pathways to impact
+4. Novel partnerships
+
+### 4 strategies to build an exceptional school 
+
+* Engage world-class faculty
+* Nurture outstanding teachers and students
+* Public Health “plus” (partnerships across WashU + sectors)
+* Prioritize local and global impact
+
+---
+
+## Where my talk sits inside the 4x4
+
+### New ways of thinking
+
+Predictions are *measurements with structure* → treat them like a first-class scientific object.
+
+### New ways of doing the work
+
+Scaled prediction + honest inference enables learning from data that would otherwise be unusable.
+
+### Better pathways to impact
+
+Decision-makers need uncertainty that reflects reality, not convenience.
+
+### Novel partnerships
+
+Open-source tools that connect statisticians, ML folks, and domain experts.
+
+---
+
+## A “decision tree” you can use tomorrow
+
+```{mermaid}
+flowchart TD
+  A[Do you have predicted outcomes Ŷ being used as Y?] -->|No| Z[Standard inference]
+  A -->|Yes| B[Do you have any labeled Y?]
+  B -->|No| C[You can do prediction + descriptive summaries,<br/>but inference needs assumptions or new labels]
+  B -->|Yes| D[Is labeled set representative of target use?]
+  D -->|No| E[Use design/sensitivity adjustments;<br/>report limits of transportability]
+  D -->|Yes| F[Use IPD methods (e.g., ipd);<br/>report calibration + uncertainty]
+```
+
+::: notes
+This is also where you can nod to “denominators” and “who counts” without turning it into a survey talk.
+:::
+
+---
+
+## What I’d love to build next (tease, don’t survey)
+
+::: {.fragment}
+**Methodology**
+
+* broader classes of downstream models (mixed effects, survival, clustered designs)
+* clearer diagnostics for “when does prediction dominate inference?”
+
+::: {.fragment}
+**Software**
+
+* tighter integration: scorcher exports the *metadata* ipd needs by default
+* templates for common PH settings (EHR phenotyping, COD, remote sensing exposures)
+
+::: {.fragment}
+**Practice**
+
+* “prediction impact statements”: minimal reporting standard for prediction → inference pipelines
+:::
+
+---
+
+## Close
+
+::: {.callout}
+**Takeaway:** Public health is entering an era where predictions are ubiquitous.
+We need tools that turn prediction-driven workflows into *valid* evidence.
+:::
+
+* `scorcher`: reproducible prediction pipelines in R
+* `ipd`: valid inference when outcomes are predicted
+
+::: {.fragment}
+I’m excited about building this with WashU SPH—especially where methods, software, and impact meet.
+:::
+
+---
+
+## References (short)
+
+* `ipd` paper (PubMed): [https://pubmed.ncbi.nlm.nih.gov/39898809/](https://pubmed.ncbi.nlm.nih.gov/39898809/) ([PubMed][1])
+* `ipd` CRAN manual: [https://cran.r-project.org/web/packages/ipd/ipd.pdf](https://cran.r-project.org/web/packages/ipd/ipd.pdf) ([CRAN][2])
+* `ipd` package site: [https://ipd-tools.github.io/ipd/](https://ipd-tools.github.io/ipd/) ([ipd-tools][3])
+* WashU SPH 4x4 framing (SPH materials): 
+
+[1]: https://pubmed.ncbi.nlm.nih.gov/39898809/?utm_source=chatgpt.com "ipd: an R package for conducting inference on predicted data"
+[2]: https://cran.r-project.org/web/packages/ipd/ipd.pdf?utm_source=chatgpt.com "ipd: Inference on Predicted Data"
+[3]: https://ipd-tools.github.io/ipd/?utm_source=chatgpt.com "ipd: Inference on Predicted Data"

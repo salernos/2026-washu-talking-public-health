@@ -1,0 +1,21 @@
+/*-- scss:defaults --*/
+
+
+/*-- scss:rules --*/
+
+.reveal .slide-logo {
+  top: 0;
+  left: 12px
+}
+
+.reveal .slide-background-content #title-slide {
+  background-image: url("/images/theme/bg1.png") !important;
+  background-size: auto 100% !important;
+  background-position: right !important;
+}
+
+.slide-background-content {
+  background-image: url("/images/theme/bg3.png");
+  background-size: auto 50% !important;
+  background-position: left !important;
+}
