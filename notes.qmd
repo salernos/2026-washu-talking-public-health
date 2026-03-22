@@ -1,0 +1,223 @@
+## Thesis
+
+Predictions are becoming **inputs** to public health science and practice.
+
+If we treat them like ordinary measurements,
+
+we get **confident answers to the wrong questions.**
+
+---
+
+
+
+
+
+> What happens when those predictions become data used for downstream inference?
+
+
+## Example: Verbal Autopsy
+
+In many parts of the world, deaths occur without medical certification.
+
+Less than one-third of global deaths receive a medically certified cause.
+
+Researchers increasingly use machine learning models to classify causes of death from interview data.
+
+*(Placeholder for verbal autopsy figure)*
+
+---
+
+## Example: Predicted Gene Expression
+
+In genomics, gene expression can be predicted from genotype data.
+
+Methods such as TWAS use these predicted values in downstream association studies.
+
+Here, predicted expression becomes an input to scientific inference.
+
+---
+
+## Example: AlphaFold
+
+AlphaFold predicts protein structure from amino acid sequences.
+
+These predicted structures are now widely used in biological research.
+
+But they remain **predictions**, not direct observations.
+
+---
+
+## Example: BMI
+
+Even simple formulas can act as prediction models.
+
+BMI is calculated as
+
+\[
+BMI = \frac{\text{weight}}{\text{height}^2}
+\]
+
+BMI is widely used as a proxy for adiposity.
+
+But it is not a direct measure of body fat.
+
+---
+
+## A Common Pattern
+
+Across many domains, we see the same pipeline:
+
+1. Use data to build a prediction model
+2. Use predicted outcomes in downstream analysis
+
+This creates a new statistical setting.
+
+---
+
+## The Data Structure
+
+We observe:
+
+- Covariates \(X\)
+- Predictive features \(Z\)
+
+But the scientific outcome \(Y\) may only be observed for a subset.
+
+---
+
+## The Prediction Step
+
+We build a model
+
+\[
+\hat{Y} = f(Z)
+\]
+
+and use predicted outcomes as substitutes for \(Y\).
+
+---
+
+## Using Predictions as Data
+
+Predicted outcomes are often treated as if they were measured data.
+
+This approach is appealing because it allows us to leverage much larger datasets.
+
+But it introduces important challenges.
+
+---
+
+## The Statistical Problem
+
+Suppose our scientific question is
+
+\[
+g(E[Y|X]) = \beta_0 + \beta_1 X
+\]
+
+If we replace \(Y\) with \(\hat{Y}\),
+
+we are no longer estimating the same parameter.
+
+---
+
+## High Prediction Accuracy Is Not Enough
+
+Even highly accurate prediction models can lead to:
+
+- biased estimates
+- invalid hypothesis tests
+- misleading confidence intervals
+
+---
+
+## Why Does This Happen?
+
+Predictions contain error:
+
+\[
+Y = \hat{Y} + e
+\]
+
+Treating predictions as true measurements ignores this uncertainty.
+
+---
+
+## Inference with Predicted Data
+
+We study a setting where:
+
+- true outcomes \(Y\) are observed for a labeled subset
+- predictions \(\hat{Y}\) are available for the full dataset
+
+The goal is to combine these sources of information.
+
+---
+
+## A Conceptual Framework
+
+The inferential pipeline can be viewed as:
+
+prediction model → predicted data → statistical inference
+
+Different methods intervene at different points in this pipeline.
+
+---
+
+## Post-Prediction Inference
+
+One approach models the relationship between
+
+\[
+Y
+\quad\text{and}\quad
+\hat{Y}
+\]
+
+using labeled data.
+
+This relationship is then used to correct downstream inference.
+
+---
+
+## My Contributions
+
+My work extends this framework by:
+
+- relaxing assumptions about prediction error
+- developing improved variance estimators
+- extending methods to new problem settings
+
+---
+
+## Simulation Results
+
+*(Placeholder for simulation figures)*
+
+Key findings:
+
+- naive inference can inflate type I error
+- corrected methods recover valid inference
+- uncertainty estimates become more reliable
+
+---
+
+## Case Study: Verbal Autopsy
+
+We apply these ideas to cause-of-death classification.
+
+Machine learning predictions are used to estimate relationships between covariates and causes of death.
+
+IPD methods correct inference in this setting.
+
+---
+
+## Case Study: BMI
+
+BMI can misrepresent relationships between obesity and health outcomes.
+
+Using IPD corrections brings results closer to those obtained using gold-standard measures such as DXA scans.
+
+---
+
+

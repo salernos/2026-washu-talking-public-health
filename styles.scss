@@ -1,21 +1,667 @@
 /*-- scss:defaults --*/
 
+/*--- FONTS ------------------------------------------------------------------*/
+
+$font-family-sans-serif: "Palatino Linotype", "Book Antiqua", Palatino,
+  FreeSerif, serif !default;
+
+/*--- THEME COLORS -----------------------------------------------------------*/
+
+$hutch-blue: #1B365D;
+$hutch-cyan: #00C1D5;
+$hutch-purp: #AA4AC4;
+$hutch-yell: #FFB500;
+$hutch-teal: #0A799A;
+$hutch-gray: #F4F4F4;
+
+/*--- FLOW DIAGRAM -----------------------------------------------------------*/
+
+$scorch-text: #2f3b52;
+$scorch-code: #2b5c88;
+$scorch-border: #5f6f8f;
+$scorch-fill: #eef3fb;
+$scorch-gap: 1.5rem;
+
+$scorch-text-row: 2.2rem;
+$scorch-code-row: 3.2rem;
+
+/*--- TITLE SLIDE ------------------------------------------------------------*/
+
+$presentation-title-slide-text-align: left;
 
 /*-- scss:rules --*/
 
+/*--- SLIDE THEMES -----------------------------------------------------------*/
+
+//-- TITLE SLIDE
+
+#title-slide {
+  .title {
+    color: $hutch-blue !important;
+    font-size: 1.6em !important;
+    margin-top: 100px !important;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+  }
+  .subtitle {
+    color: $hutch-teal !important; 
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+  }
+  .quarto-title-author-name {
+    color: $hutch-blue !important;
+    font-size: 0.75em; 
+    margin-top: 50px;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+  }
+  .quarto-title-affiliation {
+    color: $hutch-blue !important;
+    font-size: 0.75em; 
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+  }
+  .date {
+    color: $hutch-blue !important;
+    font-size: 0.75em;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+  }
+}
+
 .reveal .slide-logo {
-  top: 0;
-  left: 12px
+  top: 25px;
+  left: 25px;
+  height: 50px !important;
+  width: auto !important;  
+  max-width: unset !important;
+  max-height: unset !important;
+  z-index: -999 !important;
 }
 
-.reveal .slide-background-content #title-slide {
-  background-image: url("/images/theme/bg1.png") !important;
-  background-size: auto 100% !important;
-  background-position: right !important;
+.reveal:has(.slides section#title-slide.present) .slide-logo {
+  display: block !important;
 }
 
-.slide-background-content {
-  background-image: url("/images/theme/bg3.png");
-  background-size: auto 50% !important;
-  background-position: left !important;
+.reveal:has(.slides section.present:not(#title-slide)) .slide-logo {
+  display: none !important;
 }
+
+//-- CONTENT SLIDE
+
+@mixin background-half {
+  background-size: auto 50%;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.theme-bg3 {
+  &:is(.slide-background) {
+    background-image: url("https://salernos.github.io/2026-enar-scorcher/images/theme/bg3.png");
+    @include background-half;
+  }
+  h2 {
+    color: $hutch-blue;
+    font-size: 1.2em;
+  }
+
+  h3 {
+    color: $hutch-teal;
+    font-size: 0.8em;
+  }
+
+  h4 {
+    font-size: 1em;
+  }
+
+  h5 {
+    font-size: 0.9em;
+  }
+  p {
+    font-size: 0.7em;
+  }
+
+  h2, h3, h4, h5, p, pre {
+    margin-left: 0px;
+  }
+}
+
+//-- SECTION SLIDE
+
+h1 {
+  color: $hutch-gray !important;
+  font-size: 1.2em !important;
+}
+
+.reveal .present.hide-logo .slide-logo {
+  display: none !important;
+}
+
+@mixin background-full {
+  background-size: auto 100%;
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.theme-bg2 {
+  &:is(.slide-background) {
+    background-image: url("https://salernos.github.io/2026-enar-scorcher/images/theme/bg2.png");
+    background-color: $hutch-cyan;
+    @include background-full;
+  }
+  .reveal section h1 {
+    color: $hutch-gray !important;
+  }
+}
+
+.reveal pre code.sourceCode {
+  font-size: 0.5em !important; 
+  max-height: 800px;
+}
+
+.reveal .cell-output-stdout code {
+  font-size: 0.5em !important;
+}
+
+.reveal code {
+  font-size: 1.2em !important;
+}
+
+/*--- CAPTIONS ---------------------------------------------------------------*/
+
+.quarto-figure {
+  margin-bottom: 0em; 
+  margin-top: 0em;
+}
+
+.caption {
+  font-size:  0.5em;
+  color:      $hutch-blue;
+  font-style: italic;
+  text-align: center;
+}
+
+/*--- LIST ITEMS -------------------------------------------------------------*/
+
+ .reveal ul li { 
+   font-size: 0.75em; 
+   margin-bottom: 25px !important;
+ }
+ 
+ .reveal .slide ul li::marker {
+  content: "- ";
+  color: $hutch-blue;
+}
+
+/*--- SAMPLE SIZE SLIDE ------------------------------------------------------*/
+
+.sample-size-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55vh;
+  font-size: 2.2rem;
+  color: #1B365D;
+}
+
+.sample-size-slide .math.display {
+  margin: 0;
+}
+
+/*--- DATA SCHEMATIC ---------------------------------------------------------*/
+
+.data-label {
+  background: white;
+  height: 10px;
+  margin: 5px;
+  border-radius: 2px;
+  border: 3px solid transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+  font-size: 0.65em;
+  box-sizing: border-box;
+}
+
+.label-yf { width: 80px; }
+.label-xz { width: 160px; }
+
+.data-box {
+  margin: 5px;
+  border-radius: 2px;
+  border: 3px solid transparent;
+  box-sizing: border-box;
+}
+
+.box-yl {
+  width: 80px;
+  height: 80px;
+  background: $hutch-purp;
+  border-color: $hutch-purp;
+}
+
+.box-ystarl {
+  width: 80px;
+  height: 80px;
+  background: $hutch-yell;
+  border-color: $hutch-yell;
+}
+
+.box-fl {
+  width: 80px;
+  height: 80px;
+  background: $hutch-cyan;
+  border-color: $hutch-cyan;
+}
+
+.box-xl {
+  width: 160px;
+  height: 80px;
+  background: $hutch-blue;
+  border-color: $hutch-blue;
+}
+
+.box-zl {
+  width: 160px;
+  height: 80px;
+  background: $hutch-teal;
+  border-color: $hutch-teal;
+}
+
+.box-yu {
+  width: 80px;
+  height: 240px;
+  background: white;
+  border: 3px dashed $hutch-purp;
+}
+
+.box-ystaru {
+  width: 80px;
+  height: 240px;
+  background: $hutch-yell;
+  border-color: $hutch-yell;
+}
+
+.box-fu {
+  width: 80px;
+  height: 240px;
+  background: $hutch-cyan;
+  border-color: $hutch-cyan;
+}
+
+.box-xu {
+  width: 160px;
+  height: 240px;
+  background: $hutch-blue;
+  border-color: $hutch-blue;
+}
+
+.box-zu {
+  width: 160px;
+  height: 240px;
+  background: $hutch-teal;
+  border-color: $hutch-teal;
+}
+
+/*--- BOTTOM METRICS ---------------------------------------------------------*/
+
+.bottom-metrics{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.metric-box{
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #1B365D;
+  min-width: 180px;
+  height: 30px;
+  text-align: center;
+}
+
+.metric-green{
+  background: #E4F2D5;
+}
+
+.metric-red{
+  background: #FFCCCB;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--- PEOPLE -----------------------------------------------------------------*/
+
+.people-row{
+  display:flex;
+  justify-content:center;
+  gap:120px;
+  margin-top:40px;
+}
+
+.person{
+  text-align:center;
+  font-size:0.7em;
+  width:400px;
+}
+
+.headshot{
+  width:280px;
+  height:280px;
+  object-fit:cover;
+  object-position: center 20%;
+  border-radius:50%;
+  margin-bottom:15px;
+  border:4px solid $hutch-blue;
+}
+
+.person em{
+  color:#555;
+}
+
+/*--- FLOW DIAGRAM -----------------------------------------------------------*/
+
+.scorch-flow {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: $scorch-gap;
+  margin-top: 2rem;
+  flex-wrap: nowrap;
+}
+
+.flow-pair,
+.flow-step {
+  display: grid;
+  grid-template-rows: $scorch-text-row $scorch-code-row;
+  align-items: center;
+  justify-items: center;
+}
+
+.flow-text {
+  height: $scorch-text-row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: $scorch-text;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.flow-code {
+  min-width: 240px;
+  height: $scorch-code-row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1rem;
+  border: 2px dashed $scorch-border;
+  border-radius: 14px;
+  background: $scorch-fill;
+  font-size: 1.08rem !important;
+  font-family: var(--r-code-font, monospace);
+  color: $scorch-code;
+  line-height: 1.1;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.flow-arrow {
+  height: $scorch-code-row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: $scorch-border;
+  line-height: 1;
+}
+
+.reveal .slides section .fragment {
+  transition: all 0.35s ease;
+}
+
+/*--- OOP SLIDE --------------------------------------------------------------*/
+
+$ooph-gap: 2rem;
+$ooph-code-height: 29rem;
+$ooph-text: #2f3b52;
+$ooph-muted: #5f6f8f;
+$ooph-code-bg: #f7f9fc;
+$ooph-code-border: #cfd8e6;
+
+.oop-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.35fr;
+  column-gap: $ooph-gap;
+  row-gap: 0.7rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.oop-left-intro {
+  grid-column: 1;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: $ooph-text;
+  margin-bottom: 0.35rem;
+}
+
+.oop-right-spacer {
+  grid-column: 2;
+}
+
+.oop-left {
+  grid-column: 1;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: $ooph-text;
+  text-align: left;
+}
+
+.oop-right {
+  grid-column: 2;
+  position: relative;
+}
+
+.code-swap {
+  min-height: $ooph-code-height;
+}
+
+.code-swap pre {
+  margin: 0;
+  max-height: $ooph-code-height;
+  overflow-y: auto;
+  font-size: 0.78em;
+  line-height: 1.2;
+  background: $ooph-code-bg;
+  border: 1.5px solid $ooph-code-border;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  box-sizing: border-box;
+}
+
+.code-swap code {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.reveal .fragment.current-visible {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.reveal .fragment.current-visible.current-fragment {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+.reveal .fragment.current-visible.visible:not(.current-fragment) {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+
+:root {
+  --hutch-blue: #1B365D;
+  --hutch-cyan: #00C1D5;
+  --hutch-purp: #AA4AC4;
+  --hutch-yell: #FFB500;
+  --hutch-teal: #0A799A;
+  --hutch-gray: #F4F4F4;
+}
+
+.ipd-slide {
+  width: 100%;
+  height: 100%;
+  color: var(--hutch-blue);
+}
+
+.ipd-title {
+  font-size: 2.1rem;
+  font-weight: 500;
+  color: var(--hutch-blue);
+  margin-bottom: 0.8rem;
+}
+
+.ipd-subtitle {
+  font-size: 1.05rem;
+  color: var(--hutch-teal);
+  margin-bottom: 1.6rem;
+}
+
+.ipd-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 0.8rem;
+}
+
+.ipd-grid-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.ipd-grid {
+  display: grid;
+  grid-template-columns: 95px 95px 170px 170px;
+  grid-template-rows: 46px 72px 216px; /* unlabeled row is 3x labeled row */
+  gap: 8px;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.ipd-label {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--hutch-blue);
+  align-self: end;
+}
+
+.ipd-box {
+  border: none;
+  border-radius: 2px;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+}
+
+.box-y {
+  background: var(--hutch-purp);
+}
+
+.box-x {
+  background: var(--hutch-blue);
+}
+
+.box-z {
+  background: var(--hutch-teal);
+}
+
+.box-yhat {
+  background: var(--hutch-cyan);
+}
+
+.missing-y {
+  background: transparent;
+  border: 3px dashed var(--hutch-purp);
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.ipd-notes {
+  width: 100%;
+  margin-top: 1.6rem;
+  text-align: center;
+  color: var(--hutch-blue);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.ipd-notes strong {
+  font-weight: 800;
+}
+
+.reveal .slides { font-size: 30px; }
+.small { font-size: 0.75em; opacity: 0.9; }
+.muted { opacity: 0.75; }
+.kicker { letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.65em; opacity: 0.8; }
+.callout { border-left: 6px solid #999; padding-left: 0.8rem; margin: 1rem 0; }
