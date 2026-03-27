@@ -16,7 +16,7 @@ date-format: "MMMM D, YYYY"
 format:
   revealjs:
     theme: [default, styles.scss]
-    logo: /images/theme/logo.png
+    logo: images/theme/logo.png
     slide-number: true
     hash: true
     navigation-mode: linear
@@ -1946,12 +1946,6 @@ ggplot(coef_df, aes(x = estimate, y = term, color = method, fill = method, shape
 
 [ssalerno@fredhutch.org](ssalerno@fredhutch.org)
 :::
-
-
-
-
-
-
 
 ##  {visibility="hidden"}
 
