@@ -16,7 +16,7 @@ date-format: "MMMM D, YYYY"
 format:
   revealjs:
     theme: [default, styles.scss]
-    logo: images/theme/logo.png
+    logo: https://salernos.github.io/2026-washu-talking-public-health/images/theme/logo.png
     slide-number: true
     hash: true
     navigation-mode: linear
@@ -1883,7 +1883,7 @@ ggplot(coef_df, aes(x = estimate, y = term, color = method, fill = method, shape
 
 **Open-Source Software**
 
-![[github.com/jtleek/scorcher]{.caption}](images/scorcher_github.PNG)
+![[github.com/jtleek/scorcher]{.caption}](images/scorcher_github.png)
 
 :::
 
