@@ -355,9 +355,11 @@ Stephen Salerno, PhD
 <p><br></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/qr_slides.png" style="width:35.0%"></p>
-<figcaption><span class="caption">Slides: https://salernos.github.io/2026-washu-talking-public-health</span></figcaption>
+<p><img data-src="images/qr_slides.png" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
 </figure>
+</div>
+<div class="footer">
+<p><a href="salernos.github.io/2026-washu-talking-public-health">salernos.github.io/2026-washu-talking-public-health</a></p>
 </div>
 <div class="quarto-auto-generated-content">
 <p><img src="/images/theme/logo.png" class="slide-logo"></p>
@@ -365,41 +367,127 @@ Stephen Salerno, PhD
 
 </div>
 </div></section>
+<section id="first-some-acknowledgements" class="slide level2 theme-bg3 center">
+<h2>First, Some Acknowledgements</h2>
+<h3 id="this-slide-is-by-no-means-exhaustive">This slide is by no means exhaustive</h3>
+<p>It represents individuals who have contributed most recently to the papers I have highlighted in this talk.</p>
+<p><br></p>
+
+<img data-src="images/people.PNG" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
+<section id="public-health-in-a-world-where-we-can-predict-anything" class="slide level2 theme-bg3 center">
+<h2>Public Health in a World Where We Can Predict Anything</h2>
+</section>
 <section id="public-health-in-a-world-where-we-think-we-can-predict-anything" class="slide level2 theme-bg3 center">
 <h2>Public Health in a World Where We <span style="color: #00C1D5;"><em>Think We</em></span> Can Predict Anything</h2>
-<div class="kicker">
-<p>Predictions are becoming <em>inputs</em> to public health science and practice. If we treat them like ordinary measurements, we can get <strong>confident</strong> answers to the <strong>wrong</strong> questions.</p>
+</section>
+<section id="public-health-in-a-world-that-would-benefit-if-we-could-predict-anything" class="slide level2 theme-bg3 center">
+<h2>Public Health in a World <span style="color: #00C1D5;"><em>that Would Benefit if</em></span> We <span style="color: #00C1D5;"><em>Could</em></span> Predict Anything</h2>
+</section>
+<section id="a-high-level-overview-of-this-talk" class="slide level2 theme-bg3 center">
+<h2>A high-level overview of this talk</h2>
+<h3 id="public-health-has-always-dealt-with-incomplete-measurement-because-many-outcomes-are">Public health has always dealt with incomplete measurement because many outcomes are:</h3>
+<p><br></p>
+<div>
+
 </div>
+<div class="quarto-layout-panel" data-layout="[[1,1,1],[1,1,1]]">
+<div class="quarto-layout-row">
+<div class="fragment quarto-layout-cell" data-fragment-index="1" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span style="color: #00C1D5;"><em>Expensive</em></span>:</p>
+<p>Dual-Energy X-ray Absorptiometry Scans</p>
+</div>
+<div class="fragment quarto-layout-cell" data-fragment-index="3" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span style="color: #00C1D5;"><em>Difficult to observe</em></span>:</p>
+<p>Protein Structures</p>
+</div>
+<div class="fragment quarto-layout-cell" data-fragment-index="5" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><span style="color: #00C1D5;"><em>Never recorded</em></span>:</p>
+<p>Causes of Death</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="fragment quarto-layout-cell" data-fragment-index="2" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/dexa.jpg"></p>
+<figcaption><span class="caption">Source: my.clevelandclinic.org/health/diagnostics/10683-dexa-dxa-scan-bone-density-test</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment quarto-layout-cell" data-fragment-index="4" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/AlphaFold2.png"></p>
+<figcaption><span class="caption">Source: my.clevelandclinic.org/health/diagnostics/10683-dexa-dxa-scan-bone-density-test</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment quarto-layout-cell" data-fragment-index="6" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/va_map.png"></p>
+<figcaption><span class="caption">Source: papp.iussp.org/sessions/papp104_s01/PAPP104_s01_080_010.html</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-high-level-overview-of-this-talk-1" class="slide level2 theme-bg3 center">
+<h2>A high-level overview of this talk</h2>
+<p><br></p>
 <ul>
-<li class="fragment">Public health has always dealt with incomplete measurement</li>
-<li class="fragment">What is new is that AI makes predicted ‘data’ increasingly cheap, scalable, and pervasive</li>
-<li class="fragment">This work focuses on the statistical, computational, and practical infrastructure we need to do this responsibly</li>
+<li class="fragment">In practice, this means some populations count less simply because they are <span style="color: #00C1D5;"><em>harder to measure</em></span></li>
+<li class="fragment">Predicting missing data creates an opportunity to <span style="color: #00C1D5;"><em>extend evidence</em></span>, but <span style="color: #00C1D5;"><em>predictions are imperfect</em></span></li>
+<li class="fragment">What is new is that AI makes predicted ‘data’ increasingly <span style="color: #00C1D5;"><em>cheap</em></span>, <span style="color: #00C1D5;"><em>scalable</em></span>, and <span style="color: #00C1D5;"><em>pervasive</em></span></li>
+<li class="fragment">My work focuses on how to generate and use predicted data without sacrificing <span style="color: #00C1D5;"><em>rigor</em></span>, <span style="color: #00C1D5;"><em>reproducibility</em></span>, or <span style="color: #00C1D5;"><em>validity</em></span></li>
 </ul>
 </section>
-<section id="a-roadmap-for-today" class="slide level2 theme-bg3 center">
-<h2>A roadmap for today</h2>
-<ol type="1">
-<li class="fragment">How prediction is becoming part of public health ‘data’</li>
-<li class="fragment">Why this creates a statistical problem</li>
-<li class="fragment">What we are doing to address this</li>
-<li class="fragment">Where we are intervening in public health research</li>
-</ol>
+<section>
+<section id="what-is-ai-why-now" class="title-slide slide level1 theme-bg2 center">
+<h1>What is AI? Why now?</h1>
+
 </section>
-<section id="in-public-health-the-quantity-we-care-about-may-be" class="slide level2 theme-bg3 center">
-<h2>In public health, the quantity we care about may be:</h2>
-<p>|:———————————-|:————————————–:|:——| | Partially observed | Medically-certified cause of death | image | | Expensive to measure | Dual-energy X-ray absorptiometry scans | image | | Delayed to obtain | NEED | image | | Or never directly observed at all | NEED | image |</p>
-<div class="fragment">
-<p>So we reconstruct it from the data we can obtain.</p>
+<section id="what-is-ai-a-three-part-definition" class="slide level2 theme-bg3 center">
+<h2>What is AI? A three-part definition</h2>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<h3 id="data">1. Data</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/ai_data.png"></p>
+<figcaption><span class="caption">Source: https://www.innerdoc.com/periodic-table-of-nlp-tasks/14-tokenization/</span></figcaption>
+</figure>
 </div>
-</section>
-<section id="predictions-are-everywhere-in-public-health" class="slide level2 theme-bg3 center">
-<h2>Predictions are everywhere in public health</h2>
-<h3 id="predictions-as-proxy-data-already-appear-throughout-modern-public-health-research">Predictions as proxy data already appear throughout modern public health research</h3>
-<p>[what to put here]?</p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:20%;">
+<h3 id="algorithm">2. Algorithm</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/ai_algorithm.png"></p>
+<figcaption><span class="caption">Source: https://arxiv.org/abs/1706.03762</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:30%;">
+<h3 id="interface">3. Interface</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/ai_interface.png"></p>
+<figcaption><span class="caption">Source: https://chatgpt.com/</span></figcaption>
+</figure>
+</div>
+</div></div>
+<div class="footer">
+<p><a href="https://simplystatistics.org/posts/2017-01-19-what-is-artificial-intelligence/">https://simplystatistics.org/posts/2017-01-19-what-is-artificial-intelligence/</a></p>
+</div>
 </section>
 <section id="why-is-this-happening-now" class="slide level2 theme-bg3 center">
 <h2>Why is this happening now?</h2>
-<h3 id="for-example-simultaneous-revolutions-in-computing-and-biology">For example: simultaneous revolutions in computing and biology</h3>
+<h3 id="simultaneous-revolutions-in-computing-and-biology">Simultaneous revolutions in computing and biology</h3>
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -421,23 +509,100 @@ Stephen Salerno, PhD
 <p>Adapted from <em>Post-prediction inference</em>. Source: jtleek.com/talks</p>
 </div>
 </section>
-<section id="what-does-this-mean-for-how-we-collect-data" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<section id="what-does-this-mean-for-how-we-collect-data" class="slide level2 theme-bg3 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">What does this mean for how we collect data?</h2>
 <h3 id="a-simple-sample-size-calculation">A simple sample size calculation</h3>
-<div class="r-fit-text" color="#1B365D">
+<div class="r-fit-text" data-text-color="#1B365D">
 <p><span class="math display">\[
 N = \text{Sample Size}
 \]</span></p>
 </div>
+<div class="footer">
+<p>Courtesy of Ingo Ruczinski</p>
+</div>
 </section>
-<section id="what-does-this-mean-for-how-we-collect-data-1" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<section id="what-does-this-mean-for-how-we-collect-data-1" class="slide level2 theme-bg3 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">What does this mean for how we collect data?</h2>
 <h3 id="a-simple-sample-size-calculation-1">A simple sample size calculation</h3>
-<div class="r-fit-text" color="#1B365D">
+<div class="r-fit-text" data-text-color="#1B365D">
 <p><span class="math display">\[
 N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 \]</span></p>
 </div>
+<div class="footer">
+<p>Courtesy of Ingo Ruczinski</p>
+</div>
+</section></section>
+<section>
+<section id="thinking-of-ai-as-an-exposure" class="title-slide slide level1 theme-bg2 center">
+<h1>Thinking of AI as an exposure</h1>
+
+</section>
+<section id="ai-is-an-exposure" class="slide level2 theme-bg3 center">
+<h2>AI is an exposure</h2>
+<h3 id="we-need-to-think-of-ai-emissions-like-an-epidemiologist-would">We need to think of AI ‘emissions’ like an epidemiologist would</h3>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><br></p>
+<ul>
+<li class="fragment">It is rapidly spreading throughout both the scientific and general communities</li>
+<li class="fragment">It is influencing public health research and public health practice</li>
+<li class="fragment">It has the capacity to do good or harm</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/AIEpi.PNG" style="width:120.0%"></p>
+<figcaption><span class="caption">Preprint provided by the authors</span></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="llm-breakthroughs-have-driven-ais-current-momentum" class="slide level2 theme-bg3 center">
+<h2>LLM breakthroughs have driven AI’s current momentum</h2>
+<p><br></p>
+
+<img data-src="images/llm_breakthroughs.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: medium.com/<span class="citation" data-cites="lmpo/a-brief-history-of-lmms-from-transformers-2017-to-deepseek-r1-2025-dae75dd3f59a">@lmpo/a-brief-history-of-lmms-from-transformers-2017-to-deepseek-r1-2025-dae75dd3f59a</span></span></p></section>
+<section id="ai-is-everywhere-and-it-is-spreading-faster-than-ever" class="slide level2 theme-bg3 center">
+<h2>AI is everywhere, and it is spreading faster than ever</h2>
+<p><br></p>
+
+<img data-src="images/ai_spread.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://www.nebuly.com/blog/2024-the-year-of-llm-user-intelligence</span></p></section>
+<section id="and-it-is-influencing-modern-science" class="slide level2 theme-bg3 center">
+<h2>And it is influencing modern science</h2>
+<h3 id="nobel-prizes-in-biology-and-chemistry-went-to-ai-breakthroughs">2024 Nobel Prizes in biology and chemistry went to AI breakthroughs</h3>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/nobel_two.png" style="width:75.0%"></p>
+<figcaption><span class="caption">Source: nature.com/articles/s41746-024-01345-9</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/AlphaFold1.png" style="width:65.0%"></p>
+<figcaption><span class="caption">Source: nature.com/articles/d41586-024-03214-7</span></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="this-illustrates-a-broader-shift" class="slide level2 theme-bg3 center">
+<h2>This illustrates a broader shift</h2>
+<h3 id="the-scale-and-diversity-of-ai-applications-is-part-of-what-makes-this-moment-different">The scale and diversity of AI applications is part of what makes this moment different</h3>
+<ul>
+<li class="fragment">The design and pace of data collection is rapidly changing</li>
+<li class="fragment">Predictions are now becoming input ‘data’ for public health science</li>
+<li class="fragment">This creates a need for rigorous, open statistical <span style="color: #00C1D5;"><em>interventions</em></span></li>
+</ul>
+</section></section>
+<section>
+<section id="predictions-as-data-are-already-everywhere-in-public-health" class="title-slide slide level1 theme-bg2 center">
+<h1>Predictions as ‘data’ are already <br> everywhere in public health</h1>
+
 </section>
 <section id="neighborhood-characteristics-from-street-view-images" class="slide level2 theme-bg3 center">
 <h2>Neighborhood characteristics from street view images…</h2>
@@ -515,37 +680,171 @@ N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 </div>
 </div></div>
 </section>
-<section id="our-core-framing" class="slide level2 theme-bg3 center">
-<h2>Our core framing</h2>
-<h3 id="prediction-is-becoming-part-of-data-collection">Prediction is becoming part of data collection</h3>
-<p>In many public health settings, we have:</p>
+<section id="in-these-examples-prediction-is-becoming-part-of-data-collection" class="slide level2 theme-bg3 center">
+<h2>In these examples, prediction is becoming part of data collection</h2>
+<h3 id="in-many-public-health-settings-we-have">In many public health settings, we have:</h3>
+<p><br></p>
 <ul>
 <li class="fragment">An outcome we really care about</li>
-<li class="fragment">Cheaper or more scalable predictors</li>
-<li class="fragment">An algorithm that maps these predictors to a prediction of the outcome</li>
+<li class="fragment">Access to cheaper or more scalable data</li>
+<li class="fragment">An algorithm that maps these data to a prediction of the outcome</li>
 </ul>
-<div class="fragment">
-<p>That prediction is often then used as if it were data.</p>
-</div>
 </section>
-<section>
-<section id="two-concrete-examples-from-my-work" class="title-slide slide level1 theme-bg2 center">
-<h1>Two concrete examples from my work</h1>
-
-</section>
-<section id="i-will-exemplify-the-statistical-framing-with-two-very-different-examples" class="slide level2 theme-bg3 center">
-<h2>I will exemplify the statistical framing with two very different examples</h2>
-<h3 id="in-reality-we-can-find-examples-in-any-field-and-everywhere-in-between">In reality, we can find examples in any field and everywhere in between</h3>
+<section id="we-can-find-examples-in-many-fields-and-everywhere-in-between" class="slide level2 theme-bg3 center">
+<h2>We can find examples in many fields and everywhere in between</h2>
+<h3 id="here-are-two-very-different-examples-from-my-work">Here are two very different examples from my work</h3>
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Complex Predictions: Cause of Death from Verbal Autopsies</strong></p>
+<p><strong>Complex Predictions:</strong> Cause of Death from Verbal Autopsies</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/va_cover.png" style="width:50.0%"></p>
+<figcaption><span class="caption">Source: www.who.int/publications/m/item/2022-who-verbal-autopsy-manual-for-supervisors</span></figcaption>
+</figure>
+</div>
 </div><div class="column" style="width:50%;">
-<p><strong>Simple Predictions: BMI as a Proxy for Adiposity</strong></p>
+<p><strong>Simple Predictions:</strong> BMI as a Proxy for Adiposity</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/bmi_cover.png" style="width:80.0%"></p>
+<figcaption><span class="caption">Source: hsph.harvard.edu/news/bmi-a-poor-metric-for-measuring-peoples-health-say-experts/</span></figcaption>
+</figure>
+</div>
 </div></div>
 </section>
-<section id="good-predictions-are-useful.-but-prediction-is-not-measurement." class="slide level2 theme-bg3 center">
-<h2>Good predictions are useful. But prediction is not measurement.</h2>
+<section id="less-than-13-of-deaths-worldwide-are-assigned-a-medically-certified-cause" class="slide level2 theme-bg3 center">
+<h2>Less than 1/3 of deaths worldwide are assigned a medically certified cause</h2>
+<h3 id="when-deaths-occur-outside-the-medical-system-cause-of-death-must-be-predicted-rather-than-observed">When deaths occur outside the medical system, cause of death must be <em>predicted</em> rather than observed</h3>
+<p>Verbal autopsy (VA) is a time-consuming, resource-intensive process that asks interviewees to relive their grief in detail</p>
+<p><br></p>
+
+<img data-src="images/va_overview.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://publichealthnotes.com/verbal-autopsy-and-mpdsr/</span></p></section>
+<section id="recent-work-leverages-unstructured-interviews-for-automated-va" class="slide level2 theme-bg3 center">
+<h2>Recent work leverages unstructured interviews for automated VA</h2>
+<h3 id="narrative-summaries-aiml-predictions-would-be-less-resource-intensive-than-current-standard">Narrative summaries + AI/ML predictions would be less resource intensive than current standard</h3>
+<p><br></p>
+
+<img data-src="images/va_narratives.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0308452/</span></p></section>
+<section id="we-studied-how-different-aiml-methods-can-classify-cause-of-death" class="slide level2 theme-bg3 center">
+<h2>We studied how different AI/ML methods can classify cause of death</h2>
+<h3 id="comparing-methods-such-as-knn-svm-bert-and-gpt-4-using-only-the-narrative-summaries">Comparing methods such as KNN, SVM, BERT, and GPT-4 using only the narrative summaries</h3>
+<p><br></p>
+
+<img data-src="images/va_colm.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://openreview.net/forum?id=QbCHlIqbDJ</span></p></section>
+<section id="using-data-from-the-population-health-metrics-research-consortium" class="slide level2 theme-bg3 center">
+<h2>Using data from the Population Health Metrics Research Consortium</h2>
+<h3 id="n-6763-observations-from-6-sites-in-4-countries-adults-only-5-cause-of-death-labels">N = 6,763 observations from 6 sites in 4 countries; adults only, 5 cause of death labels</h3>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Focusing on one site (Uttar Pradesh)</strong>:</p>
+<ul>
+<li class="fragment">GPT-4 had the highest accuracy (0.75) using only unstructured narratives</li>
+<li class="fragment">Performance was comparable to existing VA models</li>
+<li class="fragment">Unlike traditional classifiers, GPT-4 could say ‘I don’t know.’</li>
+<li class="fragment">1,503 of 6,763 cases were labeled unclassified</li>
+<li class="fragment">Manual review confirmed these narratives contained insufficient information for COD assignment</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/va_data.png"></p>
+<figcaption><span class="caption">Source: https://openreview.net/forum?id=QbCHlIqbDJ</span></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="but-prediction-is-not-the-same-as-inference" class="slide level2 theme-bg3 center">
+<h2>But <em>prediction</em> is not the same as <em>inference</em></h2>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<!-- -->
+<h3 id="a-demographers-actual-questions-may-be">A demographer’s actual questions may be:</h3>
+<ul>
+<li class="fragment">How does cause of death vary by geography?</li>
+<li class="fragment">Are there changes over time in those causes?</li>
+<li class="fragment">What are the reasons underlying these effects?</li>
+</ul>
+</div>
+<div class="fragment">
+<!-- -->
+<h3 id="how-do-we-answer-these-questions">How do we answer these questions?</h3>
+<ul>
+<li class="fragment">With statistical and epidemiological models</li>
+</ul>
+</div>
+<div class="fragment">
+<!-- -->
+<h3 id="the-challenge">The challenge:</h3>
+<ul>
+<li class="fragment">We have <em>predicted,</em> rather than observed, cause of death</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<p><em>“Value of Verbal Autopsy in a Fragile Setting: Reported versus Estimated Community Deaths Associated with COVID-19, Banadir, Somalia”</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/va_trend.jpg"></p>
+<figcaption><span class="caption">Source: mdpi.com/2076-0817/12/2/328</span></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="predictions-also-dont-have-to-be-complex-to-be-biased" class="slide level2 theme-bg3 center">
+<h2>Predictions also don’t have to be complex to be biased</h2>
+<h3 id="the-case-of-body-mass-index-bmi-kgm2-as-an-imperfect-measure-of-adiposity">The case of body mass index (BMI; kg/m<span class="math inline">\(^2\)</span>) as an imperfect measure of adiposity</h3>
+<p><br></p>
+
+<img data-src="images/bmi_overview.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://www.nytimes.com/2024/11/14/well/obesity-epidemic-america.html</span></p></section>
+<section id="an-algorithm-is-just-a-set-of-steps-that-map-inputs-to-outputs" class="slide level2 theme-bg3 center">
+<h2>An ‘algorithm’ is just a set of steps that map inputs to outputs</h2>
+<h3 id="bmi-is-one-of-several-potential-adiposity-prediction-algorithms">BMI is one of several potential adiposity ‘prediction algorithms’</h3>
+<ul>
+<li class="fragment">BMI (≥ 30 kg/m²)</li>
+<li class="fragment">Waist circumference (men ≥ 102 cm; women ≥ 88 cm)</li>
+<li class="fragment"><strong>Gold-Standard</strong>: Dual-Energy X-ray Absorptiometry (DXA) % body fat (&gt; 30% men; &gt; 42% women)</li>
+</ul>
+<p><br></p>
+
+<img data-src="images/bmi_algorithm.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf</span></p></section>
+<section id="we-used-nhanes-to-understand-bmiwc-in-population-level-inference" class="slide level2 theme-bg3 center">
+<h2>We used NHANES to understand BMI/WC in population-level inference</h2>
+<h3 id="bmiwcdxa-all-collected-up-until-covid-19-when-dxa-collection-was-suspended">BMI/WC/DXA all collected up until COVID-19, when DXA collection was suspended</h3>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:60%&quot;;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2026-washu-talking-public-health_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/bmi_paper.png"></p>
+<figcaption><span class="caption">Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf</span></figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="mismatched-quadrants-suggest-limitations-in-bmiwc" class="slide level2 theme-bg3 center">
+<h2>Mismatched quadrants suggest limitations in BMI/WC</h2>
+<h3 id="bmiwc-are-at-best-noisy-proxies">BMI/WC are (at best) noisy proxies:</h3>
+<ul>
+<li class="fragment">Varies by sex, age, race/ethnicity, muscle mass, fat distribution</li>
+<li class="fragment">Systematically biased for some groups</li>
+</ul>
+
+<img data-src="2026-washu-talking-public-health_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="good-predictions-can-be-useful-but-predictions-are-not-measurements" class="slide level2 theme-bg3 center">
+<h2>Good predictions can be useful, but predictions are not measurements</h2>
 <h3 id="that-distinction-matters-when-our-goal-is-not-just-predictive-accuracy-but">That distinction matters when our goal is not just predictive accuracy, but:</h3>
 <ul>
 <li class="fragment">Estimation</li>
@@ -554,27 +853,23 @@ N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 <li class="fragment">Hypothesis testing</li>
 <li class="fragment">Population-level inference</li>
 </ul>
+</section></section>
+<section>
+<section id="consider-a-setup-that-might-be-pertinent-to-your-own-work" class="title-slide slide level1 theme-bg2 center">
+<h1>Consider a setup that might be <br> pertinent to your own work</h1>
+
 </section>
-<section id="a-common-data-structure" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">A common data structure</h2>
-<h3 id="we-are-interested-in-studying-the-association-between-an-outcome-y-and-covariates-x">We are interested in studying the association between an outcome (<span class="math inline">\(Y\)</span>) and covariates (<span class="math inline">\(X\)</span>)</h3>
+<section id="we-are-studying-the-relationship-between-an-outcome-y-and-covariates-x" class="slide level2 theme-bg3 center" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">We are studying the relationship between an outcome (<span class="math inline">\(Y\)</span>) and covariates (<span class="math inline">\(X\)</span>)</h2>
 <p>In our VA work, <span class="math inline">\(Y\)</span> is cause of death and <span class="math inline">\(X\)</span> are sociodemographic factors like age or country of origin</p>
 <p>In our BMI work, <span class="math inline">\(Y\)</span> is true adiposity (% body fat) and <span class="math inline">\(X\)</span> are demographic factors like age or sex</p>
 <p><br></p>
 <div class="r-hstack">
 <div class="data-label label-yf" data-id="ytext">
-<p>Y</p>
+<p>Outcome:</p>
 </div>
 <div class="data-label label-xz" data-id="xtext">
-<p>X</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ytext">
-<p>True COD</p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>Age, Country of Origin</p>
+<p>Covariates:</p>
 </div>
 </div>
 <div class="r-hstack">
@@ -587,39 +882,27 @@ N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 </div>
 <div class="r-hstack">
 <div class="data-box box-yl" data-id="yl">
-
+<p>Y</p>
 </div>
 <div class="data-box box-xl" data-id="xl">
-
+<p>X</p>
 </div>
 </div>
 </section>
-<section id="a-common-data-structure-1" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">A common data structure</h2>
-<h3 id="we-also-have-data-z-that-are-predictive-of-our-outcome">We also have data (<span class="math inline">\(Z\)</span>) that are predictive of our outcome</h3>
+<section id="we-also-have-data-z-that-are-predictive-of-our-outcome" class="slide level2 theme-bg3 center" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">We also have data (<span class="math inline">\(Z\)</span>) that are predictive of our outcome</h2>
 <p>In our VA work, <span class="math inline">\(Z\)</span> are our structure VA questionnaires and narrative summaries</p>
 <p>In our BMI work, <span class="math inline">\(Z\)</span> are anthropometric measurements (height and weight)</p>
 <p><br></p>
 <div class="r-hstack">
 <div class="data-label label-yf" data-id="ytext">
-<p>Y</p>
+<p>Outcome:</p>
 </div>
 <div class="data-label label-xz" data-id="xtext">
-<p>X</p>
+<p>Covariates:</p>
 </div>
 <div class="data-label label-xz" data-id="ztext">
-<p>Z</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ytext">
-<p>True COD</p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>Age, Country of Origin</p>
-</div>
-<div class="data-label label-xz" data-id="ztext">
-<p>VA Questionnaire</p>
+<p>Predictors:</p>
 </div>
 </div>
 <div class="r-hstack">
@@ -635,40 +918,29 @@ N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 </div>
 <div class="r-hstack">
 <div class="data-box box-yl" data-id="yl">
-
+<p>Y</p>
 </div>
 <div class="data-box box-xl" data-id="xl">
-
+<p>X</p>
 </div>
 <div class="data-box box-zl" data-id="zl">
-
+<p>Z</p>
 </div>
 </div>
 </section>
-<section id="in-many-cases-unlabeled-features-xz-are-cheap-and-easy-to-collect" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<section id="in-many-cases-unlabeled-features-xz-are-cheap-and-easy-to-collect" class="slide level2 theme-bg3 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">In many cases, unlabeled features (<span class="math inline">\(X,Z\)</span>) are cheap and easy to collect</h2>
 <h3 id="our-outcome-of-interest-however-can-be-time-consuming-or-costly-to-obtain">Our outcome of interest, however, can be time-consuming or costly to obtain</h3>
 <p><br></p>
 <div class="r-hstack">
 <div class="data-label label-yf" data-id="ytext">
-<p>Y</p>
+<p>Outcome:</p>
 </div>
 <div class="data-label label-xz" data-id="xtext">
-<p>X</p>
+<p>Covariates:</p>
 </div>
 <div class="data-label label-xz" data-id="ztext">
-<p>Z</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ytext">
-<p>True COD</p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>Age, Country of Origin</p>
-</div>
-<div class="data-label label-xz" data-id="ztext">
-<p>VA Questionnaire</p>
+<p>Predictors:</p>
 </div>
 </div>
 <div class="r-hstack">
@@ -684,57 +956,43 @@ N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 </div>
 <div class="r-hstack">
 <div class="data-box box-yl" data-id="yl">
-
-</div>
-<div class="data-box box-xl" data-id="xl">
-
-</div>
-<div class="data-box box-zl" data-id="zl">
-
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-box box-yu" data-id="yu">
-
-</div>
-<div class="data-box box-xu" data-id="xu">
-
-</div>
-<div class="data-box box-zu" data-id="zu">
-
-</div>
-</div>
-</section>
-<section id="modern-studies-use-accessible-data-and-an-algorithm-to-predict-these-outcomes" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Modern studies use accessible data and an algorithm to predict these outcomes</h2>
-<h3 id="these-predictions-are-then-treated-as-measured-data-and-used-in-downstream-analyses-or-for-policy-making">These predictions are then treated as measured data and used in downstream analyses or for policy making</h3>
-<p><br></p>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ytext">
 <p>Y</p>
 </div>
-<div class="data-label label-yf" data-id="ftext">
-<p>f</p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
+<div class="data-box box-xl" data-id="xl">
 <p>X</p>
 </div>
-<div class="data-label label-xz" data-id="ztext">
+<div class="data-box box-zl" data-id="zl">
 <p>Z</p>
 </div>
 </div>
 <div class="r-hstack">
+<div class="data-box box-yu" data-id="yu">
+<p>Y</p>
+</div>
+<div class="data-box box-xu" data-id="xu">
+<p>X</p>
+</div>
+<div class="data-box box-zu" data-id="zu">
+<p>Z</p>
+</div>
+</div>
+</section>
+<section id="we-can-use-accessible-data-and-an-algorithm-to-generate-predictions" class="slide level2 theme-bg3 center" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">We can use accessible data and an algorithm to generate predictions</h2>
+<h3 id="we-make-no-assumptions-about-the-quality-of-these-predictions-or-the-models-they-come-from">We make no assumptions about the quality of these predictions or the models they come from</h3>
+<p><br></p>
+<div class="r-hstack">
 <div class="data-label label-yf" data-id="ytext">
-<p>True COD</p>
+<p>Outcome:</p>
 </div>
 <div class="data-label label-yf" data-id="ftext">
-<p>VA COD</p>
+<p>Prediction:</p>
 </div>
 <div class="data-label label-xz" data-id="xtext">
-<p>Age, Country of Origin</p>
+<p>Covariates:</p>
 </div>
 <div class="data-label label-xz" data-id="ztext">
-<p>VA Questionnaire</p>
+<p>Predictors:</p>
 </div>
 </div>
 <div class="r-hstack">
@@ -753,169 +1011,102 @@ N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 </div>
 <div class="r-hstack">
 <div class="data-box box-yl" data-id="yl">
-
+<p>Y</p>
 </div>
 <div class="data-box box-fl" data-id="fl">
-
+<p>f</p>
 </div>
 <div class="data-box box-xl" data-id="xl">
-
+<p>X</p>
 </div>
 <div class="data-box box-zl" data-id="zl">
-
+<p>Z</p>
 </div>
 </div>
 <div class="r-hstack">
 <div class="data-box box-yu" data-id="yu">
-
+<p>Y</p>
 </div>
 <div class="data-box box-fu" data-id="fu">
-
+<p>f</p>
 </div>
 <div class="data-box box-xu" data-id="xu">
-
+<p>X</p>
 </div>
 <div class="data-box box-zu" data-id="zu">
+<p>Z</p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="so-what-are-our-options-for-inference" class="title-slide slide level1 theme-bg2 center">
+<h1>So what are our options for inference?</h1>
 
-</div>
-</div>
 </section>
-<section id="section" class="slide level2 center">
-<h2></h2>
-<div class="kicker">
-<p>So what are our options?</p>
-</div>
-</section>
-<section id="option-1-classical-inference" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Option 1: Classical Inference</h2>
+<section id="option-1-classical-inference" class="slide level2 theme-bg3 center">
+<h2>Option 1: Classical Inference</h2>
 <h3 id="estimate-our-statistic-of-interest-with-only-the-observations-that-have-measured-outcomes">Estimate our statistic of interest with only the observations that have measured outcomes</h3>
-<p>Parameter of interest is <span style="color: #AA4AC4;"><span class="math inline">\(\beta\)</span></span>, the population-level regression coefficients of <span style="color: #AA4AC4;"><span class="math inline">\(Y\)</span></span> on <span style="color: #1B365D;"><span class="math inline">\(X\)</span></span></p>
-<p><br></p>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ytext">
-<p>Y</p>
-</div>
-<div class="data-label label-yf" data-id="ftext">
-<p>f</p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>X</p>
-</div>
-<div class="data-label label-xz" data-id="ztext">
-<p>Z</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ytext">
-<p>True COD</p>
-</div>
-<div class="data-label label-yf" data-id="ftext">
-<p>VA COD</p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>Age, Country of Origin</p>
-</div>
-<div class="data-label label-xz" data-id="ztext">
-<p>VA Questionnaire</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ytext">
-<p>% Body Fat</p>
-</div>
-<div class="data-label label-yf" data-id="ftext">
-<p>BMI</p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>Age, Sex</p>
-</div>
-<div class="data-label label-xz" data-id="ztext">
-<p>Height, Weight</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-box box-yl" data-id="yl">
-
-</div>
-<div class="data-box box-fl" data-id="fl">
-
-</div>
-<div class="data-box box-xl" data-id="xl">
-
-</div>
-<div class="data-box box-zl" data-id="zl">
-
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-box box-yu" data-id="yu">
-
-</div>
-<div class="data-box box-fu" data-id="fu">
-
-</div>
-<div class="data-box box-xu" data-id="xu">
-
-</div>
-<div class="data-box box-zu" data-id="zu">
-
-</div>
-</div>
-</section>
-<section id="option-1-classical-inference-1" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Option 1: Classical Inference</h2>
-<h3 id="estimate-our-statistic-of-interest-with-only-the-observations-that-have-measured-outcomes-1">Estimate our statistic of interest with only the observations that have measured outcomes</h3>
-<p>Parameter of interest is <span style="color: #AA4AC4;"><span class="math inline">\(\beta\)</span></span>, the population-level regression coefficients of <span style="color: #AA4AC4;"><span class="math inline">\(Y\)</span></span> on <span style="color: #1B365D;"><span class="math inline">\(X\)</span></span></p>
+<p><span style="color: #AA4AC4;"><span class="math inline">\(Y\)</span></span> = <span style="color: #AA4AC4;"><span class="math inline">\(\beta\)</span></span> <span style="color: #1B365D;"><span class="math inline">\(X\)</span></span></p>
+<p><span style="color: #AA4AC4;"><span class="math inline">\(\text{% Body Fat}\)</span></span> = <span style="color: #AA4AC4;"><span class="math inline">\(\beta\)</span></span> <span style="color: #1B365D;"><span class="math inline">\(\text{Sex}\)</span></span></p>
 <p><br></p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="r-hstack">
 <div class="data-label label-yf" data-id="ytext">
-<p>Y</p>
+<p>Outcome:</p>
+</div>
+<div class="data-label label-yf" data-id="ftext">
+<p>Prediction:</p>
 </div>
 <div class="data-label label-xz" data-id="xtext">
-<p>X</p>
+<p>Covariates:</p>
 </div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ytext">
-<p>True COD</p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>Age, Country of Origin</p>
+<div class="data-label label-xz" data-id="ztext">
+<p>Predictors:</p>
 </div>
 </div>
 <div class="r-hstack">
 <div class="data-label label-yf" data-id="ytext">
 <p>% Body Fat</p>
 </div>
+<div class="data-label label-yf" data-id="ftext">
+<p>BMI</p>
+</div>
 <div class="data-label label-xz" data-id="xtext">
 <p>Age, Sex</p>
+</div>
+<div class="data-label label-xz" data-id="ztext">
+<p>Height, Weight</p>
 </div>
 </div>
 <div class="r-hstack">
 <div class="data-box box-yl" data-id="yl">
+<p>Y</p>
+</div>
+<div class="data-box box-fl is-faded" data-id="fl">
 
 </div>
 <div class="data-box box-xl" data-id="xl">
+<p>X</p>
+</div>
+<div class="data-box box-zl is-faded" data-id="zl">
 
 </div>
 </div>
-<p><span class="math display">\[
-{\Huge \underbrace{\hspace{5cm}}_{\color{#AA4AC4}{\hat{\beta}_{\text{lab}}}}}
-\]</span></p>
-</div><div class="column" style="width:50%;">
-<p><strong>Advantages:</strong></p>
-<ul>
-<li class="fragment">Targets the right scientific quantity</li>
-<li class="fragment">Low bias if the labeled set is representative</li>
-</ul>
-<p><strong>Problems:</strong></p>
-<ul>
-<li class="fragment">Throws away information on many observations</li>
-<li class="fragment">Potential to miss important signals</li>
-</ul>
-<p><br></p>
+<div class="r-hstack">
+<div class="data-box box-yu is-faded" data-id="yu">
+
+</div>
+<div class="data-box box-fu is-faded" data-id="fu">
+
+</div>
+<div class="data-box box-xu is-faded" data-id="xu">
+
+</div>
+<div class="data-box box-zu is-faded" data-id="zu">
+
+</div>
+</div>
 <div class="fragment">
 <div class="bottom-metrics">
 <div class="metric-box metric-green" data-id="bias">
@@ -926,39 +1117,41 @@ N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 </div>
 </div>
 </div>
+</div><div class="column" style="width:50%;">
+<p>Estimate <span style="color: #AA4AC4;"><span class="math inline">\(\hat{\beta}_{\text{lab}}\)</span></span> by regressing <span style="color: #AA4AC4;"><span class="math inline">\(Y\)</span></span> on <span style="color: #1B365D;"><span class="math inline">\(X\)</span></span></p>
+<p><br></p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li class="fragment">Targets the right scientific quantity</li>
+<li class="fragment">Low bias if the labeled set is representative</li>
+</ul>
+<p><strong>Problems:</strong></p>
+<ul>
+<li class="fragment">Throws away information on many observations</li>
+<li class="fragment">Potential to miss important signals</li>
+</ul>
 </div></div>
 </section>
-<section id="option-2-naive-inference" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
+<section id="option-2-naive-inference" class="slide level2 theme-bg3 center" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Option 2: Naive Inference</h2>
 <h3 id="treat-the-predicted-outcomes-as-if-they-were-measured-and-use-all-observations">Treat the predicted outcomes as if they were measured and use all observations</h3>
-<p>Parameter of interest is <span style="color: #00C1D5;"><span class="math inline">\(\gamma\)</span></span>, the population-level regression coefficients of <span style="color: #00C1D5;"><span class="math inline">\(f\)</span></span> on <span style="color: #1B365D;"><span class="math inline">\(X\)</span></span></p>
+<p><span style="color: #00C1D5;"><span class="math inline">\(f\)</span></span> = <span style="color: #00C1D5;"><span class="math inline">\(\gamma\)</span></span> <span style="color: #1B365D;"><span class="math inline">\(X\)</span></span></p>
+<p><span style="color: #00C1D5;"><span class="math inline">\(\text{BMI}\)</span></span> = <span style="color: #00C1D5;"><span class="math inline">\(\gamma\)</span></span> <span style="color: #1B365D;"><span class="math inline">\(\text{Sex}\)</span></span></p>
 <p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="r-hstack">
 <div class="data-label label-yf" data-id="ytext">
-<p>Y</p>
+<p>Outcome:</p>
 </div>
 <div class="data-label label-yf" data-id="ftext">
-<p>f</p>
+<p>Prediction:</p>
 </div>
 <div class="data-label label-xz" data-id="xtext">
-<p>X</p>
+<p>Covariates:</p>
 </div>
 <div class="data-label label-xz" data-id="ztext">
-<p>Z</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ytext">
-<p>True COD</p>
-</div>
-<div class="data-label label-yf" data-id="ftext">
-<p>VA COD</p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>Age, Country of Origin</p>
-</div>
-<div class="data-label label-xz" data-id="ztext">
-<p>VA Questionnaire</p>
+<p>Predictors:</p>
 </div>
 </div>
 <div class="r-hstack">
@@ -976,95 +1169,33 @@ N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 </div>
 </div>
 <div class="r-hstack">
-<div class="data-box box-yl" data-id="yl">
+<div class="data-box box-yl is-faded" data-id="yl">
 
 </div>
 <div class="data-box box-fl" data-id="fl">
-
-</div>
-<div class="data-box box-xl" data-id="xl">
-
-</div>
-<div class="data-box box-zl" data-id="zl">
-
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-box box-yu" data-id="yu">
-
-</div>
-<div class="data-box box-fu" data-id="fu">
-
-</div>
-<div class="data-box box-xu" data-id="xu">
-
-</div>
-<div class="data-box box-zu" data-id="zu">
-
-</div>
-</div>
-</section>
-<section id="option-2-naive-inference-1" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Option 2: Naive Inference</h2>
-<h3 id="treat-the-predicted-outcomes-as-if-they-were-measured-and-use-all-observations-1">Treat the predicted outcomes as if they were measured and use all observations</h3>
-<p>Parameter of interest is <span style="color: #00C1D5;"><span class="math inline">\(\gamma\)</span></span>, the population-level regression coefficients of <span style="color: #00C1D5;"><span class="math inline">\(f\)</span></span> on <span style="color: #1B365D;"><span class="math inline">\(X\)</span></span></p>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ftext">
 <p>f</p>
 </div>
-<div class="data-label label-xz" data-id="xtext">
+<div class="data-box box-xl" data-id="xl">
 <p>X</p>
 </div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ftext">
-<p>VA COD</p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>Age, Country of Origin</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ftext">
-<p>BMI</p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>Age, Sex</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-box box-fl" data-id="fl">
-
-</div>
-<div class="data-box box-xl" data-id="xl">
+<div class="data-box box-zl is-faded" data-id="zl">
 
 </div>
 </div>
 <div class="r-hstack">
+<div class="data-box box-yu is-faded" data-id="yu">
+
+</div>
 <div class="data-box box-fu" data-id="fu">
-
+<p>f</p>
 </div>
 <div class="data-box box-xu" data-id="xu">
+<p>X</p>
+</div>
+<div class="data-box box-zu is-faded" data-id="zu">
 
 </div>
 </div>
-<p><span class="math display">\[
-{\Huge \underbrace{\hspace{5cm}}_{\color{#00C1D5}{\hat{\gamma}_{\text{all}}}}}
-\]</span></p>
-</div><div class="column" style="width:50%;">
-<p><strong>Perceived Advantages:</strong></p>
-<ul>
-<li class="fragment">Uses the full data</li>
-<li class="fragment">Easy, scalable, (artificially) more precise</li>
-</ul>
-<p><strong>Problems:</strong></p>
-<ul>
-<li class="fragment">Standard errors are too optimistic</li>
-<li class="fragment">Estimates target the wrong quantity</li>
-</ul>
 <div class="fragment">
 <div class="bottom-metrics">
 <div class="metric-box metric-red" data-id="bias">
@@ -1074,26 +1205,40 @@ N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 <p>Low Variance<span class="math inline">\(^\star\)</span></p>
 </div>
 </div>
-<div style="font-size: 1.5em;">
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Important</strong></p>
-</div>
-<div class="callout-content">
-<p>In general, <span class="math inline">\(\color{#AA4AC4}{\beta} \neq \color{#00C1D5}{\gamma}\)</span></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+</div><div class="column" style="width:50%;">
+<p>Estimate <span style="color: #00C1D5;"><span class="math inline">\(\hat{\gamma}_{\text{all}}\)</span></span>, by regressing <span style="color: #00C1D5;"><span class="math inline">\(f\)</span></span> on <span style="color: #1B365D;"><span class="math inline">\(X\)</span></span></p>
+<p><br></p>
+<p><strong>Perceived Advantages:</strong></p>
+<ul>
+<li class="fragment">Uses the full data</li>
+<li class="fragment">Easy, scalable, (artificially) more precise</li>
+</ul>
+<p><strong>Problems:</strong></p>
+<ul>
+<li class="fragment">Standard errors can be too optimistic*</li>
+<li class="fragment">Estimates target the wrong quantity</li>
+</ul>
 </div></div>
 </section>
-<section id="option-3-we-need-principled-methods-for-inference-with-predicted-data-ipd" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Option 3: We need principled methods for inference with predicted data (IPD)</h2>
+<section id="in-our-verbal-autopsy-work" class="slide level2 theme-bg3 center">
+<h2>In our verbal autopsy work</h2>
+<p><br></p>
+
+<img data-src="2026-washu-talking-public-health_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="and-our-bmi-study" class="slide level2 theme-bg3 center">
+<h2>And our BMI study!</h2>
+<p><br></p>
+
+<img data-src="2026-washu-talking-public-health_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="section" class="slide level2 center">
+<h2></h2>
+<div class="kicker">
+<p>If we treat predictions like measured data, we get <strong>confident</strong> answers to the <strong>wrong</strong> questions.</p>
+</div>
+</section>
+<section id="option-3-we-need-methods-for-inference-with-predicted-data-ipd" class="slide level2 theme-bg3 center" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Option 3: We need methods for inference with predicted data (IPD)</h2>
 <h3 id="we-want-to-use-all-available-data-to-minimize-bias-and-variance">We want to use all available data to minimize bias and variance</h3>
 <p>We leverage the subset of data with measured outcomes to calibrate inference in the larger study</p>
 <p><br></p>
@@ -1168,8 +1313,8 @@ N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 </div>
 </div>
 </section>
-<section id="the-first-ipd-approach-post-prediction-inference-wang-et-al.-2020" class="slide level2 theme-bg3 center">
-<h2>The first IPD approach: Post-Prediction Inference (Wang et al., 2020)</h2>
+<section id="the-first-ipd-approach-post-prediction-inference-postpi" class="slide level2 theme-bg3 center">
+<h2>The first IPD approach: Post-Prediction Inference (PostPI)</h2>
 <h3 id="the-authors-made-key-observation-that-the-predicted-and-true-outcomes-often-have-a-simple-relationship">The authors made key observation that the predicted and true outcomes often have a simple relationship</h3>
 <p><br></p>
 <div class="columns">
@@ -1195,483 +1340,322 @@ N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 <p><br></p>
 
 <img data-src="images/wang_all.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://www.pnas.org/doi/abs/10.1073/pnas.2001238117</span></p></section>
-<section id="post-prediction-inference-models-this-relationship-in-the-labeled-data" class="slide level2 theme-bg3 center">
-<h2>Post-Prediction Inference models this relationship in the labeled data</h2>
+<section id="postpi-models-this-relationship-in-the-labeled-data" class="slide level2 theme-bg3 center">
+<h2>PostPI models this relationship in the labeled data</h2>
 <h3 id="using-any-choice-of-flexible-function">Using any choice of flexible function</h3>
 <p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="r-hstack">
-<div class="data-label label-yf" data-id="ystartext">
-<p>Y<span class="math inline">\(^\star\)</span></p>
-</div>
-<div class="data-label label-yf">
-
-</div>
 <div class="data-label label-yf" data-id="ytext">
-<p>Y</p>
+<p>Outcome:</p>
 </div>
 <div class="data-label label-yf" data-id="ftext">
-<p>f</p>
+<p>Prediction:</p>
+</div>
+<div class="data-label label-xz" data-id="xtext">
+<p>Covariates:</p>
+</div>
+<div class="data-label label-xz" data-id="ztext">
+<p>Predictors:</p>
 </div>
 </div>
 <div class="r-hstack">
-<div class="data-label label-yf" data-id="ystartext">
-<p>COD<span class="math inline">\(^\star\)</span></p>
-</div>
-<div class="data-label label-yf">
-
-</div>
-<div class="data-label label-yf" data-id="ytext">
-<p>True COD</p>
-</div>
-<div class="data-label label-yf" data-id="ftext">
-<p>VA COD</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ystartext">
-<p>Body Fat<span class="math inline">\(^\star\)</span></p>
-</div>
-<div class="data-label label-yf">
-
-</div>
 <div class="data-label label-yf" data-id="ytext">
 <p>% Body Fat</p>
 </div>
 <div class="data-label label-yf" data-id="ftext">
 <p>BMI</p>
 </div>
-</div>
-<div class="r-hstack">
-<div class="data-box box-ystarl" data-id="ystarl">
-
-</div>
-<div class="data-label label-yf" style="font-size: 1.5em;">
-<p>=</p>
-</div>
-<div class="data-box box-yl" data-id="yl">
-
-</div>
-<div class="data-box box-fl" data-id="fl">
-
-</div>
-</div>
-</section>
-<section id="and-uses-this-relationship-to-correct-inference-in-the-unlabeled-data" class="slide level2 theme-bg3 center">
-<h2>And uses this relationship to correct inference in the unlabeled data</h2>
-<p><br></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ftext">
-<p>Y<span class="math inline">\(^\star\)</span></p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>X</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ftext">
-<p>COD<span class="math inline">\(^\star\)</span></p>
-</div>
-<div class="data-label label-xz" data-id="xtext">
-<p>Age, Country of Origin</p>
-</div>
-</div>
-<div class="r-hstack">
-<div class="data-label label-yf" data-id="ftext">
-<p>Body Fat<span class="math inline">\(^\star\)</span></p>
-</div>
 <div class="data-label label-xz" data-id="xtext">
 <p>Age, Sex</p>
 </div>
-</div>
-<div class="r-hstack">
-<div class="data-box box-ystarl" data-id="ystarl">
-
-</div>
-<div class="data-box box-xl" data-id="xl">
-
+<div class="data-label label-xz" data-id="ztext">
+<p>Height, Weight</p>
 </div>
 </div>
 <div class="r-hstack">
-<div class="data-box box-ystaru" data-id="ystaru">
+<div class="data-box box-yl" data-id="yl">
+<p>Y</p>
+</div>
+<div class="data-box box-fl" data-id="fl">
+<p>f</p>
+</div>
+<div class="data-box box-xl is-faded" data-id="xl">
 
 </div>
-<div class="data-box box-xu" data-id="xu">
+<div class="data-box box-zl is-faded" data-id="zl">
+
+</div>
+</div>
+<div class="r-hstack">
+<div class="data-box box-yu is-faded" data-id="yu">
+
+</div>
+<div class="data-box box-fu is-faded" data-id="fu">
+
+</div>
+<div class="data-box box-xu is-faded" data-id="xu">
+
+</div>
+<div class="data-box box-zu is-faded" data-id="zu">
 
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<p>NEED</p>
+
+</div></div>
+</section>
+<section id="and-uses-this-relationship-to-correct-inference-in-the-unlabeled-data" class="slide level2 theme-bg3 center">
+<h2>And uses this relationship to correct inference in the unlabeled data</h2>
+<h3 id="by-modeling-corrected-outcomes-ystar">By modeling corrected outcomes <span class="math inline">\((Y^\star)\)</span></h3>
+<p><span style="color: #AA4AC4;"><span class="math inline">\(Y^\star\)</span></span> = <span style="color: #AA4AC4;"><span class="math inline">\(\beta^\star\)</span></span> <span style="color: #1B365D;"><span class="math inline">\(X\)</span></span></p>
+<p><span style="color: #AA4AC4;"><span class="math inline">\(\text{% Body Fat}^\star\)</span></span> = <span style="color: #AA4AC4;"><span class="math inline">\(\beta^\star\)</span></span> <span style="color: #1B365D;"><span class="math inline">\(\text{Sex}\)</span></span></p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="r-hstack">
+<div class="data-label label-yf" data-id="ytext">
+<p>Outcome:</p>
+</div>
+<div class="data-label label-yf" data-id="ftext">
+<p>Prediction:</p>
+</div>
+<div class="data-label label-xz" data-id="xtext">
+<p>Covariates:</p>
+</div>
+<div class="data-label label-xz" data-id="ztext">
+<p>Predictors:</p>
+</div>
+</div>
+<div class="r-hstack">
+<div class="data-label label-yf" data-id="ytext">
+<p>% Body Fat</p>
+</div>
+<div class="data-label label-yf" data-id="ftext">
+<p>BMI</p>
+</div>
+<div class="data-label label-xz" data-id="xtext">
+<p>Age, Sex</p>
+</div>
+<div class="data-label label-xz" data-id="ztext">
+<p>Height, Weight</p>
+</div>
+</div>
+<div class="r-hstack">
+<div class="data-box box-yl is-faded" data-id="yl">
+
+</div>
+<div class="data-box box-fl is-faded" data-id="fl">
+
+</div>
+<div class="data-box box-xl is-faded" data-id="xl">
+
+</div>
+<div class="data-box box-zl is-faded" data-id="zl">
+
+</div>
+</div>
+<div class="r-hstack">
+<div class="data-box box-ytildeu" data-id="yu">
+<p>Y<span class="math inline">\(^\star\)</span></p>
+</div>
+<div class="data-box box-fu is-faded" data-id="fu">
+
+</div>
+<div class="data-box box-xu" data-id="xu">
+<p>X</p>
+</div>
+<div class="data-box box-zu is-faded" data-id="zu">
+
+</div>
+</div>
+<div class="fragment">
+<div class="bottom-metrics">
+<div class="metric-box metric-green" data-id="bias">
+<p>Low Bias</p>
+</div>
+<div class="metric-box metric-green" data-id="precision">
+<p>Low Variance</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Estimate <span style="color: #AA4AC4;"><span class="math inline">\(\hat{\beta^\star}_{\text{unlab}}\)</span></span> by regressing <span style="color: #AA4AC4;"><span class="math inline">\(Y^\star\)</span></span> on <span style="color: #1B365D;"><span class="math inline">\(X\)</span></span></p>
+<p><br></p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li class="fragment">Intuitive and easy to implement</li>
+<li class="fragment">Applicable for any downstream model</li>
+</ul>
+<p><strong>Problems:</strong></p>
+<ul>
+<li class="fragment">Relies on strong assumptions about the relationship model</li>
+<li class="fragment">May not fully correct bias</li>
+</ul>
 </div></div>
 </section>
 <section id="we-developed-a-method-that-generalizes-postpi" class="slide level2 theme-bg3 center">
 <h2>We developed a method that generalizes PostPI</h2>
 <h3 id="our-approach-relaxes-several-assumptions-from-the-original-method">Our approach relaxes several assumptions from the original method</h3>
+<p><bf></bf></p>
 <div class="columns">
-<div class="column" style="width:60%;">
+<div class="column" style="width:55%;">
 <p><img data-src="images/momentpostpi_result.png"></p>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:45%;">
 <p><img data-src="images/momentpostpi_paper.png"></p>
 </div></div>
 </section>
-<section id="less-than-13-of-deaths-worldwide-are-assigned-a-medically-certified-cause" class="slide level2 theme-bg3 center">
-<h2>Less than 1/3 of deaths worldwide are assigned a medically certified cause</h2>
-<h3 id="verbal-autopsy-va-methods-convert-interviews-with-family-memberscaregivers-into-predicted-causes-of-death">Verbal autopsy (VA) methods convert interviews with family members/caregivers into <em>predicted</em> causes of death</h3>
-<p>This is a time-consuming, resource-intensive process that asks interviewees to relive their grief in emotionally taxing detail</p>
+<section id="prediction-powered-inference-ppi-angelopoulos-et-al.-2023" class="slide level2 theme-bg3 center">
+<h2>Prediction-Powered Inference (PPI; Angelopoulos et al., 2023)</h2>
+<h3 id="a-recent-incredibly-popular-method">A recent, incredibly popular method</h3>
+<p>“Rectifies” the naive approach by estimating <span style="color: #AA4AC4;"><span class="math inline">\(\hat{\beta^\star}\)</span></span> = <span style="color: #00C1D5;"><span class="math inline">\(\hat{\gamma}_{\text{unlab}}\)</span></span> - (<span style="color: #00C1D5;"><span class="math inline">\(\hat{\gamma}_{\text{lab}}\)</span></span> - <span style="color: #AA4AC4;"><span class="math inline">\(\hat{\beta}_{\text{lab}}\)</span></span>)</p>
 <p><br></p>
 
-<img data-src="images/va_overview.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://publichealthnotes.com/verbal-autopsy-and-mpdsr/</span></p></section>
-<section id="verbal-autopsy-from-interview-to-inferred-cause-of-death" class="slide level2 theme-bg3 center">
-<h2>Verbal autopsy: from interview to inferred cause of death</h2>
-<h3 id="when-a-death-occurs-outside-the-medical-system-cause-of-death-must-often-be-reconstructed-rather-than-directly-observed">When a death occurs outside the medical system, cause of death must often be reconstructed rather than directly observed</h3>
+<img data-src="images/ppi.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: science.org/doi/10.1126/science.adi6000</span></p></section>
+<section id="we-developed-a-method-for-correcting-inference-on-va-predicted-cod" class="slide level2 theme-bg3 center">
+<h2>We developed a method for correcting inference on VA predicted COD</h2>
+<h3 id="by-extending-the-ppi-framework-to-multiclass-prediction-problems">By extending the PPI framework to multiclass prediction problems</h3>
+<p><br></p>
 <div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Typical process</strong></p>
-<ul>
-<li class="fragment">A trained interviewer speaks with a family member or caregiver</li>
-<li class="fragment">They collect a structured questionnaire and often a free-text narrative</li>
-<li class="fragment">Reported symptoms, timing, circumstances, and medical history are reviewed</li>
-<li class="fragment">A physician or algorithm maps this information to a likely cause of death</li>
-<li class="fragment">The result is used for mortality surveillance and population-level analyses</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><strong>Key challenges</strong></p>
-<ul>
-<li class="fragment"><p>The <em>true</em> cause of death is often unavailable</p></li>
-<li class="fragment"><p>Interviews occur after bereavement and can be emotionally taxing</p></li>
-<li class="fragment"><p>Recall may be incomplete, inaccurate, or shaped by local context</p></li>
-<li class="fragment"><p>Different coders or algorithms may assign different causes</p></li>
-<li class="fragment"><p>Downstream users want more than classification:</p>
-<ul>
-<li class="fragment">cause-specific mortality fractions</li>
-<li class="fragment">risk-factor associations</li>
-<li class="fragment">comparisons across regions and time</li>
-</ul></li>
-</ul>
-</div></div>
-<p><br></p>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p>Verbal autopsy is therefore not just a prediction task. It is a setting where an <em>inferred</em> outcome becomes input to downstream public health inference.</p>
+<div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2026-washu-talking-public-health_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</figure>
 </div>
 </div>
 </div>
-</section>
-<section id="recent-work-leverages-unstructured-interviews-for-automated-va" class="slide level2 theme-bg3 center">
-<h2>Recent work leverages unstructured interviews for automated VA</h2>
-<h3 id="narrative-summaries-aiml-predictions-would-be-less-resource-intensive-than-current-standard">Narrative summaries + AI/ML predictions would be less resource intensive than current standard</h3>
-<p><br></p>
-
-<img data-src="images/va_narratives.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0308452/</span></p></section>
-<section id="we-studied-how-different-aiml-methods-classify-cause-of-death" class="slide level2 theme-bg3 center">
-<h2>We studied how different AI/ML methods classify cause of death</h2>
-<h3 id="comparing-methods-such-as-knn-svm-bert-and-gpt-4">Comparing methods such as KNN, SVM, BERT, and GPT-4</h3>
-<p><br></p>
-
-<img data-src="images/va_colm.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://openreview.net/forum?id=QbCHlIqbDJ</span></p></section>
-<section id="population-health-metrics-research-consortium" class="slide level2 theme-bg3 center">
-<h2>Population Health Metrics Research Consortium</h2>
-<h3 id="n-6763-observations-from-6-sites-in-4-countries-adults-only-5-cause-of-death-labels">N = 6,763 observations from 6 sites in 4 countries; adults only, 5 cause of death labels</h3>
-<p><br></p>
-
-<img data-src="images/va_data.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://openreview.net/forum?id=QbCHlIqbDJ</span></p></section>
-<section id="can-llms-predict-cause-of-death" class="slide level2 theme-bg3 center">
-<h2>Can LLMs predict cause of death?</h2>
-<h3 id="focusing-on-one-site-uttar-pradesh">Focusing on one site (Uttar Pradesh)</h3>
-<ul>
-<li class="fragment">GPT-4 had the highest accuracy (0.75), comparable F1 score (0.73)</li>
-<li class="fragment">Predictive performance matched the best examples from the VA literature, despite using only using only the unstructured narratives</li>
-<li class="fragment">Unique feature of LLMs was the capacity, and tendency, to output “I don’t know”
-<ul>
-<li class="fragment">GPT-4 predicted 1503 out of 6763 COD labels as “unclassified.”</li>
-<li class="fragment">Manual review confirmed all 1503 contained no useful information for COD determination</li>
-</ul></li>
-</ul>
-</section>
-<section id="need-title" class="slide level2 theme-bg3 center">
-<h2>Need title</h2>
-<div class="fragment">
-<p>Modern ML/LLM systems can:</p>
-<ul>
-<li class="fragment">summarize narratives</li>
-<li class="fragment">map to ICD-like categories</li>
-<li class="fragment">produce calibrated probabilities (sometimes)</li>
-</ul>
-</div>
-<div class="fragment">
-<p>But downstream users often want:</p>
-<ul>
-<li class="fragment">cause-specific mortality fractions</li>
-<li class="fragment">risk-factor associations</li>
-<li class="fragment">time trends and comparisons across regions</li>
-</ul>
-</div>
-<div class="fragment">
-<p>Those are <em>inference problems</em>, not just prediction problems.</p>
-</div>
-</section>
-<section id="so-we-developed-a-method-for-correcting-inference-on-predicted-cod" class="slide level2 theme-bg3 center">
-<h2>So we developed a method for correcting inference on predicted COD</h2>
-<h3 id="by-extending-an-existing-method-ppi-for-multiclass-prediction">By extending an existing method (PPI++) for multiclass prediction</h3>
-<p><br></p>
-
-<img data-src="images/va_ppi.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://openreview.net/forum?id=QbCHlIqbDJ</span></p></section>
-<section id="but-predictions-dont-have-to-be-complex-to-bias-inference" class="slide level2 theme-bg3 center">
-<h2>But ‘predictions’ don’t have to be complex to bias inference</h2>
-<h3 id="the-case-of-body-mass-index-bmi-kgm2-as-an-imperfect-measure-of-adiposity">The case of body mass index (BMI; kg/m<span class="math inline">\(^2\)</span>) as an imperfect measure of adiposity</h3>
-<p><br></p>
-
-<img data-src="images/bmi_overview.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://www.nytimes.com/2024/11/14/well/obesity-epidemic-america.html</span></p></section>
-<section id="an-algorithm-is-just-a-set-of-steps-that-map-inputs-to-outputs" class="slide level2 theme-bg3 center">
-<h2>An ‘algorithm’ is just a set of steps that map inputs to outputs</h2>
-<h3 id="bmi-is-one-of-several-potential-adiposity-prediction-algorithms">BMI is one of several potential adiposity ‘prediction algorithms’</h3>
-<ul>
-<li class="fragment">BMI (≥ 30 kg/m²)</li>
-<li class="fragment">Waist circumference (men ≥ 102 cm; women ≥ 88 cm)</li>
-<li class="fragment">DXA % body fat (&gt; 30% men; &gt; 42% women)</li>
-</ul>
-<p><br></p>
-
-<img data-src="images/bmi_algorithm.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf</span></p></section>
-<section id="we-studied-bmi-using-nhanes-to-understand-population-level-inference" class="slide level2 theme-bg3 center">
-<h2>We studied BMI using NHANES to understand population-level inference</h2>
-<h3 id="bmiwcdxa-all-collected-up-until-covid-19-when-dxa-collection-was-suspended">BMI/WC/DXA all collected up until COVID-19, when DXA collection was suspended</h3>
-<p><br></p>
-
-<img data-src="images/bmi_nhanes.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf</span></p></section>
-<section id="mismatched-quadrants-suggest-limitations-in-bmiwc" class="slide level2 theme-bg3 center">
-<h2>Mismatched quadrants suggest limitations in BMI/WC</h2>
-<h3 id="bmiwc-are-at-best-noisy-proxies">BMI/WC are (at best) noisy proxies:</h3>
-<ul>
-<li class="fragment">Varies by sex, age, race/ethnicity, muscle mass, fat distribution</li>
-<li class="fragment">Systematically biased for some groups</li>
-</ul>
-<p><br></p>
-
-<img data-src="images/bmi_scatter.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf</span></p></section>
-<section id="differences-in-sign-and-magnitude-depending-on-the-measure" class="slide level2 theme-bg3 center">
-<h2>Differences in sign and magnitude depending on the measure!</h2>
-<h3 id="but-ipd-correction-aligns-with-gold-standard-dxa-based-measure-of-obesity">But IPD correction aligns with gold-standard DXA-based measure of obesity</h3>
-<p><br></p>
-
-<img data-src="images/bmi_bias.png" class="r-stretch quarto-figure-center"><p class="caption"><span class="caption">Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf</span></p></section>
-<section id="need-title-1" class="slide level2 center">
-<h2><a href="#/need-title">need title</a></h2>
-<div class="callout callout-none no-icon callout-titled callout-style-simple">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Predicted Data</strong></p>
-</div>
-<div class="callout-content">
-<p>Data that are generated from a machine learning (ML) or artificial intelligence (AI) model, or otherwise derived from a function of other data, rather than collected using the ‘gold-standard’ method.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="an-aside-on-some-statistical-assumptions-here" class="slide level2 center">
-<h2>An aside on some statistical assumptions here</h2>
-<h3 id="here-we-focus-on-a-specific-case-for-illustration">Here we focus on a specific case for illustration</h3>
-<p>But recent work has focused on weakening the assumptions of:</p>
-<ol type="1">
-<li class="fragment">A pre-trained ML model</li>
-<li class="fragment">Missingness only in <span class="math inline">\(Y\)</span></li>
-<li class="fragment">Same distribution of labeled and unlabeled data</li>
-<li class="fragment">Beyond estimation of regression parameters</li>
-</ol>
-</section>
-<section id="these-examples-illustrate-a-broader-shift" class="slide level2 theme-bg3 center">
-<h2>These examples illustrate a broader shift</h2>
-<ul>
-<li class="fragment">The design and pace of data collection is rapidly changing</li>
-<li class="fragment">Predictions are becoming <em>inputs</em> to public health science.</li>
-<li class="fragment">This creates a need for rigorous, open statistical <em>interventions</em>.</li>
-</ul>
-</section>
-<section id="thinking-of-ai-as-an-epidemiologic-exposure" class="slide level2 theme-bg3 center">
-<h2>Thinking of AI as an epidemiologic exposure</h2>
-<h3 id="ai-systems-themselves-can-act-as-exposures.">AI systems themselves can act as exposures.</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>They influence:</p>
-<ul>
-<li class="fragment">Access to health information</li>
-<li class="fragment">Public policy and personal decision-making</li>
-<li class="fragment">Recommendations on public health interventions</li>
-</ul>
-<div class="fragment">
-<p>Understanding these impacts requires careful measurement and inference.</p>
-</div>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:35%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/AIEpi.PNG"></p>
-<figcaption>NEED LINK</figcaption>
+<p><img data-src="images/va_paper.png"></p>
+<figcaption><span class="caption">Source:arxiv.org/pdf/2404.02438</span></figcaption>
 </figure>
 </div>
 </div></div>
 </section>
-<section id="prediction-powered-inference-as-a-correction" class="slide level2 theme-bg3 center" data-auto-animate="true" data-auto-animate-easing="ease-in-out">
-<h2 data-id="quarto-animate-title">Prediction-powered inference as a correction</h2>
-<div class="kicker">
-<p>Start with the labeled estimate, then correct it using the difference between the unlabeled and labeled prediction-based estimates</p>
-</div>
+<section id="and-in-our-bmi-study" class="slide level2 theme-bg3 center">
+<h2>And in our BMI study</h2>
+<h3 id="our-ipd-correction-aligns-with-gold-standard-dxa-based-measure-of-obesity">Our IPD correction aligns with gold-standard DXA-based measure of obesity</h3>
 <p><br></p>
-<div class="r-stack">
-<div class="r-hstack">
-<div class="r-vstack">
-<div class="data-label label-yf" data-id="ytext">
-<p>Y</p>
-</div>
-<div class="data-box box-yl" data-id="yl">
 
-</div>
-</div>
-<div style="font-size: 2em; margin: 0 10px; align-self: center;">
-<p>~</p>
-</div>
-<div class="r-vstack">
-<div class="data-label label-xz" data-id="xtext">
-<p>X</p>
-</div>
-<div class="data-box box-xl" data-id="xl">
-
-</div>
-</div>
-<div style="font-size: 2em; margin: 0 20px; align-self: center;">
-<p>−</p>
-</div>
-<div style="font-size: 1.5em; margin: 0 10px; align-self: center;">
-<p>(w)</p>
-</div>
-<div style="font-size: 2em; margin: 0 10px; align-self: center;">
-<p>[</p>
-</div>
-<div class="r-vstack">
-<div class="data-label label-yf" data-id="ftext">
-<p>f</p>
-</div>
-<div class="data-box box-fu" data-id="fu">
-
-</div>
-</div>
-<div style="font-size: 2em; margin: 0 10px; align-self: center;">
-<p>~</p>
-</div>
-<div class="r-vstack">
-<div class="data-label label-xz" data-id="xtext">
-<p>X</p>
-</div>
-<div class="data-box box-xu" data-id="xu">
-
-</div>
-</div>
-<div style="font-size: 2em; margin: 0 20px; align-self: center;">
-<p>−</p>
-</div>
-<div class="r-vstack">
-<div class="data-label label-yf" data-id="ftext">
-<p>f</p>
-</div>
-<div class="data-box box-fl" data-id="fl">
-
-</div>
-</div>
-<div style="font-size: 2em; margin: 0 10px; align-self: center;">
-<p>~</p>
-</div>
-<div class="r-vstack">
-<div class="data-label label-xz" data-id="xtext">
-<p>X</p>
-</div>
-<div class="data-box box-xl" data-id="xl">
-
-</div>
-</div>
-<div style="font-size: 2em; margin: 0 10px; align-self: center;">
-<p>]</p>
-</div>
-</div>
-</div>
+<img data-src="2026-washu-talking-public-health_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="many-developing-methods-for-correcting-inference-with-predicted-data" class="slide level2 theme-bg3 center">
+<h2>Many developing methods for correcting inference with predicted data</h2>
+<h3 id="driven-by-the-pace-of-aiml-method-development-and-the-need-for-domain-specific-solutions">Driven by the pace of AI/ML method development and the need for domain-specific solutions</h3>
 <p><br></p>
-<p>[ = (YX_) - w ]</p>
+
+<img data-src="images/ipd_papers.png" class="r-stretch"></section>
+<section id="we-developed-the-ipd-r-package" class="slide level2 theme-bg3 center">
+<h2>We developed the <code>ipd</code> R package</h2>
+<h3 id="to-implement-these-correction-methods-in-a-consistent-and-familiar-manner">To implement these correction methods in a consistent and familiar manner</h3>
 <p><br></p>
-<div class="small">
-<p>Interpretation: begin with the gold-standard labeled estimate, then add back information from the large unlabeled set through a prediction-based correction.</p>
-</div>
+<div class="columns">
+<div class="column" style="width:66%;">
+<p><img data-src="images/ipd_package.png"></p>
+</div><div class="column" style="width:33%;">
+<p><img data-src="images/ipd_note.png"></p>
+</div></div>
 </section></section>
 <section>
 <section id="a-broader-perspective" class="title-slide slide level1 theme-bg2 center">
 <h1>A Broader Perspective</h1>
 
 </section>
-<section id="a-holistic-approach-to-intervening-in-the-scientific-pipeline" class="slide level2 center">
-<h2>A holistic approach to intervening in the Scientific Pipeline</h2>
-<p>My research focuses on several types of intervention:</p>
-<ol type="1">
-<li class="fragment">Statistical methods</li>
-<li class="fragment">Software tools</li>
-<li class="fragment">Training and education</li>
-<li class="fragment">Open scientific infrastructure</li>
-<li class="fragment">Donating our skills as a service</li>
-</ol>
+<section id="ai-like-any-exposure-requires-different-treatment-strategies" class="slide level2 theme-bg3 center">
+<h2>AI, like any exposure, requires different ‘treatment’ strategies</h2>
+<h3 id="my-research-program-takes-a-holistic-approach-to-intervening-across-the-scientific-pipeline">My research program takes a holistic approach to intervening across the scientific pipeline</h3>
+<p><br></p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[1,1,1],[1,1,1]]">
+<div class="quarto-layout-row">
+<div class="fragment quarto-layout-cell" data-fragment-index="1" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><strong>Statistical Methods</strong> (Today’s Focus)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/rhino_paper.PNG" style="width:60.0%"></p>
+<figcaption><span class="caption">arxiv.org/pdf/2512.05456</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment quarto-layout-cell" data-fragment-index="2" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><strong>Open-Source Software</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/scorcher_github.PNG"></p>
+<figcaption><span class="caption">github.com/jtleek/scorcher</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment quarto-layout-cell" data-fragment-index="3" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><strong>Free Training Resources</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/ipd_workshop.PNG" style="width:80.0%"></p>
+<figcaption><span class="caption">salernos.github.io/ipd-workshop/</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="fragment quarto-layout-cell" data-fragment-index="4" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><br></p>
+<p><strong>Open Case Studies</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/ocs.PNG" style="width:80.0%"></p>
+<figcaption><span class="caption">opencasestudies.org/</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment quarto-layout-cell" data-fragment-index="5" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><br></p>
+<p><strong>Benchmark Datasets</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/pancanbench.PNG"></p>
+<figcaption><span class="caption">arxiv.org/pdf/2603.01343</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment quarto-layout-cell" data-fragment-index="6" style="flex-basis: 33.3%;justify-content: flex-start;">
+<p><br></p>
+<p><strong>Service</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/d4gx.PNG" style="width:80.0%"></p>
+<figcaption><span class="caption">data.bloomberglp.com/company/sites/2/2018/09/Data-for-Good-In-Your-Neighborhood.pdf</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="software-ipd" class="slide level2 center">
-<h2>Software: IPD</h2>
-<h3 id="need">NEED</h3>
-</section>
-<section id="software-scorcher" class="slide level2 center">
-<h2>Software: scorcher</h2>
-<p>The <strong>scorcher</strong> framework supports reproducible deep learning pipelines in R.</p>
-<p>Features include:</p>
-<ul>
-<li class="fragment">modular neural network architectures</li>
-<li class="fragment">reproducible training workflows</li>
-<li class="fragment">integration with statistical modeling</li>
-</ul>
-</section>
-<section id="training-and-workshops" class="slide level2 center">
-<h2>Training and Workshops</h2>
-<p>I also develop training programs that teach researchers how to use modern machine learning tools responsibly.</p>
-<p>Topics include:</p>
-<ul>
-<li class="fragment">inference with predicted data</li>
-<li class="fragment">reproducible AI pipelines</li>
-<li class="fragment">deep learning for scientific research</li>
-</ul>
-</section>
-<section id="open-case-studies" class="slide level2 center">
-<h2>Open Case Studies</h2>
-<p>Through collaborations with the Open Case Studies project, we develop reproducible examples that demonstrate best practices in data science.</p>
-<p>These resources help make advanced methods more accessible.</p>
-</section>
-<section id="benchmark-datasets" class="slide level2 center">
-<h2>Benchmark Datasets</h2>
-<p>We also contribute to benchmark datasets that enable transparent evaluation of AI methods in public health.</p>
-<p>Examples include PanCanBench.</p>
-</section>
-<section id="service" class="slide level2 center">
-<h2>Service</h2>
-<h3 id="statcom-need">Statcom – NEED</h3>
-</section>
-<section id="final-thoughts" class="slide level2 center">
+<section id="final-thoughts" class="slide level2 theme-bg3 center">
 <h2>Final Thoughts</h2>
-<p>Artificial intelligence is transforming how data are generated and analyzed.</p>
-<p>Predictions will increasingly become inputs to scientific research.</p>
-<p>Ensuring that inference remains valid will require new methods, tools, and training.</p>
+<ul>
+<li class="fragment">Artificial intelligence is an exposure that transforms how data are generated and analyzed</li>
+<li class="fragment">Predictions will increasingly become inputs to public health research</li>
+<li class="fragment">Ensuring that inference remains valid will require new methods, tools, and training</li>
+<li class="fragment">Open-source collaboration is our fastest way to success!</li>
+</ul>
 </section>
-<section id="some-acknowledgements" class="slide level2 theme-bg3 center">
-<h2>Some Acknowledgements</h2>
-<h3 id="this-slide-is-by-no-means-exhaustive">This slide is by no means exhaustive</h3>
-<p>It represents individuals who have contributed most recently to the papers I have highlighted in this talk.</p>
+<section id="thank-you" class="slide level2 theme-bg3 center">
+<h2>Thank You!</h2>
 <p><br></p>
 
-<img data-src="images/people.PNG" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
-<section id="thank-you" class="slide level2 center">
-<h2>Thank You!</h2>
-<p>NEED QR</p>
+<img data-src="images/qr_slides.png" class="quarto-figure quarto-figure-center r-stretch" style="width:35.0%"><div class="footer">
+<p><a href="salernos.github.io/2026-washu-talking-public-health">salernos.github.io/2026-washu-talking-public-health</a></p>
+<p><a href="ssalerno@fredhutch.org">ssalerno@fredhutch.org</a></p>
+</div>
 </section>
+
+
 
 
 
