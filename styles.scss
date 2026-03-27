@@ -174,11 +174,13 @@ h1 {
 .quarto-figure {
   margin-bottom: 0em; 
   margin-top: 0em;
+  text-align: center;
 }
 
 .caption {
-  font-size:  0.5em;
-  color:      $hutch-blue;
+  display: block;
+  font-size: 0.5em;
+  color: $hutch-blue;
   font-style: italic;
   text-align: center;
 }
@@ -236,6 +238,14 @@ h1 {
   border-radius: 2px;
   border: 3px solid transparent;
   box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700;
+  font-size: 1.6em;
+  color: white;
 }
 
 .box-yl {
@@ -287,6 +297,54 @@ h1 {
   border-color: $hutch-yell;
 }
 
+.box-ytildel {
+  width: 80px;
+  height: 80px;
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      $hutch-purp,
+      $hutch-purp 6px,
+      lighten($hutch-purp, 20%) 6px,
+      lighten($hutch-purp, 20%) 12px
+    );
+
+  border: 3px solid $hutch-purp;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700;
+  font-size: 1.8em;
+}
+
+.box-ytildeu {
+  width: 80px;
+  height: 240px;
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      $hutch-purp,
+      $hutch-purp 6px,
+      lighten($hutch-purp, 20%) 6px,
+      lighten($hutch-purp, 20%) 12px
+    );
+
+  border: 3px solid $hutch-purp;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 700;
+  font-size: 1.8em;
+}
+
 .box-fu {
   width: 80px;
   height: 240px;
@@ -308,6 +366,15 @@ h1 {
   border-color: $hutch-teal;
 }
 
+.is-faded {
+  opacity: 0.1;
+  filter: saturate(0.7);
+}
+
+.tight-brace {
+  margin-top: -35px;
+}
+
 /*--- BOTTOM METRICS ---------------------------------------------------------*/
 
 .bottom-metrics{
@@ -324,7 +391,10 @@ h1 {
   color: #1B365D;
   min-width: 180px;
   height: 30px;
-  text-align: center;
+
+  display: flex;
+  justify-content: center;   // horizontal center
+  align-items: center;       // vertical center
 }
 
 .metric-green{
@@ -334,51 +404,6 @@ h1 {
 .metric-red{
   background: #FFCCCB;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*--- PEOPLE -----------------------------------------------------------------*/
 

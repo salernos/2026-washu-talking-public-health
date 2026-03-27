@@ -52,42 +52,124 @@ execute:
 
 <br>
 
-![[Slides: https://salernos.github.io/2026-washu-talking-public-health]{.caption}](images/qr_slides.png){width="35%" fig-align="center"}
+![](images/qr_slides.png){width="35%" fig-align="center"}
+
+::: {.footer}
+[salernos.github.io/2026-washu-talking-public-health](salernos.github.io/2026-washu-talking-public-health)
+:::
+
+## First, Some Acknowledgements {.theme-bg3}
+
+### This slide is by no means exhaustive
+
+It represents individuals who have contributed most recently to the papers I have highlighted in this talk.
+
+<br>
+
+![](images/people.PNG){width="50%" fig-align="center"}
+
+## Public Health in a World Where We Can Predict Anything {.theme-bg3}
 
 ## Public Health in a World Where We [*Think We*]{style="color: #00C1D5;"} Can Predict Anything {.theme-bg3}
 
-::: kicker
-Predictions are becoming *inputs* to public health science and practice. If we treat them like ordinary measurements, we can get **confident** answers to the **wrong** questions.
+## Public Health in a World [*that Would Benefit if*]{style="color: #00C1D5;"} We [*Could*]{style="color: #00C1D5;"} Predict Anything {.theme-bg3}
+
+## A high-level overview of this talk {.theme-bg3}
+
+### Public health has always dealt with incomplete measurement because many outcomes are:
+
+<br>
+
+::: {layout="[[1,1,1],[1,1,1]]"}
+
+::: {.fragment fragment-index="1"}
+[*Expensive*]{style="color: #00C1D5;"}: 
+
+Dual-Energy X-ray Absorptiometry Scans
 :::
 
--   Public health has always dealt with incomplete measurement
--   What is new is that AI makes predicted 'data' increasingly cheap, scalable, and pervasive
--   This work focuses on the statistical, computational, and practical infrastructure we need to do this responsibly
+::: {.fragment fragment-index="3"}
+[*Difficult to observe*]{style="color: #00C1D5;"}: 
 
-## A roadmap for today {.theme-bg3}
-
-1.  How prediction is becoming part of public health 'data'
-2.  Why this creates a statistical problem
-3.  What we are doing to address this
-4.  Where we are intervening in public health research
-
-## In public health, the quantity we care about may be: {.theme-bg3}
-
-\|:----------------------------------\|:--------------------------------------:\|:------\| \| Partially observed \| Medically-certified cause of death \| image \| \| Expensive to measure \| Dual-energy X-ray absorptiometry scans \| image \| \| Delayed to obtain \| NEED \| image \| \| Or never directly observed at all \| NEED \| image \|
-
-::: fragment
-So we reconstruct it from the data we can obtain.
+Protein Structures
 :::
 
-## Predictions are everywhere in public health {.theme-bg3}
+::: {.fragment fragment-index="5"}
+[*Never recorded*]{style="color: #00C1D5;"}: 
 
-### Predictions as proxy data already appear throughout modern public health research
+Causes of Death
+:::
 
-\[what to put here\]?
+::: {.fragment fragment-index="2"}
+![[Source: my.clevelandclinic.org/health/diagnostics/10683-dexa-dxa-scan-bone-density-test]{.caption}](images/dexa.jpg)
+:::
+
+::: {.fragment fragment-index="4"}
+![[Source: my.clevelandclinic.org/health/diagnostics/10683-dexa-dxa-scan-bone-density-test]{.caption}](images/AlphaFold2.png)
+:::
+
+::: {.fragment fragment-index="6"}
+![[Source: papp.iussp.org/sessions/papp104_s01/PAPP104_s01_080_010.html]{.caption}](images/va_map.png)
+:::
+
+:::
+
+## A high-level overview of this talk {.theme-bg3}
+
+<br>
+
+- In practice, this means some populations count less simply because they are [*harder to measure*]{style="color: #00C1D5;"}
+- Predicting missing data creates an opportunity to [*extend evidence*]{style="color: #00C1D5;"}, but [*predictions are imperfect*]{style="color: #00C1D5;"}
+- What is new is that AI makes predicted 'data' increasingly [*cheap*]{style="color: #00C1D5;"}, [*scalable*]{style="color: #00C1D5;"}, and [*pervasive*]{style="color: #00C1D5;"}
+- My work focuses on how to generate and use predicted data without sacrificing [*rigor*]{style="color: #00C1D5;"}, [*reproducibility*]{style="color: #00C1D5;"}, or [*validity*]{style="color: #00C1D5;"}
+
+# What is AI? Why now? {.theme-bg2}
+
+## What is AI? A three-part definition {.theme-bg3}
+
+<br>
+
+::: {.columns}
+
+::: {.column width="40%"}
+
+### 1. Data
+
+![[Source: https://www.innerdoc.com/periodic-table-of-nlp-tasks/14-tokenization/]{.caption}](images/ai_data.png){fig-align="center"}
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="20%"}
+
+### 2. Algorithm
+
+![[Source: https://arxiv.org/abs/1706.03762]{.caption}](images/ai_algorithm.png){fig-align="center"}
+
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="30%"}
+
+### 3. Interface
+
+![[Source: https://chatgpt.com/]{.caption}](images/ai_interface.png){fig-align="center"}
+
+:::
+
+:::
+
+::: {.footer}
+[https://simplystatistics.org/posts/2017-01-19-what-is-artificial-intelligence/](https://simplystatistics.org/posts/2017-01-19-what-is-artificial-intelligence/)
+:::
 
 ## Why is this happening now? {.theme-bg3}
 
-### For example: simultaneous revolutions in computing and biology
+### Simultaneous revolutions in computing and biology
 
 <br>
 
@@ -105,143 +187,437 @@ So we reconstruct it from the data we can obtain.
 Adapted from *Post-prediction inference*. Source: jtleek.com/talks
 :::
 
-## What does this mean for how we collect data? {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
+## What does this mean for how we collect data? {.theme-bg3 auto-animate="true"}
 
 ### A simple sample size calculation
 
-::: {.r-fit-text color="#1B365D"}
+::: {.r-fit-text text-color="#1B365D"}
 $$
 N = \text{Sample Size}
 $$
 :::
 
-## What does this mean for how we collect data? {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
+::: {.footer}
+Courtesy of Ingo Ruczinski
+:::
+
+## What does this mean for how we collect data? {.theme-bg3 auto-animate="true"}
 
 ### A simple sample size calculation
 
-::: {.r-fit-text color="#1B365D"}
+::: {.r-fit-text text-color="#1B365D"}
 $$
 N = \frac{\$ \text{ You Have }}{\$ \text{ Per Sample }}
 $$
 :::
 
+::: {.footer}
+Courtesy of Ingo Ruczinski
+:::
+
+# Thinking of AI as an exposure {.theme-bg2}
+
+## AI is an exposure {.theme-bg3}
+
+### We need to think of AI 'emissions' like an epidemiologist would
+
+<br> 
+
+::: {.columns}
+::: {.column width="60%"}
+
+<br>
+
+- It is rapidly spreading throughout both the scientific and general communities
+- It is influencing public health research and public health practice
+- It has the capacity to do good or harm 
+:::
+
+::: {.column width="40%"}
+![[Preprint provided by the authors]{.caption}](images/AIEpi.PNG){width="120%"}
+:::
+:::
+
+## LLM breakthroughs have driven AI's current momentum {.theme-bg3}
+
+<br>
+
+![[Source: medium.com/@lmpo/a-brief-history-of-lmms-from-transformers-2017-to-deepseek-r1-2025-dae75dd3f59a]{.caption}](images/llm_breakthroughs.png)
+
+## AI is everywhere, and it is spreading faster than ever {.theme-bg3}
+
+<br>
+
+![[Source: https://www.nebuly.com/blog/2024-the-year-of-llm-user-intelligence]{.caption}](images/ai_spread.png){width="50%" fig-align="center"}
+
+## And it is influencing modern science {.theme-bg3}
+
+### 2024 Nobel Prizes in biology and chemistry went to AI breakthroughs
+
+<br>
+
+::: {.columns}
+::: {.column width="50%"}
+![[Source: nature.com/articles/s41746-024-01345-9]{.caption}](images/nobel_two.png){width="75%" fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![[Source: nature.com/articles/d41586-024-03214-7]{.caption}](images/AlphaFold1.png){width="65%" fig-align="center"}
+:::
+:::
+
+## This illustrates a broader shift {.theme-bg3}
+
+### The scale and diversity of AI applications is part of what makes this moment different
+
+-   The design and pace of data collection is rapidly changing
+-   Predictions are now becoming input 'data' for public health science
+-   This creates a need for rigorous, open statistical [*interventions*]{style="color: #00C1D5;"}
+
+# Predictions as 'data' are already <br> everywhere in public health {.theme-bg2}
+
 ## Neighborhood characteristics from street view images... {.theme-bg3}
 
 <br>
 
-::::::: columns
-:::: {.column width="60%"}
-::: fragment
+::: {.columns}
+::: {.column width="60%"}
+::: {.fragment}
 ![[Source: https://www.pnas.org/doi/abs/10.1073/pnas.1700035114]{.caption}](images/Paper1.png){width="65%" fig-align="center"}
 :::
-::::
+:::
 
-:::: {.column width="40%"}
-::: fragment
+::: {.column width="40%"}
+::: {.fragment}
 "We show that socioeconomic attributes such as income, race, education, and voting patterns can be inferred from cars detected in Google Street View images using deep learning."
 :::
-::::
-:::::::
+:::
+:::
 
 ## Malnutrition risk from remotely sensed and field data... {.theme-bg3}
 
 <br>
 
-::::::: columns
-:::: {.column width="60%"}
-::: fragment
+::: {.columns}
+::: {.column width="60%"}
+::: {.fragment}
 ![[Source: https://www.pnas.org/doi/10.1073/pnas.2416161122]{.caption}](images/Paper2.png){width="65%" fig-align="center"}
 :::
-::::
+:::
 
-:::: {.column width="40%"}
-::: fragment
+::: {.column width="40%"}
+::: {.fragment}
 "We combine supervised machine learning methods and remotely sensed feature sets with time series child anthropometric data ... to generate accurate forecasts of acute malnutrition at operationally meaningful time horizons."
 :::
-::::
-:::::::
+:::
+:::
 
 ## Poverty from satellite images of nighttime lights... {.theme-bg3}
 
 <br>
 
-::::::: columns
-:::: {.column width="60%"}
-::: fragment
+::: {.columns}
+::: {.column width="60%"}
+::: {.fragment}
 ![[Source: https://www.science.org/doi/10.1126/science.aaf7894]{.caption}](images/Paper3.png){width="65%" fig-align="center"}
 :::
-::::
+:::
 
-:::: {.column width="40%"}
-::: fragment
+::: {.column width="40%"}
+::: {.fragment}
 "With a bit of machine-learning wizardry, the combined images can be converted into accurate estimates of household consumption and assets, both of which are hard to measure in poorer countries."
 :::
-::::
-:::::::
+:::
+:::
 
 ## Influenza activity from search/query behavior... {.theme-bg3}
 
 <br>
 
-::::::: columns
-:::: {.column width="60%"}
-::: fragment
+::: {.columns}
+::: {.column width="60%"}
+::: {.fragment}
 ![[Source: https://www.nature.com/articles/nature07634]{.caption}](images/Paper4.png){width="65%" fig-align="center"}
 :::
-::::
+:::
 
-:::: {.column width="40%"}
-::: fragment
+::: {.column width="40%"}
+::: {.fragment}
 "Here we present a method of analysing large numbers of Google search queries to track influenza-like illness in a population."
 :::
-::::
-:::::::
-
-## Our core framing {.theme-bg3}
-
-### Prediction is becoming part of data collection
-
-In many public health settings, we have:
-
--   An outcome we really care about
--   Cheaper or more scalable predictors
--   An algorithm that maps these predictors to a prediction of the outcome
-
-::: fragment
-That prediction is often then used as if it were data.
+:::
 :::
 
-# Two concrete examples from my work {.theme-bg2}
+## In these examples, prediction is becoming part of data collection {.theme-bg3}
 
-## I will exemplify the statistical framing with two very different examples {.theme-bg3}
-
-### In reality, we can find examples in any field and everywhere in between
+### In many public health settings, we have:
 
 <br>
 
-::::: columns
+- An outcome we really care about
+- Access to cheaper or more scalable data
+- An algorithm that maps these data to a prediction of the outcome
+
+## We can find examples in many fields and everywhere in between {.theme-bg3}
+
+### Here are two very different examples from my work 
+
+<br>
+
+::: {.columns}
 ::: {.column width="50%"}
-**Complex Predictions: Cause of Death from Verbal Autopsies**
+**Complex Predictions:** Cause of Death from Verbal Autopsies
+
+![[Source: www.who.int/publications/m/item/2022-who-verbal-autopsy-manual-for-supervisors]{.caption}](images/va_cover.png){width="50%" fig-align="center"}
 :::
 
 ::: {.column width="50%"}
-**Simple Predictions: BMI as a Proxy for Adiposity**
-:::
-:::::
+**Simple Predictions:** BMI as a Proxy for Adiposity
 
-## Good predictions are useful. But prediction is not measurement. {.theme-bg3}
+![[Source: hsph.harvard.edu/news/bmi-a-poor-metric-for-measuring-peoples-health-say-experts/]{.caption}](images/bmi_cover.png){width="80%" fig-align="center"}
+:::
+:::
+
+## Less than 1/3 of deaths worldwide are assigned a medically certified cause {.theme-bg3}
+
+### When deaths occur outside the medical system, cause of death must be *predicted* rather than observed
+
+Verbal autopsy (VA) is a time-consuming, resource-intensive process that asks interviewees to relive their grief in detail
+
+<br>
+
+![[Source: https://publichealthnotes.com/verbal-autopsy-and-mpdsr/]{.caption}](images/va_overview.png)
+
+## Recent work leverages unstructured interviews for automated VA {.theme-bg3}
+
+### Narrative summaries + AI/ML predictions would be less resource intensive than current standard
+
+<br>
+
+![[Source: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0308452/]{.caption}](images/va_narratives.png)
+
+## We studied how different AI/ML methods can classify cause of death {.theme-bg3}
+
+### Comparing methods such as KNN, SVM, BERT, and GPT-4 using only the narrative summaries
+
+<br>
+
+![[Source: https://openreview.net/forum?id=QbCHlIqbDJ]{.caption}](images/va_colm.png)
+
+## Using data from the Population Health Metrics Research Consortium {.theme-bg3}
+
+### N = 6,763 observations from 6 sites in 4 countries; adults only, 5 cause of death labels
+
+<br>
+
+::: {.columns}
+::: {.column width="50%"}
+**Focusing on one site (Uttar Pradesh)**:
+
+- GPT-4 had the highest accuracy (0.75) using only unstructured narratives
+- Performance was comparable to existing VA models
+- Unlike traditional classifiers, GPT-4 could say 'I don't know.'
+- 1,503 of 6,763 cases were labeled unclassified
+- Manual review confirmed these narratives contained insufficient information for COD assignment
+:::
+
+::: {.column width="50%"}
+![[Source: https://openreview.net/forum?id=QbCHlIqbDJ]{.caption}](images/va_data.png)
+:::
+:::
+
+## But *prediction* is not the same as *inference* {.theme-bg3}
+
+<br>
+
+::: {.columns}
+::: {.column width="50%"}
+
+::: {.fragment}
+### A demographer's actual questions may be: 
+
+- How does cause of death vary by geography?
+- Are there changes over time in those causes?
+- What are the reasons underlying these effects?
+:::
+
+::: {.fragment}
+### How do we answer these questions?
+
+- With statistical and epidemiological models
+:::
+
+::: {.fragment}
+### The challenge:
+
+- We have *predicted,* rather than observed, cause of death 
+:::
+:::
+
+::: {.column width="50%"}
+
+*"Value of Verbal Autopsy in a Fragile Setting: Reported versus Estimated Community Deaths Associated with COVID-19, Banadir, Somalia"*
+
+![[Source: mdpi.com/2076-0817/12/2/328]{.caption}](images/va_trend.jpg)
+:::
+:::
+
+## Predictions also don't have to be complex to be biased {.theme-bg3}
+
+### The case of body mass index (BMI; kg/m$^2$) as an imperfect measure of adiposity
+
+<br>
+
+![[Source: https://www.nytimes.com/2024/11/14/well/obesity-epidemic-america.html]{.caption}](images/bmi_overview.png)
+
+## An 'algorithm' is just a set of steps that map inputs to outputs {.theme-bg3}
+
+### BMI is one of several potential adiposity 'prediction algorithms'
+
+-   BMI (≥ 30 kg/m²)
+-   Waist circumference (men ≥ 102 cm; women ≥ 88 cm)
+-   **Gold-Standard**: Dual-Energy X-ray Absorptiometry (DXA) % body fat (\> 30% men; \> 42% women)
+
+<br>
+
+![[Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf]{.caption}](images/bmi_algorithm.png)
+
+## We used NHANES to understand BMI/WC in population-level inference {.theme-bg3}
+
+### BMI/WC/DXA all collected up until COVID-19, when DXA collection was suspended
+
+<br>
+
+::: {.columns}
+::: {.column width=60%"}
+
+```{r}
+
+#--- Load Packages
+
+library(ipd)
+library(broom)
+library(scales)
+library(tidyverse)
+
+#--- Read-In Data
+
+load("data/NHANES.RData")
+
+#--- Define Obesity Categories
+
+NHANES <- NHANES |>
+  mutate(
+    obese_BMI = BMXBMI >= 30,
+    obese_WC  = case_when(
+      Sex == "Male"   & BMXWAIST >= 102 ~ TRUE,
+      Sex == "Female" & BMXWAIST >=  88 ~ TRUE,
+      .default                          = FALSE),
+    obese_DXA = case_when(
+      is.na(DXDTOPF)                 ~ NA,
+      Sex == "Male"   & DXDTOPF > 30 ~ TRUE,
+      Sex == "Female" & DXDTOPF > 42 ~ TRUE,
+      .default                       = FALSE)
+  )
+
+nhanes_long <- NHANES |>
+  select(Cohort, Age, Sex, Race, obese_BMI, obese_WC, obese_DXA) |>
+  pivot_longer(
+    cols = starts_with("obese_"),
+    names_to = "Measure",
+    values_to = "Obese"
+  ) |>
+  mutate(
+    Measure = recode(Measure,
+      obese_BMI = "BMI",
+      obese_WC  = "Waist Circumference",
+      obese_DXA = "DXA"
+    )
+  ) |>
+  filter(!is.na(Obese))
+
+prop_sex <- nhanes_long |>
+  group_by(Cohort, Sex, Measure, Obese) |>
+  summarize(n = n(), .groups = "drop") |>
+  group_by(Cohort, Sex, Measure) |>
+  mutate(prop = n / sum(n))
+
+ggplot(prop_sex, aes(x = Sex, y = prop, fill = Obese)) +
+  geom_col(position = "stack") +
+  facet_grid(Cohort ~ Measure) +
+  scale_y_continuous(labels = percent_format(accuracy = 1)) +
+  scale_fill_manual(values = c("#00C1D5", "#AA4AC4")) +
+  scale_color_manual(values = c("#00C1D5", "#AA4AC4")) +
+  labs(
+    x     = "\nSex",
+    y     = "Percent\n",
+    fill  = "Obesity Status:",
+    title = "Obesity Classification by Sex, Cohort, and Measure"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+```
+
+:::
+
+::: {.column width="40%"}
+![[Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf]{.caption}](images/bmi_paper.png)
+:::
+:::
+
+## Mismatched quadrants suggest limitations in BMI/WC {.theme-bg3}
+
+### BMI/WC are (at best) noisy proxies:
+
+-   Varies by sex, age, race/ethnicity, muscle mass, fat distribution
+-   Systematically biased for some groups
+
+```{r}
+
+cutoffs <- tibble(
+  label = c("BMI", "BMI", "Waist Circumference", "Waist Circumference"),
+  Sex  = c("Male", "Female", "Male", "Female"),
+  xint = c(30, 30, 102, 88),
+  yint = c(30, 42,  30, 42)
+)
+
+NHANES |>
+  filter(Cohort == "2017-2018") |>
+  pivot_longer(c(BMXBMI, BMXWAIST)) |>
+  mutate(
+    label = case_when(
+      name == "BMXBMI" ~ "BMI", name == "BMXWAIST" ~ "Waist Circumference")) |>
+  ggplot(aes(x = value, y = DXDTOPF, group = Sex, fill = Sex, color = Sex)) +
+    facet_wrap(~ label, scales = "free_x") +
+    geom_point(alpha = 0.4) +
+    geom_smooth(method = "lm") +
+    geom_vline(data = cutoffs, 
+      aes(xintercept = xint, color = Sex), linetype = "dashed") +
+    geom_hline(data = cutoffs, 
+      aes(yintercept = yint, color = Sex), linetype = "dashed") +
+    scale_fill_manual(values = c("#00C1D5", "#AA4AC4")) +
+    scale_color_manual(values = c("#00C1D5", "#AA4AC4")) +
+    labs(
+      title = "DXA % Body Fat vs BMI and WC (2017-2018)",
+      x = "\nBMI (kg/m2) or Waist Circumference (cm)", y = "% Body Fat\n") +
+    theme_minimal()
+
+```
+
+## Good predictions can be useful, but predictions are not measurements {.theme-bg3}
 
 ### That distinction matters when our goal is not just predictive accuracy, but:
 
--   Estimation
--   Uncertainty quantification
--   Regression
--   Hypothesis testing
--   Population-level inference
+- Estimation
+- Uncertainty quantification
+- Regression
+- Hypothesis testing
+- Population-level inference
 
-## A common data structure {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
+# Consider a setup that might be <br> pertinent to your own work {.theme-bg2}
 
-### We are interested in studying the association between an outcome ($Y$) and covariates ($X$)
+## We are studying the relationship between an outcome ($Y$) and covariates ($X$) {.theme-bg3 auto-animate="true"}
 
 In our VA work, $Y$ is cause of death and $X$ are sociodemographic factors like age or country of origin
 
@@ -249,27 +625,17 @@ In our BMI work, $Y$ is true adiposity (% body fat) and $X$ are demographic fact
 
 <br>
 
-::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-Y
+Outcome:
 :::
 
 ::: {.data-label .label-xz data-id="xtext"}
-X
+Covariates:
 :::
-:::::
-
-::::: r-hstack
-::: {.data-label .label-yf data-id="ytext"}
-True COD
 :::
 
-::: {.data-label .label-xz data-id="xtext"}
-Age, Country of Origin
-:::
-:::::
-
-::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
 \% Body Fat
 :::
@@ -277,19 +643,19 @@ Age, Country of Origin
 ::: {.data-label .label-xz data-id="xtext"}
 Age, Sex
 :::
-:::::
+:::
 
-::::: r-hstack
+::: {.r-hstack}
 ::: {.data-box .box-yl data-id="yl"}
+Y
 :::
 
 ::: {.data-box .box-xl data-id="xl"}
+X
 :::
-:::::
+:::
 
-## A common data structure {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
-
-### We also have data ($Z$) that are predictive of our outcome
+## We also have data ($Z$) that are predictive of our outcome {.theme-bg3 auto-animate="true"}
 
 In our VA work, $Z$ are our structure VA questionnaires and narrative summaries
 
@@ -297,35 +663,21 @@ In our BMI work, $Z$ are anthropometric measurements (height and weight)
 
 <br>
 
-:::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-Y
+Outcome:
 :::
 
 ::: {.data-label .label-xz data-id="xtext"}
-X
+Covariates:
 :::
 
 ::: {.data-label .label-xz data-id="ztext"}
-Z
+Predictors:
 :::
-::::::
-
-:::::: r-hstack
-::: {.data-label .label-yf data-id="ytext"}
-True COD
 :::
 
-::: {.data-label .label-xz data-id="xtext"}
-Age, Country of Origin
-:::
-
-::: {.data-label .label-xz data-id="ztext"}
-VA Questionnaire
-:::
-::::::
-
-:::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
 \% Body Fat
 :::
@@ -337,56 +689,45 @@ Age, Sex
 ::: {.data-label .label-xz data-id="ztext"}
 Height, Weight
 :::
-::::::
+:::
 
-:::::: r-hstack
+::: {.r-hstack}
 ::: {.data-box .box-yl data-id="yl"}
+Y
 :::
 
 ::: {.data-box .box-xl data-id="xl"}
+X
 :::
 
 ::: {.data-box .box-zl data-id="zl"}
+Z
 :::
-::::::
+:::
 
-## In many cases, unlabeled features ($X,Z$) are cheap and easy to collect {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
+## In many cases, unlabeled features ($X,Z$) are cheap and easy to collect {.theme-bg3 auto-animate="true"}
 
 ### Our outcome of interest, however, can be time-consuming or costly to obtain
 
 <br>
 
-:::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-Y
+Outcome:
 :::
 
 ::: {.data-label .label-xz data-id="xtext"}
-X
+Covariates:
 :::
 
 ::: {.data-label .label-xz data-id="ztext"}
-Z
+Predictors:
 :::
-::::::
+:::
 
-:::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-True COD
-:::
-
-::: {.data-label .label-xz data-id="xtext"}
-Age, Country of Origin
-:::
-
-::: {.data-label .label-xz data-id="ztext"}
-VA Questionnaire
-:::
-::::::
-
-:::::: r-hstack
-::: {.data-label .label-yf data-id="ytext"}
-\% Body Fat
+% Body Fat
 :::
 
 ::: {.data-label .label-xz data-id="xtext"}
@@ -396,75 +737,63 @@ Age, Sex
 ::: {.data-label .label-xz data-id="ztext"}
 Height, Weight
 :::
-::::::
+:::
 
-:::::: r-hstack
+::: {.r-hstack}
 ::: {.data-box .box-yl data-id="yl"}
-:::
-
-::: {.data-box .box-xl data-id="xl"}
-:::
-
-::: {.data-box .box-zl data-id="zl"}
-:::
-::::::
-
-:::::: r-hstack
-::: {.data-box .box-yu data-id="yu"}
-:::
-
-::: {.data-box .box-xu data-id="xu"}
-:::
-
-::: {.data-box .box-zu data-id="zu"}
-:::
-::::::
-
-## Modern studies use accessible data and an algorithm to predict these outcomes {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
-
-### These predictions are then treated as measured data and used in downstream analyses or for policy making
-
-<br>
-
-::::::: r-hstack
-::: {.data-label .label-yf data-id="ytext"}
 Y
 :::
 
-::: {.data-label .label-yf data-id="ftext"}
-f
-:::
-
-::: {.data-label .label-xz data-id="xtext"}
+::: {.data-box .box-xl data-id="xl"}
 X
 :::
 
-::: {.data-label .label-xz data-id="ztext"}
+::: {.data-box .box-zl data-id="zl"}
 Z
 :::
-:::::::
+:::
 
-::::::: r-hstack
+::: {.r-hstack}
+::: {.data-box .box-yu data-id="yu"}
+Y
+:::
+
+::: {.data-box .box-xu data-id="xu"}
+X
+:::
+
+::: {.data-box .box-zu data-id="zu"}
+Z
+:::
+:::
+
+## We can use accessible data and an algorithm to generate predictions {.theme-bg3 auto-animate="true"}
+
+### We make no assumptions about the quality of these predictions or the models they come from
+
+<br>
+
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-True COD
+Outcome:
 :::
 
 ::: {.data-label .label-yf data-id="ftext"}
-VA COD
+Prediction:
 :::
 
 ::: {.data-label .label-xz data-id="xtext"}
-Age, Country of Origin
+Covariates:
 :::
 
 ::: {.data-label .label-xz data-id="ztext"}
-VA Questionnaire
+Predictors:
 :::
-:::::::
+:::
 
-::::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-\% Body Fat
+% Body Fat
 :::
 
 ::: {.data-label .label-yf data-id="ftext"}
@@ -478,89 +807,80 @@ Age, Sex
 ::: {.data-label .label-xz data-id="ztext"}
 Height, Weight
 :::
-:::::::
+:::
 
-::::::: r-hstack
+::: {.r-hstack}
 ::: {.data-box .box-yl data-id="yl"}
-:::
-
-::: {.data-box .box-fl data-id="fl"}
-:::
-
-::: {.data-box .box-xl data-id="xl"}
-:::
-
-::: {.data-box .box-zl data-id="zl"}
-:::
-:::::::
-
-::::::: r-hstack
-::: {.data-box .box-yu data-id="yu"}
-:::
-
-::: {.data-box .box-fu data-id="fu"}
-:::
-
-::: {.data-box .box-xu data-id="xu"}
-:::
-
-::: {.data-box .box-zu data-id="zu"}
-:::
-:::::::
-
-## 
-
-::: kicker
-So what are our options?
-:::
-
-## Option 1: Classical Inference {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
-
-### Estimate our statistic of interest with only the observations that have measured outcomes
-
-Parameter of interest is [$\beta$]{style="color: #AA4AC4;"}, the population-level regression coefficients of [$Y$]{style="color: #AA4AC4;"} on [$X$]{style="color: #1B365D;"}
-
-<br>
-
-::::::: r-hstack
-::: {.data-label .label-yf data-id="ytext"}
 Y
 :::
 
-::: {.data-label .label-yf data-id="ftext"}
+::: {.data-box .box-fl data-id="fl"}
 f
 :::
 
-::: {.data-label .label-xz data-id="xtext"}
+::: {.data-box .box-xl data-id="xl"}
 X
 :::
 
-::: {.data-label .label-xz data-id="ztext"}
+::: {.data-box .box-zl data-id="zl"}
 Z
 :::
-:::::::
+:::
 
-::::::: r-hstack
+::: {.r-hstack}
+::: {.data-box .box-yu data-id="yu"}
+Y
+:::
+
+::: {.data-box .box-fu data-id="fu"}
+f
+:::
+
+::: {.data-box .box-xu data-id="xu"}
+X
+:::
+
+::: {.data-box .box-zu data-id="zu"}
+Z
+:::
+:::
+
+# So what are our options for inference? {.theme-bg2}
+
+## Option 1: Classical Inference {.theme-bg3}
+
+### Estimate our statistic of interest with only the observations that have measured outcomes
+
+[$Y$]{style="color: #AA4AC4;"} = [$\beta$]{style="color: #AA4AC4;"} [$X$]{style="color: #1B365D;"} 
+
+[$\text{% Body Fat}$]{style="color: #AA4AC4;"} = [$\beta$]{style="color: #AA4AC4;"} [$\text{Sex}$]{style="color: #1B365D;"}
+
+<br>
+
+::: {.columns}
+::: {.column width="50%"}
+
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-True COD
+Outcome:
 :::
 
 ::: {.data-label .label-yf data-id="ftext"}
-VA COD
+Prediction:
 :::
 
 ::: {.data-label .label-xz data-id="xtext"}
-Age, Country of Origin
+Covariates:
 :::
 
 ::: {.data-label .label-xz data-id="ztext"}
-VA Questionnaire
+Predictors:
 :::
-:::::::
+:::
 
-::::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-\% Body Fat
+% Body Fat
 :::
 
 ::: {.data-label .label-yf data-id="ftext"}
@@ -574,104 +894,40 @@ Age, Sex
 ::: {.data-label .label-xz data-id="ztext"}
 Height, Weight
 :::
-:::::::
+:::
 
-::::::: r-hstack
+::: {.r-hstack}
 ::: {.data-box .box-yl data-id="yl"}
-:::
-
-::: {.data-box .box-fl data-id="fl"}
-:::
-
-::: {.data-box .box-xl data-id="xl"}
-:::
-
-::: {.data-box .box-zl data-id="zl"}
-:::
-:::::::
-
-::::::: r-hstack
-::: {.data-box .box-yu data-id="yu"}
-:::
-
-::: {.data-box .box-fu data-id="fu"}
-:::
-
-::: {.data-box .box-xu data-id="xu"}
-:::
-
-::: {.data-box .box-zu data-id="zu"}
-:::
-:::::::
-
-## Option 1: Classical Inference {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
-
-### Estimate our statistic of interest with only the observations that have measured outcomes
-
-Parameter of interest is [$\beta$]{style="color: #AA4AC4;"}, the population-level regression coefficients of [$Y$]{style="color: #AA4AC4;"} on [$X$]{style="color: #1B365D;"}
-
-<br>
-
-::::::::::::::::::::: columns
-::::::::::::::: {.column width="50%"}
-::::: r-hstack
-::: {.data-label .label-yf data-id="ytext"}
 Y
 :::
 
-::: {.data-label .label-xz data-id="xtext"}
-X
-:::
-:::::
-
-::::: r-hstack
-::: {.data-label .label-yf data-id="ytext"}
-True COD
-:::
-
-::: {.data-label .label-xz data-id="xtext"}
-Age, Country of Origin
-:::
-:::::
-
-::::: r-hstack
-::: {.data-label .label-yf data-id="ytext"}
-\% Body Fat
-:::
-
-::: {.data-label .label-xz data-id="xtext"}
-Age, Sex
-:::
-:::::
-
-::::: r-hstack
-::: {.data-box .box-yl data-id="yl"}
+::: {.data-box .box-fl .is-faded data-id="fl"}
 :::
 
 ::: {.data-box .box-xl data-id="xl"}
+X
 :::
-:::::
 
-$$
-{\Huge \underbrace{\hspace{5cm}}_{\color{#AA4AC4}{\hat{\beta}_{\text{lab}}}}}
-$$
-:::::::::::::::
+::: {.data-box .box-zl .is-faded data-id="zl"}
+:::
+:::
 
-::::::: {.column width="50%"}
-**Advantages:**
+::: {.r-hstack}
+::: {.data-box .box-yu .is-faded data-id="yu"}
+:::
 
--   Targets the right scientific quantity
--   Low bias if the labeled set is representative
+::: {.data-box .box-fu .is-faded data-id="fu"}
+:::
 
-**Problems:**
+::: {.data-box .box-xu .is-faded data-id="xu"}
+:::
 
--   Throws away information on many observations
--   Potential to miss important signals
+::: {.data-box .box-zu .is-faded data-id="zu"}
+:::
+:::
 
-<br>
-
-:::::: fragment
-::::: bottom-metrics
+::: {.fragment}
+::: {.bottom-metrics}
 ::: {.metric-box .metric-green data-id="bias"}
 Low Bias
 :::
@@ -679,58 +935,63 @@ Low Bias
 ::: {.metric-box .metric-red data-id="precision"}
 High Variance
 :::
-:::::
-::::::
-:::::::
-:::::::::::::::::::::
+:::
+:::
+:::
 
-## Option 2: Naive Inference {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
+::: {.column width="50%"}
 
-### Treat the predicted outcomes as if they were measured and use all observations
-
-Parameter of interest is [$\gamma$]{style="color: #00C1D5;"}, the population-level regression coefficients of [$f$]{style="color: #00C1D5;"} on [$X$]{style="color: #1B365D;"}
+Estimate [$\hat{\beta}_{\text{lab}}$]{style="color: #AA4AC4;"} by regressing [$Y$]{style="color: #AA4AC4;"} on [$X$]{style="color: #1B365D;"}
 
 <br>
 
-::::::: r-hstack
+**Advantages:**
+
+- Targets the right scientific quantity
+- Low bias if the labeled set is representative
+
+**Problems:**
+
+- Throws away information on many observations
+- Potential to miss important signals
+
+:::
+:::
+
+## Option 2: Naive Inference {.theme-bg3 auto-animate="true"}
+
+### Treat the predicted outcomes as if they were measured and use all observations
+
+[$f$]{style="color: #00C1D5;"} = [$\gamma$]{style="color: #00C1D5;"} [$X$]{style="color: #1B365D;"}
+
+[$\text{BMI}$]{style="color: #00C1D5;"} = [$\gamma$]{style="color: #00C1D5;"} [$\text{Sex}$]{style="color: #1B365D;"}
+
+<br>
+
+::: {.columns}
+::: {.column width="50%"}
+
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-Y
+Outcome:
 :::
 
 ::: {.data-label .label-yf data-id="ftext"}
-f
+Prediction:
 :::
 
 ::: {.data-label .label-xz data-id="xtext"}
-X
+Covariates:
 :::
 
 ::: {.data-label .label-xz data-id="ztext"}
-Z
+Predictors:
 :::
-:::::::
+:::
 
-::::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-True COD
-:::
-
-::: {.data-label .label-yf data-id="ftext"}
-VA COD
-:::
-
-::: {.data-label .label-xz data-id="xtext"}
-Age, Country of Origin
-:::
-
-::: {.data-label .label-xz data-id="ztext"}
-VA Questionnaire
-:::
-:::::::
-
-::::::: r-hstack
-::: {.data-label .label-yf data-id="ytext"}
-\% Body Fat
+% Body Fat
 :::
 
 ::: {.data-label .label-yf data-id="ftext"}
@@ -744,110 +1005,42 @@ Age, Sex
 ::: {.data-label .label-xz data-id="ztext"}
 Height, Weight
 :::
-:::::::
+:::
 
-::::::: r-hstack
-::: {.data-box .box-yl data-id="yl"}
+::: {.r-hstack}
+::: {.data-box .box-yl .is-faded data-id="yl"}
 :::
 
 ::: {.data-box .box-fl data-id="fl"}
-:::
-
-::: {.data-box .box-xl data-id="xl"}
-:::
-
-::: {.data-box .box-zl data-id="zl"}
-:::
-:::::::
-
-::::::: r-hstack
-::: {.data-box .box-yu data-id="yu"}
-:::
-
-::: {.data-box .box-fu data-id="fu"}
-:::
-
-::: {.data-box .box-xu data-id="xu"}
-:::
-
-::: {.data-box .box-zu data-id="zu"}
-:::
-:::::::
-
-## Option 2: Naive Inference {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
-
-### Treat the predicted outcomes as if they were measured and use all observations
-
-Parameter of interest is [$\gamma$]{style="color: #00C1D5;"}, the population-level regression coefficients of [$f$]{style="color: #00C1D5;"} on [$X$]{style="color: #1B365D;"}
-
-<br>
-
-:::::::::::::::::::::::::: columns
-:::::::::::::::::: {.column width="50%"}
-::::: r-hstack
-::: {.data-label .label-yf data-id="ftext"}
 f
 :::
 
-::: {.data-label .label-xz data-id="xtext"}
+::: {.data-box .box-xl data-id="xl"}
 X
 :::
-:::::
 
-::::: r-hstack
-::: {.data-label .label-yf data-id="ftext"}
-VA COD
+::: {.data-box .box-zl .is-faded data-id="zl"}
+:::
 :::
 
-::: {.data-label .label-xz data-id="xtext"}
-Age, Country of Origin
-:::
-:::::
-
-::::: r-hstack
-::: {.data-label .label-yf data-id="ftext"}
-BMI
+::: {.r-hstack}
+::: {.data-box .box-yu .is-faded data-id="yu"}
 :::
 
-::: {.data-label .label-xz data-id="xtext"}
-Age, Sex
-:::
-:::::
-
-::::: r-hstack
-::: {.data-box .box-fl data-id="fl"}
-:::
-
-::: {.data-box .box-xl data-id="xl"}
-:::
-:::::
-
-::::: r-hstack
 ::: {.data-box .box-fu data-id="fu"}
+f
 :::
 
 ::: {.data-box .box-xu data-id="xu"}
+X
 :::
-:::::
 
-$$
-{\Huge \underbrace{\hspace{5cm}}_{\color{#00C1D5}{\hat{\gamma}_{\text{all}}}}}
-$$
-::::::::::::::::::
+::: {.data-box .box-zu .is-faded data-id="zu"}
+:::
+:::
 
-::::::::: {.column width="50%"}
-**Perceived Advantages:**
-
--   Uses the full data
--   Easy, scalable, (artificially) more precise
-
-**Problems:**
-
--   Standard errors are too optimistic
--   Estimates target the wrong quantity
-
-:::::::: fragment
-::::: bottom-metrics
+::: {.fragment}
+::: {.bottom-metrics}
 ::: {.metric-box .metric-red data-id="bias"}
 High Bias
 :::
@@ -855,17 +1048,294 @@ High Bias
 ::: {.metric-box .metric-red data-id="precision"}
 Low Variance$^\star$
 :::
-:::::
-
-::: {.callout-important style="font-size: 1.5em;"}
-In general, $\color{#AA4AC4}{\beta} \neq \color{#00C1D5}{\gamma}$
+:::
 :::
 
-::::::::
-:::::::::
-::::::::::::::::::::::::::
+:::
 
-## Option 3: We need principled methods for inference with predicted data (IPD) {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
+::: {.column width="50%"}
+
+Estimate [$\hat{\gamma}_{\text{all}}$]{style="color: #00C1D5;"}, by regressing [$f$]{style="color: #00C1D5;"} on [$X$]{style="color: #1B365D;"}
+
+<br>
+
+**Perceived Advantages:**
+
+- Uses the full data
+- Easy, scalable, (artificially) more precise
+
+**Problems:**
+
+- Standard errors can be too optimistic*
+- Estimates target the wrong quantity
+
+:::
+:::
+
+## In our verbal autopsy work {.theme-bg3}
+
+<br>
+
+```{r}
+
+library(tidyverse)
+
+#--- Read-In Data
+
+va_df <- readr::read_csv("data/VA.csv", show_col_types = FALSE)
+
+#--- Helper Parsers
+
+# parse strings like:
+# "[ 0.01435741 -0.00823518 -0.01918385  0.04426635 ]"
+# or "[[ 0.0125 0.0040 -0.0294 0.0429 ]]"
+
+parse_num_vec <- function(x) {
+  x |>
+    stringr::str_replace_all("\\n", " ") |>
+    stringr::str_replace_all("\\(|\\)|\\[|\\]|array", " ") |>
+    stringr::str_squish() |>
+    stringr::str_extract_all("[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?") |>
+    purrr::pluck(1) |>
+    as.numeric()
+}
+
+# parse CI columns and return a tibble with lower/upper per coefficient
+# works for formats like:
+# "[[[ 0.007 0.017 ]] [[-0.001 0.009]] ... ]"
+# or "(array([lower...]), array([upper...]))"
+
+parse_ci_mat <- function(x) {
+  nums <- x |>
+    stringr::str_replace_all("\\n", " ") |>
+    stringr::str_replace_all("\\(|\\)|\\[|\\]|array", " ") |>
+    stringr::str_squish() |>
+    stringr::str_extract_all("[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?") |>
+    purrr::pluck(1) |>
+    as.numeric()
+
+  n <- length(nums)
+
+  # Case 1: lower1 upper1 lower2 upper2 ...
+  if (n %% 2 == 0) {
+    
+    half <- n / 2
+
+    # Try "stacked lower then upper" format first
+    lower1 <- nums[1:half]
+    upper1 <- nums[(half + 1):n]
+
+    # If that looks wrong, fall back to pairwise parsing
+    if (all(lower1 <= upper1)) {
+      tibble(conf.low = lower1, conf.high = upper1)
+    } else {
+      tibble(
+        conf.low  = nums[c(TRUE, FALSE)],
+        conf.high = nums[c(FALSE, TRUE)]
+      )
+    }
+  } else {
+    stop("Could not parse CI column: odd number of numeric entries found.")
+  }
+}
+
+#--- Convert One Row Into Long Format
+
+parse_row_results <- function(site, model,
+                              baseline_pe, baseline_ci,
+                              naive_pe, naive_ci,
+                              ppi_pe, ppi_ci) {
+
+  b_pe <- parse_num_vec(baseline_pe)
+  n_pe <- parse_num_vec(naive_pe)
+  p_pe <- parse_num_vec(ppi_pe)
+
+  b_ci <- parse_ci_mat(baseline_ci)
+  n_ci <- parse_ci_mat(naive_ci)
+  p_ci <- parse_ci_mat(ppi_ci)
+
+  stopifnot(length(b_pe) == nrow(b_ci))
+  stopifnot(length(n_pe) == nrow(n_ci))
+  stopifnot(length(p_pe) == nrow(p_ci))
+
+  bind_rows(
+    tibble(
+      site = site,
+      model = model,
+      method = "True COD",
+      coef_id = seq_along(b_pe),
+      estimate = b_pe,
+      conf.low = b_ci$conf.low,
+      conf.high = b_ci$conf.high
+    ),
+    tibble(
+      site = site,
+      model = model,
+      method = "VA COD",
+      coef_id = seq_along(n_pe),
+      estimate = n_pe,
+      conf.low = n_ci$conf.low,
+      conf.high = n_ci$conf.high
+    ),
+    tibble(
+      site = site,
+      model = model,
+      method = "IPD Corrected",
+      coef_id = seq_along(p_pe),
+      estimate = p_pe,
+      conf.low = p_ci$conf.low,
+      conf.high = p_ci$conf.high
+    )
+  )
+}
+
+#--- Parse All Rows
+
+va_plot_df <- purrr::pmap_dfr(
+  va_df,
+  \(site, model, baseline_pe, baseline_ci, naive_pe, naive_ci, ppi_pe, ppi_ci, ppi_lhat, ppi_se) {
+    parse_row_results(
+      site = site,
+      model = model,
+      baseline_pe = baseline_pe,
+      baseline_ci = baseline_ci,
+      naive_pe = naive_pe,
+      naive_ci = naive_ci,
+      ppi_pe = ppi_pe,
+      ppi_ci = ppi_ci
+    )
+  }
+)
+
+#--- Coefficient Labels
+
+va_plot_df <- va_plot_df |>
+  mutate(
+    coef = factor(
+      coef_id,
+      levels = sort(unique(coef_id)),
+      labels = c("Communicable", "External", "Maternal", "Non-Communicable")
+    ),
+    method = factor(method, levels = c("True COD", "VA COD", "IPD Corrected"))
+  )
+
+#--- Forest Plot
+
+va_plot_df |>
+  filter(site == "dar", model == "KNN", method != "IPD Corrected") |>
+
+  ggplot(aes(x = estimate, y = coef, xmin = conf.low, xmax = conf.high, color = method)) +
+    geom_vline(xintercept = 0, linetype = 2, linewidth = 1.1, color = "gray50") +
+    geom_linerange(position = position_dodge2(width = 0.5), linewidth = 5) +
+    geom_point(position = position_dodge2(width = 0.5), size = 3, color = "white") +
+    geom_segment(
+      aes(x = 0.0325, xend = 0.005, y = 3, yend = 2.3), linewidth = 2, color = "red",
+      arrow = arrow(length = unit(0.15, "cm"))) +
+    geom_segment(
+      aes(x = 0.065, xend = 0.07, y = 3.75, yend = 3.95), linewidth = 2, color = "red",
+      arrow = arrow(length = unit(0.15, "cm"))) +
+    annotate("text", x = 0.05, y = 3, fontface = "bold", color = "red",
+      label = "Naive estimates\n can disagree in\n magnitude and\n significance!") +
+    scale_color_manual(values = c("#AA4AC4", "#00C1D5", "#FFB500")) +
+    labs(
+      x = "\nLog-Odds Ratio for Age",
+      y = "Cause of Death Label\n",
+      title = "Multiclass Logistic Regression of COD on Age",
+      subtitle = "Site: Dar es Salaam, Model: KNN",
+      color = "Outcome:") +
+    theme_bw(base_size = 12) +
+    theme(
+      panel.grid.minor = element_blank(),
+      strip.background = element_rect(fill = "gray95"),
+      legend.position = "bottom")
+
+```
+
+## And our BMI study! {.theme-bg3}
+
+<br>
+
+```{r}
+
+# Split NHANES into labeled (DXA available) vs unlabeled
+labeled   <- NHANES |> filter(Cohort == "2017-2018")
+unlabeled <- NHANES |> filter(Cohort == "2021-2023")
+
+# Stack for PB Inference
+combined <- bind_rows(
+  labeled   |> mutate(set_label = "labeled"),
+  unlabeled |> mutate(set_label = "unlabeled")
+)
+
+# Naive on unlabeled using BMI
+naive_bmi_fit <- glm(obese_BMI ~ Sex, 
+  family = binomial, data = unlabeled)
+naive_bmi_df  <- broom::tidy(naive_bmi_fit) |>
+  mutate(method = "BMI")
+
+# Naive on unlabeled using WC
+naive_wc_fit <- glm(obese_WC ~ Sex,
+  family = binomial, data = unlabeled)
+naive_wc_df  <- broom::tidy(naive_wc_fit) |>
+  mutate(method = "Waist Circumference")
+
+# Classical on labeled using DXA
+class_fit <- glm(obese_DXA ~ Sex,
+  family = binomial, data = labeled)
+class_df  <- broom::tidy(class_fit) |>
+  mutate(method = "% Body Fat")
+
+# Combine
+coef_df <- bind_rows(naive_bmi_df, naive_wc_df, class_df) |>
+  filter(term != "(Intercept)") |>
+  mutate(
+    term = recode(term,
+      "SexFemale" = "Female (vs Male)"
+    ),
+    method = factor(method, levels = c("BMI", "Waist Circumference", "% Body Fat"))
+  )
+    
+# Forest plot
+ggplot(coef_df, aes(x = estimate, y = term, color = method, shape = method, group = method)) +
+  geom_vline(xintercept = 0, linetype = 2, linewidth = 1.1, color = "gray50") +
+  geom_linerange(aes(xmin = estimate - 1.96 * std.error, xmax = estimate + 1.96 * std.error),
+    position = position_dodge2(width = 0.75), linewidth = 5) +
+  geom_point(position = position_dodge2(width = 0.75), size = 3, color = "white", fill = "white") +
+  geom_segment(
+    aes(x = -0.05, xend = -0.25, y = 1.15, yend = 1.2), linewidth = 2, color = "red",
+    arrow = arrow(length = unit(0.15, "cm"))) +
+  geom_segment(
+    aes(x = 0.25, xend = 0.22, y = 0.95, yend = 0.85), linewidth = 2, color = "red",
+    arrow = arrow(length = unit(0.15, "cm"))) +
+  geom_segment(
+    aes(x = 0.6, xend = 0.65, y = 1.1, yend = 1.075), linewidth = 2, color = "red",
+    arrow = arrow(length = unit(0.15, "cm"))) +
+  annotate("text", x = 0.3, y = 1.1, fontface = "bold", color = "red",
+    label = "Opposite conclusions\n depending on outcome!") +
+  scale_color_manual(values = c("#00C1D5", "#00C1D5", "#AA4AC4")) +
+  scale_shape_manual(values = c(16, 17, 16)) +
+  labs(
+    x = "\nLog-Odds Ratio for Sex",
+    y = "Covariate\n",
+    title = "Logistic Regression of Obesity on Sex",
+    color = "Outcome:",
+    shape = "Outcome:") +
+  theme_bw(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    strip.background = element_rect(fill = "gray95"),
+    legend.position = "bottom")
+
+```
+
+
+##
+
+::: {.kicker}
+If we treat predictions like measured data, we get **confident** answers to the **wrong** questions.
+:::
+
+## Option 3: We need methods for inference with predicted data (IPD) {.theme-bg3 auto-animate="true"}
 
 ### We want to use all available data to minimize bias and variance
 
@@ -873,7 +1343,7 @@ We leverage the subset of data with measured outcomes to calibrate inference in 
 
 <br>
 
-::::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
 Y
 :::
@@ -889,9 +1359,9 @@ X
 ::: {.data-label .label-xz data-id="ztext"}
 Z
 :::
-:::::::
+:::
 
-::::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
 True COD
 :::
@@ -907,9 +1377,9 @@ Age, Country of Origin
 ::: {.data-label .label-xz data-id="ztext"}
 VA Questionnaire
 :::
-:::::::
+:::
 
-::::::: r-hstack
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
 \% Body Fat
 :::
@@ -925,9 +1395,9 @@ Age, Sex
 ::: {.data-label .label-xz data-id="ztext"}
 Height, Weight
 :::
-:::::::
+:::
 
-::::::: r-hstack
+::: {.r-hstack}
 ::: {.data-box .box-yl data-id="yl"}
 :::
 
@@ -939,9 +1409,9 @@ Height, Weight
 
 ::: {.data-box .box-zl data-id="zl"}
 :::
-:::::::
+:::
 
-::::::: r-hstack
+::: {.r-hstack}
 ::: {.data-box .box-yu data-id="yu"}
 :::
 
@@ -953,9 +1423,9 @@ Height, Weight
 
 ::: {.data-box .box-zu data-id="zu"}
 :::
-:::::::
+:::
 
-## The first IPD approach: Post-Prediction Inference (Wang et al., 2020) {.theme-bg3}
+## The first IPD approach: Post-Prediction Inference (PostPI) {.theme-bg3}
 
 ### The authors made key observation that the predicted and true outcomes often have a simple relationship
 
@@ -979,137 +1449,194 @@ Height, Weight
 
 ![[Source: https://www.pnas.org/doi/abs/10.1073/pnas.2001238117]{.caption}](images/wang_all.png){fig-align="center"}
 
-## Post-Prediction Inference models this relationship in the labeled data {.theme-bg3}
+## PostPI models this relationship in the labeled data {.theme-bg3}
 
 ### Using any choice of flexible function
 
 <br>
 
-::::::: r-hstack
-::: {.data-label .label-yf data-id="ystartext"}
-Y$^\star$
-:::
+::: {.columns}
+::: {.column width="50%"}
 
-::: {.data-label .label-yf}
-:::
-
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-Y
+Outcome:
 :::
 
 ::: {.data-label .label-yf data-id="ftext"}
-f
-:::
-:::::::
-
-::::::: r-hstack
-::: {.data-label .label-yf data-id="ystartext"}
-COD$^\star$
+Prediction:
 :::
 
-::: {.data-label .label-yf}
+::: {.data-label .label-xz data-id="xtext"}
+Covariates:
 :::
 
+::: {.data-label .label-xz data-id="ztext"}
+Predictors:
+:::
+:::
+
+::: {.r-hstack}
 ::: {.data-label .label-yf data-id="ytext"}
-True COD
-:::
-
-::: {.data-label .label-yf data-id="ftext"}
-VA COD
-:::
-:::::::
-
-::::::: r-hstack
-::: {.data-label .label-yf data-id="ystartext"}
-Body Fat$^\star$
-:::
-
-::: {.data-label .label-yf}
-:::
-
-::: {.data-label .label-yf data-id="ytext"}
-\% Body Fat
+% Body Fat
 :::
 
 ::: {.data-label .label-yf data-id="ftext"}
 BMI
 :::
-:::::::
 
-::::::: r-hstack
-::: {.data-box .box-ystarl data-id="ystarl"}
+::: {.data-label .label-xz data-id="xtext"}
+Age, Sex
 :::
 
-::: {.data-label .label-yf style="font-size: 1.5em;"}
-=
+::: {.data-label .label-xz data-id="ztext"}
+Height, Weight
+:::
 :::
 
+::: {.r-hstack}
 ::: {.data-box .box-yl data-id="yl"}
+Y
 :::
 
 ::: {.data-box .box-fl data-id="fl"}
+f
 :::
-:::::::
+
+::: {.data-box .box-xl .is-faded data-id="xl"}
+:::
+
+::: {.data-box .box-zl .is-faded data-id="zl"}
+:::
+:::
+
+::: {.r-hstack}
+::: {.data-box .box-yu .is-faded data-id="yu"}
+:::
+
+::: {.data-box .box-fu .is-faded data-id="fu"}
+:::
+
+::: {.data-box .box-xu .is-faded data-id="xu"}
+:::
+
+::: {.data-box .box-zu .is-faded data-id="zu"}
+:::
+:::
+
+:::
+::: {.column width="50%"}
+:::
+:::
 
 ## And uses this relationship to correct inference in the unlabeled data {.theme-bg3}
+
+### By modeling corrected outcomes $(Y^\star)$
+
+[$Y^\star$]{style="color: #AA4AC4;"} = [$\beta^\star$]{style="color: #AA4AC4;"} [$X$]{style="color: #1B365D;"} 
+
+[$\text{% Body Fat}^\star$]{style="color: #AA4AC4;"} = [$\beta^\star$]{style="color: #AA4AC4;"} [$\text{Sex}$]{style="color: #1B365D;"}
 
 <br>
 
 ::: {.columns}
-
 ::: {.column width="50%"}
 
-::::: r-hstack
+::: {.r-hstack}
+::: {.data-label .label-yf data-id="ytext"}
+Outcome:
+:::
+
 ::: {.data-label .label-yf data-id="ftext"}
-Y$^\star$
+Prediction:
 :::
 
 ::: {.data-label .label-xz data-id="xtext"}
-X
+Covariates:
 :::
-:::::
 
-::::: r-hstack
+::: {.data-label .label-xz data-id="ztext"}
+Predictors:
+:::
+:::
+
+::: {.r-hstack}
+::: {.data-label .label-yf data-id="ytext"}
+% Body Fat
+:::
+
 ::: {.data-label .label-yf data-id="ftext"}
-COD$^\star$
-:::
-
-::: {.data-label .label-xz data-id="xtext"}
-Age, Country of Origin
-:::
-:::::
-
-::::: r-hstack
-::: {.data-label .label-yf data-id="ftext"}
-Body Fat$^\star$
+BMI
 :::
 
 ::: {.data-label .label-xz data-id="xtext"}
 Age, Sex
 :::
-:::::
 
-::::: r-hstack
-::: {.data-box .box-ystarl data-id="ystarl"}
+::: {.data-label .label-xz data-id="ztext"}
+Height, Weight
+:::
 :::
 
-::: {.data-box .box-xl data-id="xl"}
+::: {.r-hstack}
+::: {.data-box .box-yl .is-faded data-id="yl"}
 :::
-:::::
 
-::::: r-hstack
-::: {.data-box .box-ystaru data-id="ystaru"}
+::: {.data-box .box-fl .is-faded data-id="fl"}
+:::
+
+::: {.data-box .box-xl .is-faded data-id="xl"}
+:::
+
+::: {.data-box .box-zl .is-faded data-id="zl"}
+:::
+:::
+
+::: {.r-hstack}
+::: {.data-box .box-ytildeu data-id="yu"}
+Y$^\star$
+:::
+
+::: {.data-box .box-fu .is-faded data-id="fu"}
 :::
 
 ::: {.data-box .box-xu data-id="xu"}
+X
 :::
-:::::
+
+::: {.data-box .box-zu .is-faded data-id="zu"}
+:::
+:::
+
+::: {.fragment}
+::: {.bottom-metrics}
+::: {.metric-box .metric-green data-id="bias"}
+Low Bias
+:::
+
+::: {.metric-box .metric-green data-id="precision"}
+Low Variance
+:::
+:::
+:::
 
 :::
 
 ::: {.column width="50%"}
 
-NEED
+Estimate [$\hat{\beta^\star}_{\text{unlab}}$]{style="color: #AA4AC4;"} by regressing [$Y^\star$]{style="color: #AA4AC4;"} on [$X$]{style="color: #1B365D;"}
+
+<br>
+
+**Advantages:**
+
+- Intuitive and easy to implement
+- Applicable for any downstream model
+
+**Problems:**
+
+- Relies on strong assumptions about the relationship model
+- May not fully correct bias
 
 :::
 
@@ -1119,15 +1646,17 @@ NEED
 
 ### Our approach relaxes several assumptions from the original method
 
+<bf>
+
 ::: {.columns}
 
-::: {.column width="60%"}
+::: {.column width="55%"}
 
 ![](images/momentpostpi_result.png)
 
 :::
 
-::: {.column width="40%"}
+::: {.column width="45%"}
 
 ![](images/momentpostpi_paper.png)
 
@@ -1135,395 +1664,294 @@ NEED
 
 :::
 
-## Less than 1/3 of deaths worldwide are assigned a medically certified cause {.theme-bg3}
+## Prediction-Powered Inference (PPI; Angelopoulos et al., 2023) {.theme-bg3}
 
-### Verbal autopsy (VA) methods convert interviews with family members/caregivers into *predicted* causes of death
+### A recent, incredibly popular method
 
-This is a time-consuming, resource-intensive process that asks interviewees to relive their grief in emotionally taxing detail
-
-<br>
-
-![[Source: https://publichealthnotes.com/verbal-autopsy-and-mpdsr/]{.caption}](images/va_overview.png)
-
-## Verbal autopsy: from interview to inferred cause of death {.theme-bg3}
-
-### When a death occurs outside the medical system, cause of death must often be reconstructed rather than directly observed
-
-::::: columns
-::: {.column width="50%"}
-**Typical process**
-
--   A trained interviewer speaks with a family member or caregiver
--   They collect a structured questionnaire and often a free-text narrative
--   Reported symptoms, timing, circumstances, and medical history are reviewed
--   A physician or algorithm maps this information to a likely cause of death
--   The result is used for mortality surveillance and population-level analyses
-:::
-
-::: {.column width="50%"}
-**Key challenges**
-
--   The *true* cause of death is often unavailable
-
--   Interviews occur after bereavement and can be emotionally taxing
-
--   Recall may be incomplete, inaccurate, or shaped by local context
-
--   Different coders or algorithms may assign different causes
-
--   Downstream users want more than classification:
-
-    -   cause-specific mortality fractions
-    -   risk-factor associations
-    -   comparisons across regions and time
-:::
-:::::
+"Rectifies" the naive approach by estimating [$\hat{\beta^\star}$]{style="color: #AA4AC4;"} = [$\hat{\gamma}_{\text{unlab}}$]{style="color: #00C1D5;"} - ([$\hat{\gamma}_{\text{lab}}$]{style="color: #00C1D5;"} - [$\hat{\beta}_{\text{lab}}$]{style="color: #AA4AC4;"})
 
 <br>
 
-::: callout
-Verbal autopsy is therefore not just a prediction task. It is a setting where an *inferred* outcome becomes input to downstream public health inference.
-:::
+![[Source: science.org/doi/10.1126/science.adi6000]{.caption}](images/ppi.png)
 
-## Recent work leverages unstructured interviews for automated VA {.theme-bg3}
+## We developed a method for correcting inference on VA predicted COD {.theme-bg3}
 
-### Narrative summaries + AI/ML predictions would be less resource intensive than current standard
+### By extending the PPI framework to multiclass prediction problems
 
 <br>
 
-![[Source: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0308452/]{.caption}](images/va_narratives.png)
+::: {.columns}
+::: {.column width="65%"}
 
-## We studied how different AI/ML methods classify cause of death {.theme-bg3}
+```{r}
 
-### Comparing methods such as KNN, SVM, BERT, and GPT-4
+#--- Forest Plot
+
+va_plot_df |>
+  filter(site == "dar", model == "KNN") |>
+
+  ggplot(aes(x = estimate, y = coef, xmin = conf.low, xmax = conf.high, color = method)) +
+    geom_vline(xintercept = 0, linetype = 2, linewidth = 1.1, color = "gray50") +
+    geom_linerange(position = position_dodge2(width = 0.75), linewidth = 5) +
+    geom_point(position = position_dodge2(width = 0.75), size = 3, color = "white") +
+    geom_segment(
+      aes(x = -0.005, xend = -0.015, y = 3.55, yend = 2.45), linewidth = 2, color = "#1B365D",
+      arrow = arrow(length = unit(0.15, "cm"))) +
+    geom_segment(
+      aes(x = 0.02, xend = 0.025, y = 4.05, yend = 4.15), linewidth = 2, color = "#1B365D",
+      arrow = arrow(length = unit(0.15, "cm"))) +
+    annotate("text", x = 0, y = 4, fontface = "bold", color = "#1B365D",
+      label = "Corrected estimates\n align with the truth!") +
+    scale_color_manual(values = c("#AA4AC4", "#00C1D5", "#1B365D")) +
+    labs(
+      x = "\nLog-Odds Ratio for Age",
+      y = "Cause of Death Label\n",
+      title = "Site: Dar es Salaam, Model: KNN",
+      color = "Outcome:") +
+    theme_bw(base_size = 12) +
+    theme(
+      panel.grid.minor = element_blank(),
+      strip.background = element_rect(fill = "gray95"),
+      legend.position = "bottom")
+```
+
+:::
+
+::: {.column width="35%"}
+
+![[Source:arxiv.org/pdf/2404.02438]{.caption}](images/va_paper.png)
+
+:::
+:::
+
+## And in our BMI study {.theme-bg3}
+
+### Our IPD correction aligns with gold-standard DXA-based measure of obesity
 
 <br>
 
-![[Source: https://openreview.net/forum?id=QbCHlIqbDJ]{.caption}](images/va_colm.png)
+```{r}
 
-## Population Health Metrics Research Consortium {.theme-bg3}
+ipd_bmi_fit <- ipd(
+    formula = obese_DXA - obese_BMI ~ Sex,
+    method  = "pspa",
+    model   = "logistic",
+    data    = combined,
+    label   = "set_label"
+)
 
-### N = 6,763 observations from 6 sites in 4 countries; adults only, 5 cause of death labels
+ipd_wc_fit <- ipd(
+    formula = obese_DXA - obese_WC ~ Sex,
+    method  = "pspa",
+    model   = "logistic",
+    data    = labeled,
+    unlabeled_data = unlabeled
+)
 
-<br>
+# Collect results using the tidy() method
+ipd_bmi_df <- tidy(ipd_bmi_fit) |>
+  mutate(method = "IPD Corrected BMI")
 
-![[Source: https://openreview.net/forum?id=QbCHlIqbDJ]{.caption}](images/va_data.png)
+ipd_wc_df  <- tidy(ipd_wc_fit) |>
+  mutate(method = "IPD Corrected Waist Circumference")
 
-## Can LLMs predict cause of death? {.theme-bg3}
+coef_df <- bind_rows(
+  ipd_bmi_df, ipd_wc_df, naive_bmi_df, naive_wc_df, class_df) |>
+  filter(term != "(Intercept)") |>
+  mutate(
+    term = recode(term,
+      "SexFemale" = "Female (vs Male)"
+    ),
+    method = factor(method, 
+      levels = c("IPD Corrected BMI", "IPD Corrected Waist Circumference", 
+                 "BMI", "Waist Circumference", "% Body Fat"))
+  )
+    
+# Forest plot
+ggplot(coef_df, aes(x = estimate, y = term, color = method, fill = method, shape = method)) +
+  geom_vline(xintercept = 0, linetype = 2, linewidth = 1.1, color = "gray50") +
+  geom_linerange(aes(xmin = estimate - 1.96 * std.error,
+                     xmax = estimate + 1.96 * std.error),
+    position = position_dodge2(width = 0.75), linewidth = 5) +
+  geom_point(position = position_dodge2(width = 0.75), size = 3, color = "white") +
+  geom_segment(
+    aes(x = -0.05, xend = -0.25, y = 1.3, yend = 1.3), linewidth = 2, color = "#1B365D",
+    arrow = arrow(length = unit(0.15, "cm"))) +
+  geom_segment(
+    aes(x = -0.05, xend = -0.25, y = 1.2, yend = 0.85), linewidth = 2, color = "#1B365D",
+    arrow = arrow(length = unit(0.15, "cm"))) +
+  geom_segment(
+    aes(x = -0.05, xend = -0.22, y = 1.1, yend = 0.75), linewidth = 2, color = "#1B365D",
+    arrow = arrow(length = unit(0.15, "cm"))) +
+  annotate("text", x = 0.3, y = 1.3, fontface = "bold", color = "#1B365D",
+    label = "Corrected estimates\n align with the truth!") +
+  scale_fill_manual(
+    values = c(
+      "% Body Fat" = "#AA4AC4", 
+      "BMI" = "#00C1D5", 
+      "Waist Circumference" = "#00C1D5",
+      "IPD Corrected BMI" = "#1B365D",
+      "IPD Corrected Waist Circumference" = "#1B365D"
+    )
+  ) +
+  scale_color_manual(
+    values = c(
+      "% Body Fat" = "#AA4AC4", 
+      "BMI" = "#00C1D5", 
+      "Waist Circumference" = "#00C1D5",
+      "IPD Corrected BMI" = "#1B365D",
+      "IPD Corrected Waist Circumference" = "#1B365D"
+    )
+  ) +
+  scale_shape_manual(
+    values = c(
+      "% Body Fat" = 16, 
+      "BMI" = 16, 
+      "Waist Circumference" = 17,
+      "IPD Corrected BMI" = 16,
+      "IPD Corrected Waist Circumference" = 17
+    )
+  ) +
+  guides(
+    colour = guide_legend(nrow = 2),
+    fill   = guide_legend(nrow = 2),
+    shape  = guide_legend(nrow = 2)) +
+  labs(
+    x = "\nLog-Odds Ratio for Sex",
+    y = "Covariate\n",
+    title = "Logistic Regression of Obesity on Sex",
+    color = "Outcome:", fill = "Outcome:", shape = "Outcome:"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    strip.background = element_rect(fill = "gray95"),
+    legend.position = "bottom")
 
-### Focusing on one site (Uttar Pradesh)
+```
 
--   GPT-4 had the highest accuracy (0.75), comparable F1 score (0.73)
--   Predictive performance matched the best examples from the VA literature, despite using only using only the unstructured narratives
--   Unique feature of LLMs was the capacity, and tendency, to output "I don't know"
-    -   GPT-4 predicted 1503 out of 6763 COD labels as "unclassified."
-    -   Manual review confirmed all 1503 contained no useful information for COD determination
+## Many developing methods for correcting inference with predicted data {.theme-bg3}
 
-## Need title {.theme-bg3}
-
-::: fragment
-Modern ML/LLM systems can:
-
--   summarize narratives
--   map to ICD-like categories
--   produce calibrated probabilities (sometimes)
-:::
-
-::: fragment
-But downstream users often want:
-
--   cause-specific mortality fractions
--   risk-factor associations
--   time trends and comparisons across regions
-:::
-
-::: fragment
-Those are *inference problems*, not just prediction problems.
-:::
-
-## So we developed a method for correcting inference on predicted COD {.theme-bg3}
-
-### By extending an existing method (PPI++) for multiclass prediction
-
-<br>
-
-![[Source: https://openreview.net/forum?id=QbCHlIqbDJ]{.caption}](images/va_ppi.png)
-
-## But 'predictions' don't have to be complex to bias inference {.theme-bg3}
-
-### The case of body mass index (BMI; kg/m$^2$) as an imperfect measure of adiposity
-
-<br>
-
-![[Source: https://www.nytimes.com/2024/11/14/well/obesity-epidemic-america.html]{.caption}](images/bmi_overview.png)
-
-## An 'algorithm' is just a set of steps that map inputs to outputs {.theme-bg3}
-
-### BMI is one of several potential adiposity 'prediction algorithms'
-
--   BMI (≥ 30 kg/m²)
--   Waist circumference (men ≥ 102 cm; women ≥ 88 cm)
--   DXA % body fat (\> 30% men; \> 42% women)
-
-<br>
-
-![[Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf]{.caption}](images/bmi_algorithm.png)
-
-## We studied BMI using NHANES to understand population-level inference {.theme-bg3}
-
-### BMI/WC/DXA all collected up until COVID-19, when DXA collection was suspended
-
-<br>
-
-![[Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf]{.caption}](images/bmi_nhanes.png)
-
-## Mismatched quadrants suggest limitations in BMI/WC {.theme-bg3}
-
-### BMI/WC are (at best) noisy proxies:
-
--   Varies by sex, age, race/ethnicity, muscle mass, fat distribution
--   Systematically biased for some groups
-
-<br>
-
-![[Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf]{.caption}](images/bmi_scatter.png)
-
-## Differences in sign and magnitude depending on the measure! {.theme-bg3}
-
-### But IPD correction aligns with gold-standard DXA-based measure of obesity
-
-<br>
-
-![[Source: https://www.medrxiv.org/content/10.1101/2025.04.01.25325037v1.full.pdf]{.caption}](images/bmi_bias.png)
-
-## [need title]
-
-::: callout
-### Predicted Data
-
-Data that are generated from a machine learning (ML) or artificial intelligence (AI) model, or otherwise derived from a function of other data, rather than collected using the 'gold-standard' method.
-:::
-
-## An aside on some statistical assumptions here
-
-### Here we focus on a specific case for illustration
-
-But recent work has focused on weakening the assumptions of:
-
-1.  A pre-trained ML model
-2.  Missingness only in $Y$
-3.  Same distribution of labeled and unlabeled data
-4.  Beyond estimation of regression parameters
-
-## These examples illustrate a broader shift {.theme-bg3}
-
--   The design and pace of data collection is rapidly changing
--   Predictions are becoming *inputs* to public health science.
--   This creates a need for rigorous, open statistical *interventions*.
-
-## Thinking of AI as an epidemiologic exposure {.theme-bg3}
-
-### AI systems themselves can act as exposures.
-
-:::::: columns
-:::: {.column width="50%"}
-They influence:
-
--   Access to health information
--   Public policy and personal decision-making
--   Recommendations on public health interventions
-
-::: fragment
-Understanding these impacts requires careful measurement and inference.
-:::
-::::
-
-::: {.column width="50%"}
-![NEED LINK](images/AIEpi.PNG)
-:::
-::::::
-
-## Prediction-powered inference as a correction {.theme-bg3 auto-animate="true" auto-animate-easing="ease-in-out"}
-
-::: kicker
-Start with the labeled estimate, then correct it using the difference between the unlabeled and labeled prediction-based estimates
-:::
+### Driven by the pace of AI/ML method development and the need for domain-specific solutions
 
 <br>
 
-:::::::::::::::::::::::::::::: r-stack
-::::::::::::::::::::::::::::: r-hstack
-::::: r-vstack
-::: {.data-label .label-yf data-id="ytext"}
-Y
-:::
+![](images/ipd_papers.png)
 
-::: {.data-box .box-yl data-id="yl"}
-:::
-:::::
+## We developed the `ipd` R package {.theme-bg3}
 
-::: {style="font-size: 2em; margin: 0 10px; align-self: center;"}
-\~
-:::
-
-::::: r-vstack
-::: {.data-label .label-xz data-id="xtext"}
-X
-:::
-
-::: {.data-box .box-xl data-id="xl"}
-:::
-:::::
-
-::: {style="font-size: 2em; margin: 0 20px; align-self: center;"}
-−
-:::
-
-::: {style="font-size: 1.5em; margin: 0 10px; align-self: center;"}
-\(w\)
-:::
-
-::: {style="font-size: 2em; margin: 0 10px; align-self: center;"}
-\[
-:::
-
-::::: r-vstack
-::: {.data-label .label-yf data-id="ftext"}
-f
-:::
-
-::: {.data-box .box-fu data-id="fu"}
-:::
-:::::
-
-::: {style="font-size: 2em; margin: 0 10px; align-self: center;"}
-\~
-:::
-
-::::: r-vstack
-::: {.data-label .label-xz data-id="xtext"}
-X
-:::
-
-::: {.data-box .box-xu data-id="xu"}
-:::
-:::::
-
-::: {style="font-size: 2em; margin: 0 20px; align-self: center;"}
-−
-:::
-
-::::: r-vstack
-::: {.data-label .label-yf data-id="ftext"}
-f
-:::
-
-::: {.data-box .box-fl data-id="fl"}
-:::
-:::::
-
-::: {style="font-size: 2em; margin: 0 10px; align-self: center;"}
-\~
-:::
-
-::::: r-vstack
-::: {.data-label .label-xz data-id="xtext"}
-X
-:::
-
-::: {.data-box .box-xl data-id="xl"}
-:::
-:::::
-
-::: {style="font-size: 2em; margin: 0 10px; align-self: center;"}
-\]
-:::
-:::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::
+### To implement these correction methods in a consistent and familiar manner
 
 <br>
 
-\[ \hat\theta*{*\mathrm{PPI}} = \hat\theta(Y\ell \sim X\_\ell) - w\left{ \hat\theta(\hat Y_u \sim X_u) - \hat\theta(\hat Y\_\ell \sim X\_\ell) \right} \]
+::: {.columns}
 
-<br>
+::: {.column width="66%"}
 
-::: small
-Interpretation: begin with the gold-standard labeled estimate, then add back information from the large unlabeled set through a prediction-based correction.
+![](images/ipd_package.png)
+
 :::
+
+::: {.column width="33%"}
+
+![](images/ipd_note.png)
+
+:::
+
+:::
+
 
 # A Broader Perspective {.theme-bg2}
 
-## A holistic approach to intervening in the Scientific Pipeline
+## AI, like any exposure, requires different 'treatment' strategies {.theme-bg3}
 
-My research focuses on several types of intervention:
-
-1.  Statistical methods
-2.  Software tools
-3.  Training and education
-4.  Open scientific infrastructure
-5.  Donating our skills as a service
-
-## Software: IPD
-
-### NEED
-
-## Software: scorcher
-
-The **scorcher** framework supports reproducible deep learning pipelines in R.
-
-Features include:
-
--   modular neural network architectures
--   reproducible training workflows
--   integration with statistical modeling
-
-## Training and Workshops
-
-I also develop training programs that teach researchers how to use modern machine learning tools responsibly.
-
-Topics include:
-
--   inference with predicted data
--   reproducible AI pipelines
--   deep learning for scientific research
-
-## Open Case Studies
-
-Through collaborations with the Open Case Studies project, we develop reproducible examples that demonstrate best practices in data science.
-
-These resources help make advanced methods more accessible.
-
-## Benchmark Datasets
-
-We also contribute to benchmark datasets that enable transparent evaluation of AI methods in public health.
-
-Examples include PanCanBench.
-
-## Service
-
-### Statcom -- NEED
-
-## Final Thoughts
-
-Artificial intelligence is transforming how data are generated and analyzed.
-
-Predictions will increasingly become inputs to scientific research.
-
-Ensuring that inference remains valid will require new methods, tools, and training.
-
-## Some Acknowledgements {.theme-bg3}
-
-### This slide is by no means exhaustive
-
-It represents individuals who have contributed most recently to the papers I have highlighted in this talk.
+### My research program takes a holistic approach to intervening across the scientific pipeline
 
 <br>
 
-![](images/people.PNG){width="50%" fig-align="center"}
+::: {layout="[[1,1,1],[1,1,1]]"}
 
-## Thank You!
+::: {.fragment fragment-index="1"}
 
-NEED QR
+**Statistical Methods** (Today's Focus)
+
+![[arxiv.org/pdf/2512.05456]{.caption}](images/rhino_paper.PNG){width="60%"}
+
+:::
+
+::: {.fragment fragment-index="2"}
+
+**Open-Source Software**
+
+![[github.com/jtleek/scorcher]{.caption}](images/scorcher_github.PNG)
+
+:::
+
+::: {.fragment fragment-index="3"}
+
+**Free Training Resources**
+
+![[salernos.github.io/ipd-workshop/]{.caption}](images/ipd_workshop.PNG){width="80%"}
+
+:::
+
+::: {.fragment fragment-index="4"}
+
+<br>
+
+**Open Case Studies**
+
+![[opencasestudies.org/]{.caption}](images/ocs.PNG){width="80%"}
+
+:::
+
+::: {.fragment fragment-index="5"}
+
+<br>
+
+**Benchmark Datasets**
+
+![[arxiv.org/pdf/2603.01343]{.caption}](images/pancanbench.PNG)
+
+:::
+
+::: {.fragment fragment-index="6"}
+
+<br>
+
+**Service**
+
+![[data.bloomberglp.com/company/sites/2/2018/09/Data-for-Good-In-Your-Neighborhood.pdf]{.caption}](images/d4gx.PNG){width="80%"}
+
+:::
+
+:::
+
+## Final Thoughts {.theme-bg3}
+
+- Artificial intelligence is an exposure that transforms how data are generated and analyzed
+- Predictions will increasingly become inputs to public health research
+- Ensuring that inference remains valid will require new methods, tools, and training
+- Open-source collaboration is our fastest way to success!
+
+
+## Thank You! {.theme-bg3}
+
+<br>
+
+![](images/qr_slides.png){width="35%" fig-align="center"}
+
+::: {.footer}
+[salernos.github.io/2026-washu-talking-public-health](salernos.github.io/2026-washu-talking-public-health)
+
+[ssalerno@fredhutch.org](ssalerno@fredhutch.org)
+:::
+
+
+
+
+
+
 
 ##  {visibility="hidden"}
 
@@ -1535,11 +1963,11 @@ If someone told you they existed, how would you draw one?
 
 ## Albrecht Dürer's *The Rhinoceros*, Woodcut (1515) {.theme-bg3 visibility="hidden"}
 
-::: fragment
+::: {.fragment}
 ### Dürer had never seen a rhinoceros. He relied on a sample of first-hand accounts.
 :::
 
-::: fragment
+::: {.fragment}
 He created a *'reconstruction'* that remained the dominant European understanding of a rhino for centuries.
 :::
 
@@ -1549,11 +1977,11 @@ He created a *'reconstruction'* that remained the dominant European understandin
 
 ## C.M. Kösemen's *Rhinoceros*, Pencil Sketch (2012) {.theme-bg3 visibility="hidden"}
 
-::: fragment
+::: {.fragment}
 ### Kösemen also *'reconstructed'* a rhinoceros, but in the style used for prehistoric animals.
 :::
 
-::: fragment
+::: {.fragment}
 Why? Because we can only *'predict'* how dinosaurs may have looked. Fossils capture key features but can omit important details.
 :::
 
@@ -1565,715 +1993,145 @@ Why? Because we can only *'predict'* how dinosaurs may have looked. Fossils capt
 ![](images/Rhino3.jpg){.fragment .fade-in fig-align="center" style="transform: scaleX(-1); transition: opacity 2s ease;"}
 :::
 
-## AI is everywhere, and it is spreading faster than ever {.theme-bg3 visibility="hidden"}
+## Critical need to democratize better 'off-the-shelf' AI/ML research tools {.theme-bg3 visibility="hidden"}
+
+### Building AI/ML models requires significant expertise...
+
+*...but implementing AI/ML is not the same skill as understanding it.*
+
+::: {.columns}
+
+::: {.column width="70%"}
 
 <br>
 
-![[Source: https://www.nebuly.com/blog/2024-the-year-of-llm-user-intelligence]{.caption}](images/ai_spread.png){width="50%" fig-align="center"}
+![[github.com/jtleek/scorcher]{.caption}](images/scorcher_github.png){text-align="center"}
 
-## There is a connection here to all modern science {.theme-bg3 visibility="hidden"}
+:::
 
-### Kösemen's rhino shows what can happen when we replace unseen outcomes with *predictions*.
+::: {.column width="30%"}
 
-These examples look different on the surface, but they share the same structure: a hard-to-measure target, an accessible signal, and an algorithm that reconstructs the target. The scale and diversity of these applications is part of what makes this moment different.
+![[Image Generated using GPT 5.2]{.caption}](images/overview.png){text-align="center"}
+
+:::
+
+:::
+
+## Write models like sentences via composable functions {.theme-bg3 visibility="hidden"}
+
+*scorcher* lets you develop models by focusing on 
+*what the model should do*, not *how to write code for it*
 
 <br>
 
-::::::: columns
-:::: {.column width="50%"}
-::: fragment
-![[Source: https://www.nature.com/articles/d41586-024-03214-7]{.caption}](images/AlphaFold1.png){width="65%" fig-align="center"}
+::: {.scorch-flow}
+
+::: {.flow-pair .fragment data-fragment-index="1"}
+::: {.flow-text}
+Load the data
 :::
-::::
-
-:::: {.column width="50%"}
-::: fragment
-![[Source: https://www.nature.com/articles/s41591-021-01533-0]{.caption}](images/AlphaFold2.png){width="75%" fig-align="center"}
+::: {.flow-code}
+`scorch_dataloader()`
 :::
-::::
-:::::::
-
-````{=html}
-<!---
-
-## A framing: predictions as a new kind of exposure
-
-::: {.callout}
-In the AI age, we are all “exposed” to predictions:
-risk scores, triage scores, predicted causes of death, predicted phenotypes, predicted labels…
 :::
 
-::: {.fragment}
-Public health decisions increasingly depend on:
-
-* **Who gets measured** vs **who gets predicted**
-* **How predictions shift denominators** (who counts)
-* **How prediction errors propagate** into conclusions and policy
+::: {.flow-step .fragment data-fragment-index="2"}
+::: {.flow-text}
+then
+:::
+::: {.flow-arrow}
+|>
+:::
 :::
 
-
-
-
-
-
-
-
-## The recurring pattern
-
-::: {.fragment}
-The convenience is real.
-So is the risk: **naive inference treats Ŷ like Y**.
+::: {.flow-pair .fragment data-fragment-index="3"}
+::: {.flow-text}
+add layers
+:::
+::: {.flow-code}
+`scorch_layer()`
+:::
 :::
 
----
-
-## What breaks if we analyze predicted outcomes naively?
-
-### Two failure modes (and they compound)
-
-::: {.fragment}
-
-1. **Bias / attenuation / confounding distortion**
-   Downstream coefficients can shift because Ŷ ≠ Y.
-
+::: {.flow-step .fragment data-fragment-index="4"}
+::: {.flow-text}
+then
+:::
+::: {.flow-arrow}
+|>
+:::
 :::
 
-::: {.fragment}
-2) **Variance understatement**
-Standard errors ignore prediction uncertainty and calibration error.
-
+::: {.flow-pair .fragment data-fragment-index="5"}
+::: {.flow-text}
+compile the model
+:::
+::: {.flow-code}
+`compile_scorch()`
+:::
 :::
 
-::: {.fragment}
-Result: confident intervals around the wrong target.
+::: {.flow-step .fragment data-fragment-index="6"}
+::: {.flow-text}
+then
+:::
+::: {.flow-arrow}
+|>
+:::
 :::
 
-::: notes
-Keep this high-level here. The technical detail will come with one clean toy equation + one picture.
+::: {.flow-pair .fragment data-fragment-index="7"}
+::: {.flow-text}
+fit the model
 :::
-
----
-
-## A single-slide “math you can say out loud”
-
-Suppose your target is a parameter (\theta) defined by a moment condition:
-[
-\mathbb{E}\big[\psi(Y, X; \theta)\big] = 0.
-]
-
-::: {.fragment}
-Naive plug-in replaces (Y) with (\hat Y):
-[
-\mathbb{E}\big[\psi(\hat Y, X; \theta)\big] = 0
-]
-which generally targets **a different parameter**.
+::: {.flow-code}
+`fit_scorch()`
 :::
-
-::: {.fragment}
-Even if bias were small, the naive variance treats (\hat Y) as fixed—so it's too optimistic.
 :::
-
----
-
-## So what do we do?
-
-::: {.kicker}
-Two complementary contributions
-:::
-
-### 1) **Valid inference on predicted data** (methods + `ipd`)
-
-Make the downstream model honest about:
-
-* bias from prediction error
-* uncertainty from using Ŷ
-
-### 2) **Reproducible prediction pipelines** (practitioner-facing tooling + `scorcher`)
-
-Make it easy to:
-
-* train, evaluate, document, and deploy prediction models
-* hand off predictions + metadata needed for valid inference
-
----
-
-## `ipd`: inference on predicted data (the idea)
-
-**Goal:** valid confidence intervals / p-values for downstream models when outcomes are partially predicted.
-
-::: {.fragment}
-**Setup (typical):**
-
-* Labeled set: ((X_\ell, Y_\ell))
-* Unlabeled set: ((X_u)) and predictions (\hat Y_u = f(X_u))
 
 :::
 
-::: {.fragment}
-**Key move:** use the labeled set to estimate and correct the systematic gap between (Y) and (\hat Y), then propagate uncertainty appropriately.
-:::
+## ... even for complex architectures {.theme-bg3 visibility="hidden"}
 
-::: notes
-Keep it conceptual; then show one concrete downstream model example (logistic or linear).
-:::
+### Example Diffusion Model w/ the Datasaurus Dozen
 
----
+<br>
 
-## `ipd`: one concrete downstream target
+* **Task:** Generate an image of a T-Rex from random noise
+* **Result:** *Scorcher* produces model with 85% less code
+* **Benefit:** *Scorcher* code is: 
+  - Human-readable
+  - Easy to explain *and* reproduce
+  - No prior knowledge of complicated machine learning syntax
 
-Example: logistic regression for a binary public-health outcome
-[
-\Pr(Y=1\mid X)=\text{logit}^{-1}(X^\top\beta).
-]
+::: {.absolute top="5%" left="70%"}
 
-::: {.fragment}
-What people often do:
-
-* fit the model using (\hat Y) as if it were (Y)
-* report standard SEs and p-values
+![<span class="caption">Images and Python Code: [github.com/tanelp/tiny-diffusion](github.com/tanelp/tiny-diffusion)</span>](images/tiny-diffusion.png){width="100&" height="auto" fig-align="center"}
 
 :::
 
-::: {.fragment}
-What `ipd` enables:
+## How attention changed the game in AI (2017) {.theme-bg3 visibility="hidden"}
 
-* bias-corrected estimating equations (using labeled data)
-* robust uncertainty that accounts for prediction + calibration
+<br>
 
-:::
+::: {.columns}
 
----
+::: {.column width="50%"}
 
-## A demo slide (interactive later)
-
-::: {.callout}
-**Live idea:** show how the naive CI shrinks as you add unlabeled predicted outcomes—
-even when the prediction model is imperfect.
-:::
-
-```{r}
-# (Placeholder) We'll plug in a small simulation / Shiny-like widget later.
-# - generate Y from logistic model
-# - build imperfect predictor Ŷ
-# - compare naive vs ipd intervals as n_u grows
-```
-
-
----
-
-## `ipd` in practice: one function, multiple methods
-
-::: {.fragment}
-Design goal: **practitioner-accessible** but methodologically correct.
-
-* consistent interface for different IPD estimators
-* predictable outputs (estimates, SEs, CIs, diagnostics)
-* minimal friction to “do the right thing”
+![[Source: https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf]{.caption}](images/ai_attention.png){width="65%" fig-align="center"}
 
 :::
 
-::: {.small}
-Resources: paper and package docs.
-PubMed: [https://pubmed.ncbi.nlm.nih.gov/39898809/](https://pubmed.ncbi.nlm.nih.gov/39898809/)
-CRAN manual: [https://cran.r-project.org/web/packages/ipd/ipd.pdf](https://cran.r-project.org/web/packages/ipd/ipd.pdf)
-Package site: [https://ipd-tools.github.io/ipd/](https://ipd-tools.github.io/ipd/)
-:::
+::: {.column width="50%"}
 
----
-
-## `scorcher`: reproducible prediction pipelines in R
-
-::: {.kicker}
-Why it matters for public health
-:::
-
-Prediction is not just a model—it's a workflow:
-
-* data provenance + splits
-* preprocessing + augmentation
-* training + evaluation
-* calibration + monitoring
-* exportable artifacts (weights, processors, metadata)
-
-::: {.fragment}
-`scorcher` is about making that workflow:
-
-* **reproducible**
-* **modular**
-* **auditable**
-* **friendly to practitioners who live in R**
+![[Source: https://arxiv.org/abs/1706.03762]{.caption}](images/ai_algorithm.png){fig-align="center"}
 
 :::
 
-::: {.small}
-Repo (modular branch): [https://github.com/jtleek/scorcher/tree/modular](https://github.com/jtleek/scorcher/tree/modular)
 :::
 
+::: {.footer}
 
-
-## Why pair `scorcher` + `ipd`?
-
-
-::: {.fragment}
-This is a full “prediction → inference” story that public health teams can actually run.
-:::
-
-
-## Back to the examples: what changes with these tools?
-
-### BMI / adiposity
-
-* treat BMI as a predictor; validate against a labeled subset with direct adiposity measures
-* downstream associations get **bias/uncertainty accounting**
-
-### Verbal autopsy / LLM COD
-
-* use predictions + calibration diagnostics
-* estimate CSMFs / associations with honest uncertainty
-
-### TWAS / predicted phenotypes
-
-* acknowledge two-phase structure
-* propagate imputation uncertainty into inference
-
-## Aligning with WashU SPH's 4x4 Plan
-
-From WashU SPH framing: **4 new directions** and **4 strategies**. 
-
-### 4 new directions (as articulated in SPH materials) 
-
-1. New ways of thinking
-2. New ways of doing the work
-3. Better pathways to impact
-4. Novel partnerships
-
-### 4 strategies to build an exceptional school 
-
-* Engage world-class faculty
-* Nurture outstanding teachers and students
-* Public Health “plus” (partnerships across WashU + sectors)
-* Prioritize local and global impact
-
-
-## Where my talk sits inside the 4x4
-
-### New ways of thinking
-
-Predictions are *measurements with structure* → treat them like a first-class scientific object.
-
-### New ways of doing the work
-
-Scaled prediction + honest inference enables learning from data that would otherwise be unusable.
-
-### Better pathways to impact
-
-Decision-makers need uncertainty that reflects reality, not convenience.
-
-### Novel partnerships
-
-Open-source tools that connect statisticians, ML folks, and domain experts.
-
-## A “decision tree” you can use tomorrow
-
-::: notes
-This is also where you can nod to “denominators” and “who counts” without turning it into a survey talk.
-:::
-
-## What I'd love to build next (tease, don't survey)
-
-::: {.fragment}
-**Methodology**
-
-* broader classes of downstream models (mixed effects, survival, clustered designs)
-* clearer diagnostics for “when does prediction dominate inference?”
-
-::: {.fragment}
-**Software**
-
-* tighter integration: scorcher exports the *metadata* ipd needs by default
-* templates for common PH settings (EHR phenotyping, COD, remote sensing exposures)
-
-::: {.fragment}
-**Practice**
-
-* “prediction impact statements”: minimal reporting standard for prediction → inference pipelines
-:::
-
-
-## Close
-
-::: {.callout}
-**Takeaway:** Public health is entering an era where predictions are ubiquitous.
-We need tools that turn prediction-driven workflows into *valid* evidence.
+Adapted from Post-prediction inference. Source: [jtleek.com/talks](jtleek.com/talks)
 
 :::
-
-* `scorcher`: reproducible prediction pipelines in R
-* `ipd`: valid inference when outcomes are predicted
-
-::: {.fragment}
-I'm excited about building this with WashU SPH—especially where methods, software, and impact meet.
-
-:::
-
-
-## References (short)
-
-* `ipd` paper (PubMed): [https://pubmed.ncbi.nlm.nih.gov/39898809/](https://pubmed.ncbi.nlm.nih.gov/39898809/) ([PubMed][1])
-* `ipd` CRAN manual: [https://cran.r-project.org/web/packages/ipd/ipd.pdf](https://cran.r-project.org/web/packages/ipd/ipd.pdf) ([CRAN][2])
-* `ipd` package site: [https://ipd-tools.github.io/ipd/](https://ipd-tools.github.io/ipd/) ([ipd-tools][3])
-* WashU SPH 4x4 framing (SPH materials): 
-
-[1]: https://pubmed.ncbi.nlm.nih.gov/39898809/?utm_source=chatgpt.com "ipd: an R package for conducting inference on predicted data"
-[2]: https://cran.r-project.org/web/packages/ipd/ipd.pdf?utm_source=chatgpt.com "ipd: Inference on Predicted Data"
-[3]: https://ipd-tools.github.io/ipd/?utm_source=chatgpt.com "ipd: Inference on Predicted Data"
-
---->
-````
-
-```{=html}
-<!--
-Slide 3
-What is AI?
-‹#›
--->
-```
-
-```{=html}
-<!--
-Slide 4
-What is AI? A three part definition
-Data
-‹#›
-Adapted from Post-prediction inference. Source: jtleek.com/talks
-Algorithm
-Interface
-https://www.innerdoc.com/periodic-table-of-nlp-tasks/14-tokenization/
-https://arxiv.org/abs/1706.03762
-https://chatgpt.com/
-https://simplystatistics.org/posts/2017-01-19-what-is-artificial-intelligence/
--->
-```
-
-```{=html}
-<!--
-Slide 5
-Why is AI all over the news?
-‹#›
-Adapted from Post-prediction inference. Source: jtleek.com/talks
--->
-```
-
-```{=html}
-<!--
-Slide 6
-How attention changed the game in AI (2017)
-‹#›
-https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
-Adapted from Post-prediction inference. Source: jtleek.com/talks
--->
-```
-
-```{=html}
-<!--
-Slide 7
-LLM breakthroughs have driven AI's current momentum
-‹#›
-https://medium.com/@lmpo/a-brief-history-of-lmms-from-transformers-2017-to-deepseek-r1-2025-dae75dd3f59a
--->
-```
-
-```{=html}
-<!--
-Slide 11
-We can now predict complex genetic traits with AI/ML
-‹#›
-PRS for disease susceptibility, imputed expression from genotype arrays, TWAS, ...
-https://elifesciences.org/articles/43657
-https://elifesciences.org/articles/43803
-https://www.nature.com/articles/s41588-018-0132-x
--->
-```
-
-```{=html}
-<!--
-Slide 12
-Example: Common two-stage workflow of a TWAS
-‹#›
-1) Model training in a reference panel → 2) Expression imputation and association testing in data
-https://www.nature.com/articles/ng.3367
-Adapted from Post-prediction inference. Source: jtleek.com/talks
-→
--->
-```
-
-```{=html}
-<!--
-Slide 18
-Using predictions as surrogates is appealing…
-‹#›
-… and it is happening everywhere
--->
-```
-
-```{=html}
-<!--
-Slide 19
-But when our goal is downstream inference/hypothesis testing
-g(E[Y | X]) = ꞵ0 + ꞵ1X
-‹#›
-This can cause problems
-gene expression
-drug dose
-Adapted from Post-prediction inference. Source: jtleek.com/talks
--->
-```
-
-```{=html}
-<!--
-Slide 20
-But when our goal is downstream inference/hypothesis testing
-g(E[Y | X]) = ꞵ0 + ꞵ1X
-‹#›
-This can cause problems
-predicted gene expression
-drug dose
-Adapted from Post-prediction inference. Source: jtleek.com/talks
-^
--->
-```
-
-```{=html}
-<!--
-Slide 21
-Where can this go wrong?
-‹#›
-Adapted from Post-prediction inference. Source: jtleek.com/talks
--->
-```
-
-```{=html}
-<!--
-Slide 22
-High predictive accuracy ≠ good information for inference
-‹#›
-Bias & inability to propagate uncertainty from the predictions to the downstream model
-Simulation Setup:
-
-X1 ~ N(0,1)
-
-X2 ~ N(0,1) 
-
-μ = 1 + γ X1
-
-
-Y ~ N(μ, 1)
-
- ^         ^         ^               ^
-Y = β0+ β1X1+ β2X2
-Adapted from Post-prediction inference. Source: jtleek.com/talks
-1
--->
-```
-
-```{=html}
-<!--
-Slide 23
-It gets worse when we compare coefficients/test statistics
-‹#›
-Adapted from Post-prediction inference. Source: jtleek.com/talks
--->
-```
-
-```{=html}
-<!--
-Slide 24
-Where does this leave us?
-‹#›
-Adapted from Post-prediction inference. Source: jtleek.com/talks
--->
-```
-
-```{=html}
-<!--
-Slide 25
-Many AI/ML models are often “black boxes”
-‹#›
-We don't have access to their operating characteristics or training data
-https://www.nature.com/articles/s41586-020-2766-y
-Adapted from Post-prediction inference. Source: jtleek.com/talks
--->
-```
-
-```{=html}
-<!--
-Slide 26
-This is hard to model correctly
-g(E[Y | X]) = ꞵ0 + ꞵ1X
-‹#›
-And it depends on our upstream (black box) prediction algorithm
-predicted gene expression
-drug dose
-Adapted from Post-prediction inference. Source: jtleek.com/talks
-^
--->
-```
-
-```{=html}
-<!--
-Slide 32
-For inference, PostPI approximates the conditional variance
-their standard error estimator is
-
-
-
-
-
-
-This mirrors linear regression, with a scalar residual variance and inverse Gram matrix
-‹#›
--->
-```
-
-```{=html}
-<!--
-Slide 33
-We propose a moment-based generalization to PostPI
-PostPI assumes the prediction error, η, is uncorrelated with the covariates, X. In many realistic settings, η will share
-structure with X, so the bias is nonzero.
-
-
-
-
-PostPI's residual variance has two components, one from the relationship model and one from the 'naive' model
-
-
-
-
-As the precision matrix scales as O(1/N), this term vanishes as the size of the unlabeled set (N) goes to infinity
-‹#›
-This relaxes several assumptions from the original method
--->
-```
-
-```{=html}
-<!--
-Slide 34
-Our proposal reduces to PostPI if its assumptions hold
-‹#›
-but extends to more general settings if it does not, with more theoretical guarantees
--->
-```
-
-```{=html}
-<!--
-Slide 35
-We also generalize the variance estimation
-‹#›
-Consider the following covariance matrices:
--->
-```
-
-```{=html}
-<!--
-Slide 36
-IPD methods calibrate inference for proper Type 1 error control
-‹#›
-P-values should be uniform (flat) under the null hypothesis
-Does not control Type 1 error
-Controls Type 1 error appropriately
-True Effect = 0
-Adapted from Post-prediction inference. Source: jtleek.com/talks
--->
-```
-
-```{=html}
-<!--
-Slide 37
-And nominal coverage (% of CIs that contain the true parameter)
-‹#›
-CIs are narrower than complete data analysis, but wider than the ideal, i.e., there is “no free lunch”
-Estimates less variable, CIs too narrow
-Estimates more variable, CIs wider
-True Effect = 1
-Adapted from Post-prediction inference. Source: jtleek.com/talks
--->
-```
-
-```{=html}
-<!--
-Slide 38
-Prediction-Powered Inference (Angelopoulos et al., 2023)
-‹#›
-'Rectify' the estimates and inference by modeling Y - Y = X1 + X2 + …
-https://www.science.org/doi/10.1126/science.adi6000
-^
--->
-```
-
-```{=html}
-<!--
-Slide 39
-Methods for inference with predicted data are rapidly evolving
-‹#›
-Driven by the pace of AI/ML method development and  the need for domain-specific solutions
--->
-```
-
-```{=html}
-<!--
-Slide 40
-The {ipd} R Package
-‹#›
-Implements recent IPD methods in a consistent manner and with 'tidy' helper functions
-library(ipd)
-
-df <- simdat(model="ols")|>
-
-  filter(set_label != "training")
-
-fit <- ipd(Y - f ~ X1, 
-           method = "chen", 
-           model = "ols",
-           data = df, 
-           label = "set_label")
-
-summary(fit)
-
-results <- tidy(fit)
-Software Note
-R Package
--->
-```
-
-```{=html}
-<!--
-Slide 41
-Case Study: Verbal Autopsy
-‹#›
-Adapted from Post-prediction inference. Source: jtleek.com/talks
--->
-```
-
-```{=html}
-<!--
-Slide 53
-Some final thoughts
-Increasing reliance on AI/ML raises questions about data quality/validity
-
-IPD is rapidly evolving, driven by need for rigorous methods to domain-specific problems
-
-We believe that open-source collaboration is the fastest way to success!
-‹#›
-This area is only becoming more relevant in this AI/ML era
-These Slides
--->
-```
-
-```{=html}
-<!--
-Slide 54
-Thank you!
-https://mymodernmet.com/boston-dynamics-do-you-love-me-dance/
--->
-```
