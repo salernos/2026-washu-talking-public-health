@@ -126,7 +126,7 @@ If we treat predictions like measurements, we get [**confident**]{style="color: 
 
 ::: {.callout-note}
 ## A working definition of AI as an exposure (Parikh et al.)
-A human-designed machine-based system that, for a given set of human-defined objectives, can make predictions, recommendations, or decisions influencing real or virtual environments.
+A human-designed machine-based system that, for a given set of human-defined objectives, can make [*predictions*]{style="color: #00C1D5;"}, recommendations, or decisions influencing real or virtual environments.
 :::
 
 ## Why this definition matters for public health {.theme-bg3}
@@ -135,9 +135,9 @@ A human-designed machine-based system that, for a given set of human-defined obj
 
 <br>
 
-1. AI systems are machine-based
-2. They operate in pursuit of explicit or implicit objectives that are human-defined
-3. They act in ways that shape the environments in which people live and work
+1. AI systems are [*machine-based*]{style="color: #00C1D5;"}
+2. They operate in pursuit of explicit or implicit [*objectives*]{style="color: #00C1D5;"} that are [*human-defined*]{style="color: #00C1D5;"}
+3. They act in ways that [*shape the environments*]]{style="color: #00C1D5;"} in which people live and work
 
 ::: {.fragment}
 *...and it situates AI within the broader literature on determinants of health*
@@ -1719,7 +1719,7 @@ va_plot_df |>
 :::
 :::
 
-## IPD correction can resolve problems with BMI/WC inference as well {.theme-bg3} {.theme-bg3}
+## IPD correction can resolve problems with BMI/WC inference as well {.theme-bg3}
 
 ### Our corrected estimates aligns with those from gold-standard DXA-based estimates
 
