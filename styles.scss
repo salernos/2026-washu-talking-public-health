@@ -169,6 +169,13 @@ h1 {
   font-size: 1.2em !important;
 }
 
+/*--- FIGURES ----------------------------------------------------------------*/
+
+.fade-edges {
+  -webkit-mask-image: radial-gradient(circle, black 50%, transparent 100%);
+  mask-image: radial-gradient(circle, black 50%, transparent 100%);
+}
+
 /*--- CAPTIONS ---------------------------------------------------------------*/
 
 .quarto-figure {
