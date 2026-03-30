@@ -137,7 +137,7 @@ A human-designed machine-based system that, for a given set of human-defined obj
 
 1. AI systems are [*machine-based*]{style="color: #00C1D5;"}
 2. They operate in pursuit of explicit or implicit [*objectives*]{style="color: #00C1D5;"} that are [*human-defined*]{style="color: #00C1D5;"}
-3. They act in ways that [*shape the environments*]]{style="color: #00C1D5;"} in which people live and work
+3. They act in ways that [*shape the environments*]{style="color: #00C1D5;"} in which people live and work
 
 ::: {.fragment}
 *...and it situates AI within the broader literature on determinants of health*
