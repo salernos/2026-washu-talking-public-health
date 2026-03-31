@@ -603,21 +603,14 @@ NHANES |>
 
 ```
 
-## These two examples share the same statistical structure {.theme-bg3}
+## These two examples share the same structure {.theme-bg3}
 
 ### Predictions are being used as proxies for unmeasured data
 
-## And while predictions can be useful, but they are not measurements {.theme-bg3}
+- While predictions can be useful, they are not measurements
+- That distinction matters when our goal is population-level inference
 
-### That distinction matters when our goal is not just predictive accuracy, but:
-
-- Estimation
-- Uncertainty quantification
-- Regression
-- Hypothesis testing
-- Population-level inference
-
-# Consider a setup that might be <br> pertinent to your own work {.theme-bg2}
+# Consider this setup, which might be <br> pertinent to your own work {.theme-bg2}
 
 ## We study the relationship between an outcome ($Y$) and covariates ($X$) {.theme-bg3 auto-animate="true"}
 
