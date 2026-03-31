@@ -118,7 +118,7 @@ If we treat predictions like measurements, we get [**confident**]{style="color: 
 :::
 
 ::: {.column width="40%"}
-![[Preprint provided by the authors]{.caption}](images/AIEpi.PNG){width="120%"}
+![[Preprint provided by the authors]{.caption}](images/epi_ai_paper.PNG){width="120%"}
 :::
 :::
 
@@ -363,7 +363,7 @@ Courtesy of Ingo Ruczinski
 
 ::: {.columns}
 ::: {.column width="50%"}
-**Complex Predictions:** When cause of death is not observed, it is predicted from interviews
+**Complex Predictions:** When cause of death is not recorded, it is predicted from interviews
 
 ![[Source: www.who.int/publications/m/item/2022-who-verbal-autopsy-manual-for-supervisors]{.caption}](images/va_cover.png){width="50%" fig-align="center"}
 :::
